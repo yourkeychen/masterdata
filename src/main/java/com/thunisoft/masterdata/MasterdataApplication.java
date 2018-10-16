@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MasterdataApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MasterdataApplication.class, args);
+        SpringApplication.run(MasterdataApplication.class,args);
     }
 }
