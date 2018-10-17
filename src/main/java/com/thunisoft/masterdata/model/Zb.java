@@ -26,7 +26,7 @@ public class Zb {
     }
 
     public void setcId(String cId) {
-        this.cId = cId == null ? null : cId.trim();
+        this.cId = cId;
     }
 
     public String getcJbfy() {
@@ -34,7 +34,7 @@ public class Zb {
     }
 
     public void setcJbfy(String cJbfy) {
-        this.cJbfy = cJbfy == null ? null : cJbfy.trim();
+        this.cJbfy = cJbfy;
     }
 
     public String getcCbts() {
@@ -42,7 +42,7 @@ public class Zb {
     }
 
     public void setcCbts(String cCbts) {
-        this.cCbts = cCbts == null ? null : cCbts.trim();
+        this.cCbts = cCbts;
     }
 
     public String getcWd() {
@@ -50,7 +50,7 @@ public class Zb {
     }
 
     public void setcWd(String cWd) {
-        this.cWd = cWd == null ? null : cWd.trim();
+        this.cWd = cWd;
     }
 
     public String getcZbfl() {
@@ -58,7 +58,7 @@ public class Zb {
     }
 
     public void setcZbfl(String cZbfl) {
-        this.cZbfl = cZbfl == null ? null : cZbfl.trim();
+        this.cZbfl = cZbfl;
     }
 
     public String getcZbnr() {
@@ -66,7 +66,7 @@ public class Zb {
     }
 
     public void setcZbnr(String cZbnr) {
-        this.cZbnr = cZbnr == null ? null : cZbnr.trim();
+        this.cZbnr = cZbnr;
     }
 
     public Integer getnZbs() {

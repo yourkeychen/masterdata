@@ -12,6 +12,1962 @@
     <result column="dt_update" jdbcType="DATE" property="dtUpdate" />
     <result column="n_pxh" jdbcType="SMALLINT" property="nPxh" />
   </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, n_zbs, dt_update, n_pxh
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update, n_pxh)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=INTEGER}, #{dtUpdate,jdbcType=DATE}, #{nPxh,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+      <if test="nPxh != null">
+        n_pxh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=INTEGER},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=DATE},
+      </if>
+      <if test="nPxh != null">
+        #{nPxh,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_mk" jdbcType="VARCHAR" property="cMk" />
+    <result column="c_mkm" jdbcType="VARCHAR" property="cMkm" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="n_zbs" jdbcType="VARCHAR" property="nZbs" />
+    <result column="c_zbm" jdbcType="VARCHAR" property="cZbm" />
+    <result column="dt_update" jdbcType="DATE" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_mk, c_mkm, c_zbfl, c_zbnr, c_wd, n_zbs, c_zbm, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_mk, c_mkm, c_zbfl, c_zbnr, 
+      c_wd, n_zbs, c_zbm, dt_update
+      )
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cMk,jdbcType=VARCHAR}, #{cMkm,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{nZbs,jdbcType=VARCHAR}, #{cZbm,jdbcType=VARCHAR}, #{dtUpdate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cMk != null">
+        c_mk,
+      </if>
+      <if test="cMkm != null">
+        c_mkm,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="cZbm != null">
+        c_zbm,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cMk != null">
+        #{cMk,jdbcType=VARCHAR},
+      </if>
+      <if test="cMkm != null">
+        #{cMkm,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbm != null">
+        #{cZbm,jdbcType=VARCHAR},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="c_zbs" jdbcType="VARCHAR" property="cZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, c_zbs, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      c_zbs, dt_update)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{cZbs,jdbcType=VARCHAR}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="cZbs != null">
+        c_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbs != null">
+        #{cZbs,jdbcType=VARCHAR},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_bh" jdbcType="CHAR" property="cBh" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="NUMERIC" property="nZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_bh, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, n_zbs, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_bh, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update)
+    values (#{cBh,jdbcType=CHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=NUMERIC}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cBh != null">
+        c_bh,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cBh != null">
+        #{cBh,jdbcType=CHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=NUMERIC},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="INTEGER" property="nZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, n_zbs, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=INTEGER}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=INTEGER},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="INTEGER" property="nZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, n_zbs, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=INTEGER}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=INTEGER},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="INTEGER" property="nZbs" />
+    <result column="dt_update" jdbcType="DATE" property="dtUpdate" />
+    <result column="n_pxh" jdbcType="SMALLINT" property="nPxh" />
+  </resultMap>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update, n_pxh)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=INTEGER}, #{dtUpdate,jdbcType=DATE}, #{nPxh,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+      <if test="nPxh != null">
+        n_pxh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=INTEGER},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=DATE},
+      </if>
+      <if test="nPxh != null">
+        #{nPxh,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_mk" jdbcType="VARCHAR" property="cMk" />
+    <result column="c_mkm" jdbcType="VARCHAR" property="cMkm" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="n_zbs" jdbcType="VARCHAR" property="nZbs" />
+    <result column="c_zbm" jdbcType="VARCHAR" property="cZbm" />
+    <result column="dt_update" jdbcType="DATE" property="dtUpdate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_mk, c_mkm, c_zbfl, c_zbnr, 
+      c_wd, n_zbs, c_zbm, dt_update
+      )
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cMk,jdbcType=VARCHAR}, #{cMkm,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{nZbs,jdbcType=VARCHAR}, #{cZbm,jdbcType=VARCHAR}, #{dtUpdate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cMk != null">
+        c_mk,
+      </if>
+      <if test="cMkm != null">
+        c_mkm,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="cZbm != null">
+        c_zbm,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cMk != null">
+        #{cMk,jdbcType=VARCHAR},
+      </if>
+      <if test="cMkm != null">
+        #{cMkm,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbm != null">
+        #{cZbm,jdbcType=VARCHAR},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="c_zbs" jdbcType="VARCHAR" property="cZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      c_zbs, dt_update)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{cZbs,jdbcType=VARCHAR}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="cZbs != null">
+        c_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbs != null">
+        #{cZbs,jdbcType=VARCHAR},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_bh" jdbcType="CHAR" property="cBh" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="NUMERIC" property="nZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_bh, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update)
+    values (#{cBh,jdbcType=CHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=NUMERIC}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cBh != null">
+        c_bh,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cBh != null">
+        #{cBh,jdbcType=CHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=NUMERIC},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="INTEGER" property="nZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=INTEGER}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=INTEGER},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="INTEGER" property="nZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=INTEGER}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=INTEGER},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="INTEGER" property="nZbs" />
+    <result column="dt_update" jdbcType="DATE" property="dtUpdate" />
+    <result column="n_pxh" jdbcType="SMALLINT" property="nPxh" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, n_zbs, dt_update, n_pxh
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update, n_pxh)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=INTEGER}, #{dtUpdate,jdbcType=DATE}, #{nPxh,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+      <if test="nPxh != null">
+        n_pxh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=INTEGER},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=DATE},
+      </if>
+      <if test="nPxh != null">
+        #{nPxh,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_mk" jdbcType="VARCHAR" property="cMk" />
+    <result column="c_mkm" jdbcType="VARCHAR" property="cMkm" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="n_zbs" jdbcType="VARCHAR" property="nZbs" />
+    <result column="c_zbm" jdbcType="VARCHAR" property="cZbm" />
+    <result column="dt_update" jdbcType="DATE" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_mk, c_mkm, c_zbfl, c_zbnr, c_wd, n_zbs, c_zbm, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_mk, c_mkm, c_zbfl, c_zbnr, 
+      c_wd, n_zbs, c_zbm, dt_update
+      )
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cMk,jdbcType=VARCHAR}, #{cMkm,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{nZbs,jdbcType=VARCHAR}, #{cZbm,jdbcType=VARCHAR}, #{dtUpdate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cMk != null">
+        c_mk,
+      </if>
+      <if test="cMkm != null">
+        c_mkm,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="cZbm != null">
+        c_zbm,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cMk != null">
+        #{cMk,jdbcType=VARCHAR},
+      </if>
+      <if test="cMkm != null">
+        #{cMkm,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbm != null">
+        #{cZbm,jdbcType=VARCHAR},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="c_zbs" jdbcType="VARCHAR" property="cZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, c_zbs, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      c_zbs, dt_update)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{cZbs,jdbcType=VARCHAR}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="cZbs != null">
+        c_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbs != null">
+        #{cZbs,jdbcType=VARCHAR},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_bh" jdbcType="CHAR" property="cBh" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="NUMERIC" property="nZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_bh, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, n_zbs, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_bh, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update)
+    values (#{cBh,jdbcType=CHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=NUMERIC}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cBh != null">
+        c_bh,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cBh != null">
+        #{cBh,jdbcType=CHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=NUMERIC},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="INTEGER" property="nZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, n_zbs, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=INTEGER}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=INTEGER},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="INTEGER" property="nZbs" />
+    <result column="dt_update" jdbcType="TIMESTAMP" property="dtUpdate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, c_jbfy, c_cbts, c_wd, c_zbfl, c_zbnr, n_zbs, dt_update
+  </sql>
+  <select id="selectByExample" parameterType="com.thunisoft.masterdata.model.ZbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb (c_id, c_jbfy, c_cbts, 
+      c_wd, c_zbfl, c_zbnr, 
+      n_zbs, dt_update)
+    values (#{cId,jdbcType=VARCHAR}, #{cJbfy,jdbcType=VARCHAR}, #{cCbts,jdbcType=VARCHAR}, 
+      #{cWd,jdbcType=VARCHAR}, #{cZbfl,jdbcType=VARCHAR}, #{cZbnr,jdbcType=VARCHAR}, 
+      #{nZbs,jdbcType=INTEGER}, #{dtUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.masterdata.model.Zb">
+    insert into t_zb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cJbfy != null">
+        c_jbfy,
+      </if>
+      <if test="cCbts != null">
+        c_cbts,
+      </if>
+      <if test="cWd != null">
+        c_wd,
+      </if>
+      <if test="cZbfl != null">
+        c_zbfl,
+      </if>
+      <if test="cZbnr != null">
+        c_zbnr,
+      </if>
+      <if test="nZbs != null">
+        n_zbs,
+      </if>
+      <if test="dtUpdate != null">
+        dt_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cJbfy != null">
+        #{cJbfy,jdbcType=VARCHAR},
+      </if>
+      <if test="cCbts != null">
+        #{cCbts,jdbcType=VARCHAR},
+      </if>
+      <if test="cWd != null">
+        #{cWd,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbfl != null">
+        #{cZbfl,jdbcType=VARCHAR},
+      </if>
+      <if test="cZbnr != null">
+        #{cZbnr,jdbcType=VARCHAR},
+      </if>
+      <if test="nZbs != null">
+        #{nZbs,jdbcType=INTEGER},
+      </if>
+      <if test="dtUpdate != null">
+        #{dtUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.thunisoft.masterdata.model.Zb">
+    <result column="c_id" jdbcType="VARCHAR" property="cId" />
+    <result column="c_jbfy" jdbcType="VARCHAR" property="cJbfy" />
+    <result column="c_cbts" jdbcType="VARCHAR" property="cCbts" />
+    <result column="c_wd" jdbcType="VARCHAR" property="cWd" />
+    <result column="c_zbfl" jdbcType="VARCHAR" property="cZbfl" />
+    <result column="c_zbnr" jdbcType="VARCHAR" property="cZbnr" />
+    <result column="n_zbs" jdbcType="INTEGER" property="nZbs" />
+    <result column="dt_update" jdbcType="DATE" property="dtUpdate" />
+    <result column="n_pxh" jdbcType="SMALLINT" property="nPxh" />
+  </resultMap>
   <insert id="insert" parameterType="com.thunisoft.masterdata.model.Zb">
     insert into t_zb (c_id, c_jbfy, c_cbts, 
       c_wd, c_zbfl, c_zbnr, 
