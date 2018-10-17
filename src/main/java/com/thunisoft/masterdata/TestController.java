@@ -10,8 +10,7 @@ import java.util.Date;
 public class TestController {
 
     @RequestMapping("/hello")
-    @ResponseBody
-    String hello(){
+    public String hello(){
         return "hello world,现在是:"+(new Date()).toLocaleString();
     }
 }
