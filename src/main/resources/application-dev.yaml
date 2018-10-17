@@ -8,3 +8,4 @@ spring:
     username: gpadmin
     password: gpadmin
     driver-class-name: org.postgresql.Driver
+
