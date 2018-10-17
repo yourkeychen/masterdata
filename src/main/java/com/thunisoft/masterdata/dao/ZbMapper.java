@@ -9,5 +9,4 @@ public interface ZbMapper {
 
     int insertSelective(Zb record);
 
-    List<Zb> selectByExample(ZbExample example);
 }
