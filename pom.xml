@@ -6,9 +6,9 @@
     <groupId>com.thunisoft</groupId>
     <artifactId>masterdata</artifactId>
     <version>0.0.1</version>
+    <name>masterdata</name>
     <packaging>jar</packaging>
 
-    <name>masterdata</name>
     <description>Demo project for Spring Boot</description>
     <!-- 自己的jar包到私服 -->
     <distributionManagement>
@@ -40,6 +40,16 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <dependency>
@@ -53,6 +63,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- aop -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -74,11 +89,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>-->
-        <!-- spring热部署 Ctrl+F9 重新部署项目  -->
+        <!--
+           spring热部署 Ctrl+F9 重新部署项目
+           devtools可以实现页面热部署（即页面修改后会立即生效，这个可以直接在application.properties文件中配置spring.thymeleaf.cache=false来实现），
+           实现类文件热部署（类文件修改后不会立即生效），实现对属性文件的热部署。
+           即devtools会监听classpath下的文件变动，并且会立即重启应用（发生在保存时机），注意：因为其采用的虚拟机机制，该项重启是很快的
+       -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -107,39 +123,37 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
         </dependency>
-
-        <!--log4j-->
+        <!--pagehelper-->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-        </dependency>
-        <!--分页插件-->
-       <!-- <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.1.2</version>
-        </dependency>-->
+            <version>1.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.16</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
             <version>1.4.0</version>
         </dependency>
-
-
-
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session</artifactId>
+            <version>1.3.2.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.41</version>
         </dependency>
-
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.apache.axis</groupId>
             <artifactId>axis</artifactId>
@@ -161,17 +175,37 @@
             <artifactId>axis-jaxrpc</artifactId>
             <version>1.4</version>
         </dependency>
-
         <dependency>
             <groupId>wsdl4j</groupId>
             <artifactId>wsdl4j</artifactId>
             <version>1.4</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.axis</groupId>
             <artifactId>axis-saaj</artifactId>
             <version>1.4</version>
+        </dependency>
+
+        <!--
+           log4j2： SpringBoot默认使用的是Logback日志框架
+           log4j2是一个性能比Logback更高的日志框架，如果要在SpringBoot中使用log4j2，需要将spring-boot-starter-logging排除掉，否则会有冲突
+           spring-boot-starter-log4j2: 包含log4j-core、log4j-slf4j-impl、jul-to-slf4j三个包
+           log4j-1.2-api: 作为log4j与log4j2的桥梁，让log4j的代码可以兼容到log4j2，避免一些jar包冲突
+           log4j-web: log4j2与servlet的集成
+       -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>2.10.0</version>
         </dependency>
 
     </dependencies>

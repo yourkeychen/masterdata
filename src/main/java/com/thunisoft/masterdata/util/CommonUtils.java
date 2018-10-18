@@ -9,6 +9,7 @@ package com.thunisoft.masterdata.util;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.slf4j.Logger;
@@ -27,6 +28,7 @@ import java.util.List;
  * @version 1.0
  *
  */
+@Slf4j
 public class CommonUtils {
     
     /**
