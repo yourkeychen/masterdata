@@ -86,10 +86,10 @@
         </Async>
 
         <!-- 同步日志配置 -->
-        <AppenderRef name="SyncAll">
+        <!--<AppenderRef name="SyncAll">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="ALL"/>
-        </AppenderRef>
+        </AppenderRef>-->
 
     </Appenders>
 

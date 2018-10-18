@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Spring上下文工具类
  *
- * @author dazzlzy
+ * @author zhangweijun
  * @date 2018/4/25
  */
 public class SpringContextUtil implements ApplicationContextAware {

@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  * ComonUtils
- * @author jiangyishan
+ * @author zhangweijun
  * @version 1.0
  *
  */

@@ -9,8 +9,8 @@ import java.util.regex.Pattern;
 /**
  * String 工具类
  *
- * @author dazzlzy
- * @date 2018/4/26
+ * @author zhangweijun
+ * @date 2018/5/26
  */
 public class StringUtil {
 
