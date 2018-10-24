@@ -18,7 +18,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * @date 2018/10/18
  */
 
-@MapperScan(basePackages = "com.thunisoft.masterdata.dao")
+@MapperScan(basePackages = "com.thunisoft.dao")
 @SpringBootApplication
 @EnableCaching
 public class MasterdataApplication {

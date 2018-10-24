@@ -23,8 +23,8 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
 mybatis:
-  type-aliases-package: com.thunisoft.masterdata.model
-  type-handlers-package: com.thunisoft.masterdata.dao
+  type-aliases-package: com.thunisoft.pojo
+  type-handlers-package: com.thunisoft.dao
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath*:mapping/*.xml
 
