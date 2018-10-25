@@ -1,12 +1,19 @@
 package com.thunisoft.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-
+@ApiModel(value = "loginBean" , description = "登陆实体")
 @Component("loginBean")
-public class LoginBean {  
+public class LoginBean {
+
+	/**
+	 *  如果改类返回到swagger页面, 该值不显示在页面
+	 */
+	@ApiModelProperty(hidden = true)
 	private String zybm = "";/* 登陆人职员编码 */
 	 
 	private String fydm = "";// 登陆者所在法院代码 
