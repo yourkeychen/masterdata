@@ -20,9 +20,9 @@ public class TestController {
     /**
      * ApiOperation value:方法名 httpMethod:http请求类型 GET:GET类型
      * ApiImplicitParam 请求参数 name:参数名 value: 值（描述） dataType:类型 required:参数是否必传 paramType:参数传递类型  query:GET请求参数传递类型  hander:POST  path:参数通过url传递
-     * @return
+     *      * @return
      */
-    @ApiOperation(value = "",httpMethod = "Get")
+    @ApiOperation(value = "",httpMethod = "GET")
    // @ApiImplicitParam(name = "",value = "" , dataType = "String" , required = true ,paramType = "query")
     @RequestMapping("/hello")
     public String hello(){
