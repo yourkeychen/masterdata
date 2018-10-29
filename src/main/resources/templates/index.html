@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/index.css">
 
 </head>
 <body class="layui-layout-body">
@@ -57,7 +58,13 @@
                         <dd><a href="">超链接</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">云市场</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">云市场</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                    </dl>
+                </li>
                 <li class="layui-nav-item"><a href="">发布商品</a></li>
             </ul>
         </div>
@@ -66,6 +73,49 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">内容主体区域</div>
+        <div style="margin-bottom: 10px;margin-left: 30px">
+            <button class="layui-btn layui-btn-sm">增加</button>
+        </div>
+        <div style="padding-left: 30px">
+            <table class="psy-table">
+               <tr class="psy-thd">
+                    <th>序号</th>
+                    <th>系统标识</th>
+                    <th>系统名称</th>
+                    <th>系统描述</th>
+                    <th>系统IP</th>
+                    <th>注册时间</th>
+                    <th>操作</th>
+               </tr>
+                <tr class="psy-tr">
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
+                </tr>
+                <tr class="psy-tr">
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
+                </tr>
+                <tr class="psy-tr">
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <div class="layui-footer">
@@ -74,13 +124,36 @@
     </div>
 </div>
 
+<script src="/jquery-1.8.3.js"></script>
 <script src="/layui/layui.js"></script>
 <script>
     //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
-
+    layui.use('layer', function(){
+        var layer = layui.layer;
+        layer.open({
+            type:1,
+            title:'提示',
+            closeBtn:'1',
+            bthAlign:'c',
+            area:['650px','300px'],
+            align:'center',
+            shadeClose:true,
+            content:'<div id="contextMessage" style="text-align: center">\n' +
+                '    <div style="margin-bottom: 10px;font-size: 16px">系统标识:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
+                '    <div style="margin-bottom: 10px;font-size: 16px">系统名称:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
+                '    <div style="margin-bottom: 10px;font-size: 16px">系统描述:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
+                '    <div style="margin-bottom: 10px;font-size: 16px">系统IP:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
+                '</div>',
+            btn:['确定','清空'],
+            yes:function(index,layero) {
+                alert(index+layero)
+            },
+            btn2:function() {
+                alert(1)
+            }
+        })
     });
 </script>
 </body>
+
 </html>
