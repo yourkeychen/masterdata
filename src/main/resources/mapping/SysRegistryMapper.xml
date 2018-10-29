@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.thunisoft.dao.SysRegistryMapper" >
+  <resultMap id="BaseResultMap" type="com.thunisoft.pojo.SysRegistry" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sys_code" property="sysCode" jdbcType="VARCHAR" />
+    <result column="sys_name" property="sysName" jdbcType="VARCHAR" />
+    <result column="sys_desc" property="sysDesc" jdbcType="VARCHAR" />
+    <result column="sys_ip" property="sysIp" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sys_code, sys_name, sys_desc, sys_ip, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_registry
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_sys_registry
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.thunisoft.pojo.SysRegistry" >
+    insert into t_sys_registry (id, sys_code, sys_name, 
+      sys_desc, sys_ip, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{sysCode,jdbcType=VARCHAR}, #{sysName,jdbcType=VARCHAR}, 
+      #{sysDesc,jdbcType=VARCHAR}, #{sysIp,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thunisoft.pojo.SysRegistry" >
+    insert into t_sys_registry
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sysCode != null" >
+        sys_code,
+      </if>
+      <if test="sysName != null" >
+        sys_name,
+      </if>
+      <if test="sysDesc != null" >
+        sys_desc,
+      </if>
+      <if test="sysIp != null" >
+        sys_ip,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sysCode != null" >
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysName != null" >
+        #{sysName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysDesc != null" >
+        #{sysDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="sysIp != null" >
+        #{sysIp,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.thunisoft.pojo.SysRegistry" >
+    update t_sys_registry
+    <set >
+      <if test="sysCode != null" >
+        sys_code = #{sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysName != null" >
+        sys_name = #{sysName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysDesc != null" >
+        sys_desc = #{sysDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="sysIp != null" >
+        sys_ip = #{sysIp,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.thunisoft.pojo.SysRegistry" >
+    update t_sys_registry
+    set sys_code = #{sysCode,jdbcType=VARCHAR},
+      sys_name = #{sysName,jdbcType=VARCHAR},
+      sys_desc = #{sysDesc,jdbcType=VARCHAR},
+      sys_ip = #{sysIp,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
