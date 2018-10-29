@@ -1,0 +1,32 @@
+.psy-table{
+    width: 92%;
+    border: 1px solid #e6e6e6;
+    table-layout:fixed;
+    border-collapse:collapse;
+}
+.psy-thd{
+    color: #666;
+    font-size: 14px;
+    font-weight: bold;
+    height: 40px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #f2f2f2;
+}
+.psy-tr{
+    font-size: 14px;
+    color: #666;
+    height: 40px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+.psy-tr:hover{
+    background-color: #f2f2f2;
+}
+.psy-tr th{
+    text-align: center;
+    width: 9%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
