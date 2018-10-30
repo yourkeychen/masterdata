@@ -2,6 +2,9 @@ package com.thunisoft.dao;
 
 import com.thunisoft.pojo.Permission;
 
+import java.util.List;
+import java.util.Map;
+
 public interface PermissionMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +17,8 @@ public interface PermissionMapper {
     int updateByPrimaryKeySelective(Permission record);
 
     int updateByPrimaryKey(Permission record);
+
+    List<Permission> selectList(Map<String,Object> map);
+
+    int selectCount(Map<String,Object> map);
 }

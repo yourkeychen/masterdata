@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/index.css">
+
+</head>
+<body class="layui-body">
+
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">内容主体区域test</div>
+        <div style="margin-bottom: 10px;margin-left: 30px">
+            <button class="layui-btn layui-btn-sm">增加</button>
+        </div>
+        <div style="padding-left: 30px">
+            <table id="tab" class="psy-table">
+            </table>
+        </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+       主数据管理@2019.22222222
+    </div>
+</div>
+<script src="/js/table.js"></script>
+        <script src="/jquery-1.8.3.js"></script>
+        <script src="/test.js"></script>
+<script src="/layui/layui.js"></script>
+        <script src="/layui/lay/modules/layer.js"></script>
+        <script src="/layui/lay/modules/laypage.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('layer', function(){
+        var layer = layui.layer;
+        layer.open({
+            type:1,
+            title:'提示',
+            closeBtn:'1',
+            bthAlign:'c',
+            area:['650px','300px'],
+            align:'center',
+            shadeClose:true,
+            content:'<div id="contextMessage" style="text-align: center">\n' +
+                '    <div style="margin-bottom: 10px;font-size: 16px">系统标识:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
+                '    <div style="margin-bottom: 10px;font-size: 16px">系统名称:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
+                '    <div style="margin-bottom: 10px;font-size: 16px">系统描述:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
+                '    <div style="margin-bottom: 10px;font-size: 16px">系统IP:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
+                '</div>',
+            btn:['确定','清空'],
+            yes:function(index,layero) {
+                alert(index+layero)
+            },
+            btn2:function() {
+                alert(1)
+            }
+        })
+    });
+</script>
+
+</body>
+
+</html>

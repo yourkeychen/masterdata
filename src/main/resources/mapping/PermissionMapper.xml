@@ -3,35 +3,42 @@
 <mapper namespace="com.thunisoft.dao.PermissionMapper" >
   <resultMap id="BaseResultMap" type="com.thunisoft.pojo.Permission" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="user" property="user" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="SMALLINT" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="VARCHAR" />
   </resultMap>
+
   <sql id="Base_Column_List" >
-    id, user, password, type, create_time, update_time
+    id, user_name, password, type, to_char(create_time,'yyyy-mm-dd hh:MM:ss') create_time, to_char(update_time,'yyyy-mm-dd hh:MM:ss') update_time
   </sql>
+
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from t_permission
+    from master_data.t_permission
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_permission
+    delete from master_data.t_permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
+
   <insert id="insert" parameterType="com.thunisoft.pojo.Permission" >
-    insert into t_permission (id, user, password, 
-      type, create_time, update_time
-      )
-    values (#{id,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{type,jdbcType=SMALLINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+    insert into master_data.t_permission ( user, password,
+      type)
+    values ( #{user,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{type,jdbcType=SMALLINT})
   </insert>
+
+
   <insert id="insertSelective" parameterType="com.thunisoft.pojo.Permission" >
-    insert into t_permission
+    insert into master_data.t_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -73,8 +80,10 @@
       </if>
     </trim>
   </insert>
+
+
   <update id="updateByPrimaryKeySelective" parameterType="com.thunisoft.pojo.Permission" >
-    update t_permission
+    update master_data.t_permission
     <set >
       <if test="user != null" >
         user = #{user,jdbcType=VARCHAR},
@@ -94,8 +103,10 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
   <update id="updateByPrimaryKey" parameterType="com.thunisoft.pojo.Permission" >
-    update t_permission
+    update master_data.t_permission
     set user = #{user,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       type = #{type,jdbcType=SMALLINT},
@@ -103,4 +114,15 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectList" resultMap="BaseResultMap" parameterType="map">
+    select
+    <include refid="Base_Column_List" />
+    from master_data.t_permission
+    limit ${pageNum} offset ${pageStart}
+  </select>
+
+  <select id="selectCount" resultType="int" parameterType="map">
+    select count(1) from master_data.t_permission
+  </select>
 </mapper>

@@ -44,8 +44,8 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">所有商品</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;" onclick="load()">列表一</a></dd>
+                        <dd><a href="javascript:;" onclick="test()">列表二</a></dd>
                         <dd><a href="javascript:;">列表三</a></dd>
                         <dd><a href="">超链接</a></dd>
                     </dl>
@@ -77,7 +77,7 @@
             <button class="layui-btn layui-btn-sm">增加</button>
         </div>
         <div style="padding-left: 30px">
-            <table class="psy-table">
+            <table id="tab" class="psy-table">
                <tr class="psy-thd">
                     <th>序号</th>
                     <th>系统标识</th>
@@ -116,6 +116,7 @@
                 </tr>
             </table>
         </div>
+        <div id="page" class="page-aaa"></div>
     </div>
 
     <div class="layui-footer">
@@ -126,6 +127,8 @@
 
 <script src="/jquery-1.8.3.js"></script>
 <script src="/layui/layui.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/table.js"></script>
 <script>
     //JavaScript代码区域
     layui.use('layer', function(){
