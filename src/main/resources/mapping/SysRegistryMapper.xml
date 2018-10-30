@@ -13,6 +13,19 @@
   <sql id="Base_Column_List" >
     id, sys_code, sys_name, sys_desc, sys_ip, create_time, update_time
   </sql>
+  <select id="selectObject" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from master_data.t_sys_registry
+    order by id
+    LIMIT #{pageSize} OFFSET  (#{pageNum}-1)*#{pageSize}
+  </select>
+  <!--(#{pageNum,jdbcType=INTEGER}-1)* #{pageSize,jdbcType=INTEGER}-->
+  <!--/*LIMIT #{pageSize} OFFSET  (#{pageNum}-1)*#{pageSize}*/-->
+  <select id="selectCount" resultType="Integer">
+    select count(1)
+    from master_data.t_sys_registry
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -20,16 +33,16 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_sys_registry
+    delete from master_data.t_sys_registry
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.thunisoft.pojo.SysRegistry" >
-    insert into t_sys_registry (id, sys_code, sys_name, 
-      sys_desc, sys_ip, create_time, 
-      update_time)
-    values (#{id,jdbcType=INTEGER}, #{sysCode,jdbcType=VARCHAR}, #{sysName,jdbcType=VARCHAR}, 
-      #{sysDesc,jdbcType=VARCHAR}, #{sysIp,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+    insert into master_data.t_sys_registry (sys_code, sys_name,
+      sys_desc, sys_ip
+      )
+    values (#{sysCode,jdbcType=VARCHAR}, #{sysName,jdbcType=VARCHAR},
+      #{sysDesc,jdbcType=VARCHAR}, #{sysIp,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.thunisoft.pojo.SysRegistry" >
     insert into t_sys_registry
@@ -95,23 +108,15 @@
       <if test="sysIp != null" >
         sys_ip = #{sysIp,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.thunisoft.pojo.SysRegistry" >
-    update t_sys_registry
+    update master_data.t_sys_registry
     set sys_code = #{sysCode,jdbcType=VARCHAR},
       sys_name = #{sysName,jdbcType=VARCHAR},
       sys_desc = #{sysDesc,jdbcType=VARCHAR},
-      sys_ip = #{sysIp,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      sys_ip = #{sysIp,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,4 +1,5 @@
 $(function () {
+    $('#toxtzc').bind('click',toXtzc)
     var data = {
         tableId: "tab",
         pageId: "page",
@@ -21,6 +22,9 @@ $(function () {
     };
     setTable(data);
 });
+function toXtzc() {
+    $('#context').load('/masterData/toxtzc')
+}
 
 
 function load(){

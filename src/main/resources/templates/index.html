@@ -46,7 +46,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;" onclick="load()">列表一</a></dd>
                         <dd><a href="javascript:;" onclick="test()">列表二</a></dd>
-                        <dd><a href="javascript:;">列表三</a></dd>
+                        <dd><a href="javascript:;" id="toxtzc">列表三</a></dd>
                         <dd><a href="">超链接</a></dd>
                     </dl>
                 </li>
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <div class="layui-body">
+    <div class="layui-body" id="context">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">内容主体区域</div>
         <div style="margin-bottom: 10px;margin-left: 30px">
@@ -158,5 +158,38 @@
     });
 </script>
 </body>
-
+<div id="contextMessage" style="text-align: center;display: none">
+    <div class="layui-form-item center" style="width: 371px;margin: auto;margin-bottom: 10px;">
+        <label class="layui-form-label" style="width: 100px" >系统标识</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" required value="" style="width: 240px" lay-verify="required" placeholder="请输入系统标识" autocomplete="off" class="layui-input" id="xtbs">
+        </div>
+    </div>
+    <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
+        <label class="layui-form-label" style="width: 100px">系统名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="type" required style="width: 240px" lay-verify="required" placeholder="请输入系统名称" autocomplete="off" class="layui-input" id="xtmc">
+        </div>
+    </div>
+    <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
+        <label class="layui-form-label" style="width: 100px">系统描述</label>
+        <div class="layui-input-block">
+            <input type="text" name="value" required style="width: 240px" lay-verify="required" placeholder="请输入系统描述" autocomplete="off" class="layui-input" id="xtms">
+            <!-- <input type="hidden" name="id" style="width: 240px" autocomplete="off" class="layui-input"> -->
+        </div>
+    </div>
+    <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 30px;">
+        <label class="layui-form-label" style="width: 100px">系统IP</label>
+        <div class="layui-input-block">
+            <input type="text" name="value" required style="width: 240px" lay-verify="required" placeholder="请输入系统IP" autocomplete="off" class="layui-input" id="xtip">
+            <!-- <input type="hidden" name="id" style="width: 240px" autocomplete="off" class="layui-input"> -->
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div>
+            <button class="layui-btn" lay-submit lay-filter="save" id="savebutton">确定</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="resetBtn" >重置</button>
+        </div>
+    </div>
+</div>
 </html>
