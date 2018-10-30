@@ -30,7 +30,6 @@ function getcount() {
         async:false,
         dataType : 'json',
         success:function(data){
-            console.log(data.result)
             pagesize= data.result;
         }
     });
@@ -144,7 +143,6 @@ function showObjects(pagexx) {
             table.empty();
             if (data.result){
                 for(var i=0; i<data.result.length;i++){
-                    console.log(new Date(data.result[i].createTime).toLocaleString())
                     table.append('<tr class="psy-tr">\n' +
                         '            <th>'+data.result[i].id+'</th>\n' +
                         '            <th>'+data.result[i].sysCode+'</th>\n' +
@@ -155,7 +153,6 @@ function showObjects(pagexx) {
                         '            <th><button class="layui-btn layui-btn-sm xt-update" onclick="updateWindow(this)">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm" onclick="deleteObject(this)">删除</button></th>\n' +
                         '        </tr>')
                 }
-                console.log(data.result)
             }else {
                 table.append('暂无数据');
             }
@@ -180,7 +177,6 @@ function addWindow(ts) {
 }
 //画分页
 function pagination(countpage) {
-    console.log(countpage);
     layui.use(['laypage','layer'] ,function(){
         var laypage = layui.laypage,
         layer=layui.layer;
@@ -193,10 +189,6 @@ function pagination(countpage) {
             , layout: ['count', 'prev', 'page', 'next', 'skip']
             , jump: function (obj, first) {
                 //obj包含了当前分页的所有参数，比如：
-                console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
-                console.log(obj.limit); //得到每页显示的条数
-                console.log(first);
-
                 //首次不执行
                 var pagexx={}
                 if(first){

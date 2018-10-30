@@ -131,30 +131,10 @@
 <script src="/js/table.js"></script>
 <script>
     //JavaScript代码区域
-    layui.use('layer', function(){
-        var layer = layui.layer;
-        layer.open({
-            type:1,
-            title:'提示',
-            closeBtn:'1',
-            bthAlign:'c',
-            area:['650px','300px'],
-            align:'center',
-            shadeClose:true,
-            content:'<div id="contextMessage" style="text-align: center">\n' +
-                '    <div style="margin-bottom: 10px;font-size: 16px">系统标识:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
-                '    <div style="margin-bottom: 10px;font-size: 16px">系统名称:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
-                '    <div style="margin-bottom: 10px;font-size: 16px">系统描述:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
-                '    <div style="margin-bottom: 10px;font-size: 16px">系统IP:<input type="text" class="yayui-input" autocomplete="off"></div>\n' +
-                '</div>',
-            btn:['确定','清空'],
-            yes:function(index,layero) {
-                alert(index+layero)
-            },
-            btn2:function() {
-                alert(1)
-            }
-        })
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
     });
 </script>
 </body>
