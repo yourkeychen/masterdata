@@ -71,6 +71,7 @@ function insertObjects() {
             dataType: 'json',
             success: function (data) {
                 layer.close(layer.index);//关闭弹出窗口
+                /*$('#contextMessage').css('display',none)*/
                 $('#xtbs').val('');//清空写入内容
                 $('#xtmc').val('');
                 $('#xtms').val('');
@@ -92,6 +93,7 @@ function insertObjects() {
             dataType : 'json',
             success:function(data){
                 layer.close(layer.index);//关闭弹出窗口
+                /*$('#contextMessage').css('display',none)*/
                 $('#xtbs').val('');//清空写入内容
                 $('#xtmc').val('');
                 $('#xtms').val('');
@@ -172,6 +174,9 @@ function addWindow(ts) {
             align:'center',
             shadeClose:true,
             content:$('#contextMessage'),
+            end:function(){
+                $('#contextMessage').hide();
+            }
         })
     });
 }
