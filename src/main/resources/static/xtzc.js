@@ -153,7 +153,7 @@ function showObjects(pagexx) {
                         '            <th>'+data.result[i].sysName+'</th>\n' +
                         '            <th>'+data.result[i].sysDesc+'</th>\n' +
                         '            <th>'+data.result[i].sysIp+'</th>\n' +
-                        '            <th>'+new Date(data.result[i].createTime).toLocaleString()+'</th>\n' +
+                        '            <th>'+data.result[i].createTime+'</th>\n' +
                         '            <th><button class="layui-btn layui-btn-sm xt-update" onclick="updateWindow(this)">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm" onclick="deleteObject(this)">删除</button></th>\n' +
                         '        </tr>')
                 }
@@ -174,7 +174,7 @@ function addWindow(ts) {
             bthAlign:'c',
             area:['550px','310px'],
             align:'center',
-            shadeClose:true,
+            shadeClose:false,
             content:'<div id="contextMessage" style="text-align: center;">\n' +
                 '    <div class="layui-form-item center" style="width: 371px;margin: auto;margin-bottom: 10px;">\n' +
                 '        <label class="layui-form-label" style="width: 100px" >系统标识</label>\n' +
@@ -224,16 +224,17 @@ function pagination(countpage) {
         laypage.render({
             elem: 'pagination'
             , count: countpage //数据总数，从服务端得到
-            , limit: 10
+            , limit:5
+            ,limits: [5,10,15]
             , curr: 1
-            , layout: ['count', 'prev', 'page', 'next', 'skip']
+            , layout: ['count', 'prev', 'page', 'next','limit', 'skip']
             , jump: function (obj, first) {
                 //obj包含了当前分页的所有参数，比如：
                 //首次不执行
                 var pagexx={}
                 if(first){
                     pagexx.pageNum=1;
-                    pagexx.pageSize=10;
+                    pagexx.pageSize=obj.limit;
                     showObjects(pagexx);
                 }
                 if (!first) {
@@ -254,5 +255,4 @@ function showTs(content) {
             skin:'my-skin',
             title:"提示"});
     });
-
 }

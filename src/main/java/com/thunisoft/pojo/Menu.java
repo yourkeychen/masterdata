@@ -1,6 +1,7 @@
 package com.thunisoft.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class Menu {
     private Integer id;
@@ -14,6 +15,26 @@ public class Menu {
     private Date createTime;
 
     private Date updateTime;
+
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    private List<Menu> childMenus;
+
+    public List<Menu> getChildMenus() {
+        return childMenus;
+    }
+
+    public void setChildMenus(List<Menu> childMenus) {
+        this.childMenus = childMenus;
+    }
 
     public Integer getId() {
         return id;
