@@ -1,29 +1,40 @@
 package com.thunisoft.controller;
 
+
+
 import com.thunisoft.pojo.Menu;
 import com.thunisoft.service.MasterDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
+
 @Controller
-public class MasterDataController {
+@RequestMapping("/menu")
+public class MenuController {
+
     @Autowired
     private MasterDataService masterDataService;
 
-    @RequestMapping(value = {"/","/index"})
-    public String toIndex(Model model){
-        Integer pId=0;
+    @RequestMapping("/data")
+    public String getMasterDataMenu(Model model, @RequestParam(value = "pId") Integer pId) {
+        String html = "";
         List<Menu> menuList = masterDataService.findAllByPid(pId);
         model.addAttribute("menuList", menuList);
+
         return "index";
     }
 
-    @RequestMapping("/test")
-    public String toTest(){
-        return "test";
+    @RequestMapping("/homePage")
+    public String homePage() {
+
+        return "home-page";
     }
+
+
+
+
 }

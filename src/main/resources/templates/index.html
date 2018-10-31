@@ -14,17 +14,9 @@
         <div class="layui-logo">主数据管理</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">控制台</a></li>
-            <li class="layui-nav-item"><a href="">商品管理</a></li>
-            <li class="layui-nav-item"><a href="">用户</a></li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">其它系统</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">邮件管理</a></dd>
-                    <dd><a href="">消息管理</a></dd>
-                    <dd><a href="">授权管理</a></dd>
-                </dl>
-            </li>
+            <li class="layui-nav-item layui-this" id="changeToMasterData"><a href="/menu/data?pId=0"> 主数据</a></li>
+            <li class="layui-nav-item" id="changeToLog"><a href="/menu/data?pId=-2">日志</a></li>
+            <li class="layui-nav-item" id="changeToSet"><a href="/menu/data?pId=-1">设置</a></li>
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
@@ -39,84 +31,22 @@
 
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
-            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <!--左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-                <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">所有商品</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" onclick="load()">列表一</a></dd>
-                        <dd><a href="javascript:;" onclick="test()">列表二</a></dd>
-                        <dd><a href="javascript:;" id="toxtzc">列表三</a></dd>
-                        <dd><a href="">超链接</a></dd>
+                <li class="layui-nav-item layui-nav-itemed" th:each="menu:${menuList}">
+                    <a class="" href="javascript:;" th:text="${menu.name}"></a>
+                    <dl class="layui-nav-child" th:each="child:${menu.childMenus}">
+                        <dd><a href="javascript:void(0)"  onclick="loadXMLDoc(this)" th:text="${child.name}" th:value="${child.url}"></a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="">超链接</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">云市场</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="">发布商品</a></li>
             </ul>
+
         </div>
     </div>
 
-    <div class="layui-body" id="context">
-        <!-- 内容主体区域 -->
-        <div style="padding: 15px;">内容主体区域</div>
-        <div style="margin-bottom: 10px;margin-left: 30px">
-            <button class="layui-btn layui-btn-sm">增加</button>
-        </div>
-        <div style="padding-left: 30px">
-            <table id="tab" class="psy-table">
-               <tr class="psy-thd">
-                    <th>序号</th>
-                    <th>系统标识</th>
-                    <th>系统名称</th>
-                    <th>系统描述</th>
-                    <th>系统IP</th>
-                    <th>注册时间</th>
-                    <th>操作</th>
-               </tr>
-                <tr class="psy-tr">
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
-                </tr>
-                <tr class="psy-tr">
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
-                </tr>
-                <tr class="psy-tr">
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
-                </tr>
-            </table>
-        </div>
-        <div id="page" class="page-aaa"></div>
+    <div class="layui-body">
+        <!--内容主题不符-->
+        <iframe src="/menu/homePage" frameborder="0" id="fd-page-setting" style="height: 900px;width: 100%"></iframe>
     </div>
 
     <div class="layui-footer">
@@ -136,40 +66,12 @@
         var element = layui.element;
 
     });
+    /*右侧页面局部刷新*/
+    function loadXMLDoc(e) {
+        $('#fd-page-setting').attr('src',$(e).attr('value'))
+        $(this).addClass('layui-this').siblings().removeClass('layui-this');
+    }
 </script>
 </body>
-<div id="contextMessage" style="text-align: center;display: none">
-    <div class="layui-form-item center" style="width: 371px;margin: auto;margin-bottom: 10px;">
-        <label class="layui-form-label" style="width: 100px" >系统标识</label>
-        <div class="layui-input-block">
-            <input type="text" name="name" required value="" style="width: 240px" lay-verify="required" placeholder="请输入系统标识" autocomplete="off" class="layui-input" id="xtbs">
-        </div>
-    </div>
-    <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
-        <label class="layui-form-label" style="width: 100px">系统名称</label>
-        <div class="layui-input-block">
-            <input type="text" name="type" required style="width: 240px" lay-verify="required" placeholder="请输入系统名称" autocomplete="off" class="layui-input" id="xtmc">
-        </div>
-    </div>
-    <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
-        <label class="layui-form-label" style="width: 100px">系统描述</label>
-        <div class="layui-input-block">
-            <input type="text" name="value" required style="width: 240px" lay-verify="required" placeholder="请输入系统描述" autocomplete="off" class="layui-input" id="xtms">
-            <!-- <input type="hidden" name="id" style="width: 240px" autocomplete="off" class="layui-input"> -->
-        </div>
-    </div>
-    <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 30px;">
-        <label class="layui-form-label" style="width: 100px">系统IP</label>
-        <div class="layui-input-block">
-            <input type="text" name="value" required style="width: 240px" lay-verify="required" placeholder="请输入系统IP" autocomplete="off" class="layui-input" id="xtip">
-            <!-- <input type="hidden" name="id" style="width: 240px" autocomplete="off" class="layui-input"> -->
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <div>
-            <button class="layui-btn" lay-submit lay-filter="save" id="savebutton">确定</button>
-            <button type="reset" class="layui-btn layui-btn-primary" id="resetBtn" >重置</button>
-        </div>
-    </div>
-</div>
+
 </html>

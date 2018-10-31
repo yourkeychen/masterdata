@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+<link rel="stylesheet" type="text/css" href="/index.css">
+
+<div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+        <!--左侧导航区域（可配合layui已有的垂直导航） -->
+         <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+          <li class="layui-nav-item layui-nav-itemed" th:each="menu:${menuList}">
+                <a class="" href="javascript:;" th:text="${menu.name}"></a>
+                <dl class="layui-nav-child" th:each="child:${menu.childMenus}">
+                    <dd><a href="javascript:;" th:text="${child.name}"></a></dd>
+                </dl>
+            </li>
+        </ul>
+
+
+    </div>
+</div>
+
+<!--<div class="layui-body">
+   &lt;!&ndash;内容主体区域 &ndash;&gt;
+    <div style="margin-bottom: 10px;margin-left: 30px">
+        <button class="layui-btn layui-btn-sm">增加</button>
+        主数据>>>>>>>>>>>>>>>>>>>
+    </div>-->
+    <!--<div style="padding-left: 30px">
+        <table class="psy-table">
+            <tr class="psy-thd">
+                <th>序号</th>
+                <th>系统标识</th>
+                <th>系统名称</th>
+                <th>系统描述</th>
+                <th>系统IP</th>
+                <th>注册时间</th>
+                <th>操作</th>
+            </tr>
+            <tr class="psy-tr">
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
+            </tr>
+            <tr class="psy-tr">
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
+            </tr>
+            <tr class="psy-tr">
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
+            </tr>
+        </table>
+    </div>-->
+<!--</div>-->
+</body>
+
+<script src="/jquery-1.8.3.js"></script>
+<script src="/layui/layui.js"></script>
+<script type="text/javascript">
+    layui.use('element',function () {
+        var  element=layui.element;
+    });
+</script>
+</html>
