@@ -21,7 +21,6 @@ public class MenuController {
 
     @RequestMapping("/data")
     public String getMasterDataMenu(Model model, @RequestParam(value = "pId") Integer pId) {
-        String html = "";
         List<Menu> menuList = masterDataService.findAllByPid(pId);
         model.addAttribute("menuList", menuList);
 

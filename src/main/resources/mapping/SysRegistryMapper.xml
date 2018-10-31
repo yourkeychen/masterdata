@@ -7,8 +7,8 @@
     <result column="sys_name" property="sysName" jdbcType="VARCHAR" />
     <result column="sys_desc" property="sysDesc" jdbcType="VARCHAR" />
     <result column="sys_ip" property="sysIp" jdbcType="VARCHAR" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, sys_code, sys_name, sys_desc, sys_ip, create_time, update_time
