@@ -2,7 +2,7 @@ $(function () {
     showPage();
     $('#xt-add').bind('click',toAddWindow);
     /*$('.xt-update').bind('click',updateWindow);*/
-    $('#savebutton').bind('click',insertObjects)
+    /*$('#savebutton').bind('click',insertObjects)*/
     $('#resetBtn').bind('click',resetBtn);
 });
 function resetBtn() {
@@ -60,6 +60,7 @@ function getValues() {
     return xtxx;
 }
 function insertObjects() {
+    alert(123);
     if($('.layui-layer-title').html()=='添加') {
         var xtxx = getValues();
         if(!xtxx.sysCode&&!xtxx.sysName&&!xtxx.sysDesc&&!xtxx.sysIp)return;
@@ -70,6 +71,7 @@ function insertObjects() {
             async: false,
             dataType: 'json',
             success: function (data) {
+                console.log(layer.index)
                 layer.close(layer.index);//关闭弹出窗口
                 /*$('#contextMessage').css('display',none)*/
                 $('#xtbs').val('');//清空写入内容
@@ -173,7 +175,40 @@ function addWindow(ts) {
             area:['550px','310px'],
             align:'center',
             shadeClose:true,
-            content:$('#contextMessage'),
+            content:'<div id="contextMessage" style="text-align: center;">\n' +
+                '    <div class="layui-form-item center" style="width: 371px;margin: auto;margin-bottom: 10px;">\n' +
+                '        <label class="layui-form-label" style="width: 100px" >系统标识</label>\n' +
+                '        <div class="layui-input-block">\n' +
+                '            <input type="text" name="name" required value="" style="width: 240px" lay-verify="required" placeholder="请输入系统标识" autocomplete="off" class="layui-input" id="xtbs">\n' +
+                '        </div>\n' +
+                '    </div>\n' +
+                '    <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">\n' +
+                '        <label class="layui-form-label" style="width: 100px">系统名称</label>\n' +
+                '        <div class="layui-input-block">\n' +
+                '            <input type="text" name="type" required style="width: 240px" lay-verify="required" placeholder="请输入系统名称" autocomplete="off" class="layui-input" id="xtmc">\n' +
+                '        </div>\n' +
+                '    </div>\n' +
+                '    <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">\n' +
+                '        <label class="layui-form-label" style="width: 100px">系统描述</label>\n' +
+                '        <div class="layui-input-block">\n' +
+                '            <input type="text" name="value" required style="width: 240px" lay-verify="required" placeholder="请输入系统描述" autocomplete="off" class="layui-input" id="xtms">\n' +
+                '            <!-- <input type="hidden" name="id" style="width: 240px" autocomplete="off" class="layui-input"> -->\n' +
+                '        </div>\n' +
+                '    </div>\n' +
+                '    <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 30px;">\n' +
+                '        <label class="layui-form-label" style="width: 100px">系统IP</label>\n' +
+                '        <div class="layui-input-block">\n' +
+                '            <input type="text" name="value" required style="width: 240px" lay-verify="required" placeholder="请输入系统IP" autocomplete="off" class="layui-input" id="xtip">\n' +
+                '            <!-- <input type="hidden" name="id" style="width: 240px" autocomplete="off" class="layui-input"> -->\n' +
+                '        </div>\n' +
+                '    </div>\n' +
+                '    <div class="layui-form-item">\n' +
+                '        <div>\n' +
+                '            <button class="layui-btn" lay-submit lay-filter="save" id="savebutton" onclick="insertObjects()">确定</button>\n' +
+                '            <button type="reset" class="layui-btn layui-btn-primary" id="resetBtn" onclick="resetBtn()">重置</button>\n' +
+                '        </div>\n' +
+                '    </div>\n' +
+                '</div>',
             end:function(){
                 $('#contextMessage').hide();
             }
