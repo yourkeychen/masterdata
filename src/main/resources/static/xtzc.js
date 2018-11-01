@@ -174,7 +174,7 @@ function addWindow(ts) {
             bthAlign:'c',
             area:['550px','310px'],
             align:'center',
-            shadeClose:false,
+            shadeClose:true,
             content:'<div id="contextMessage" style="text-align: center;">\n' +
                 '    <div class="layui-form-item center" style="width: 371px;margin: auto;margin-bottom: 10px;">\n' +
                 '        <label class="layui-form-label" style="width: 100px" >系统标识</label>\n' +

@@ -21,6 +21,10 @@ public class XtzcController {
     public String toXtzc(){
         return "xtzc";
     }
+    @RequestMapping("/tolog")
+    public String tolog(){
+        return "loginform";
+    }
     @RequestMapping("/showObjects")
     @ResponseBody
     public Object showObjects(Integer pageNum,Integer pageSize){
