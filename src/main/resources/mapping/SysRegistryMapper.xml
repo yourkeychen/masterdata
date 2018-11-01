@@ -27,7 +27,7 @@
   <select id="selectLogObject" resultType="map">
     SELECT b.id,b.code,b.conent_name,b.desc,
     CASE WHEN b.effect=0 THEN '有效' WHEN b.effect=1 THEN '无效' ELSE CAST(b.effect as VARCHAR(11)) END as effect,
-    c.name,d.name,to_char(a.create_time,'yyyy-mm-dd hh:MM:ss') create_time,a.applicant,a.reason,
+    c.name zsjname,d.name zsjkname,to_char(a.create_time,'yyyy-mm-dd hh:MM:ss') create_time,a.applicant,a.reason,
     CASE WHEN a.status=0 THEN '不通过' WHEN a.status=1 THEN '通过' ELSE CAST(a.status as VARCHAR(11)) END as status,
     a.audit_optnion
     FROM master_data.t_application_reiew a LEFT JOIN master_data.t_master_content b ON a.master_id=b.id
