@@ -5,7 +5,7 @@
     <title>Title</title>
     <script src="/jquery-1.8.3.js"></script>
     <script src="/layui/layui.js"></script>
-    <script src="/xtzc.js"></script>
+    <script src="/xtzc1.js"></script>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="/index.css">
 </head>
@@ -13,7 +13,7 @@
 <div style="margin-bottom: 10px;margin-left: 30px;margin-top: 10px">
     <button class="layui-btn layui-btn-sm" id="xt-add">增加</button>
 </div>
-<div style="padding-left: 30px">
+<!--<div style="padding-left: 30px">
     <table class="psy-table">
         <tr class="psy-thd">
             <th>序号</th>
@@ -31,7 +31,16 @@
 </div>
 <div class="layui-card-footer" style="text-align: left;padding-left:30px;padding-left: 30px;">
     <div id="pagination"></div>
+</div>-->
+<div style="padding-left: 30px;">
+    <table class="layui-hide" id="xtzc-table" lay-filter="test"></table>
+    <div id="xtzc-laypage"></div>
 </div>
 </body>
+<script type="text/html" id="barDemo">
+    <button class="layui-btn layui-btn-sm xt-update" lay-event="detail">修改</button>
+    &nbsp&nbsp&nbsp
+    <button class="layui-btn layui-btn-sm" lay-event="del">删除</button>
+</script>
 
 </html>

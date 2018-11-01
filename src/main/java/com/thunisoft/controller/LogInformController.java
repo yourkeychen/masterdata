@@ -27,12 +27,10 @@ public class LogInformController {
     @RequestMapping("/showLogObject")
     @ResponseBody
     public Object showLogObject(Integer currentPage,Integer pageSize){
-        System.out.println("====================================================================");
-        System.out.println(currentPage);
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
         stringObjectHashMap.put("code",0);
         stringObjectHashMap.put("msg","");
-        stringObjectHashMap.put("count",sysRegistryMapper.selectLogObject(currentPage,pageSize).size());
+        stringObjectHashMap.put("count",sysRegistryMapper.selectCountPagesize(currentPage,pageSize));
         stringObjectHashMap.put("data",sysRegistryMapper.selectLogObject(currentPage,pageSize));
         return stringObjectHashMap;
     }

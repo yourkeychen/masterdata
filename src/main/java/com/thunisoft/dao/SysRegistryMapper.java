@@ -20,5 +20,8 @@ public interface SysRegistryMapper {
     int updateByPrimaryKey(SysRegistry record);
     Integer selectCount ();
     List<SysRegistry> selectObject(@Param("pageNum") Integer pageNum, @Param("pageSize")Integer pageSize);
+    Integer selectXtCount();
     List<Map> selectLogObject(@Param("currentPage")Integer currentPage,@Param("pageSize")Integer pageSize);
+
+    Integer selectCountPagesize(@Param("currentPage")Integer currentPage, @Param("pageSize")Integer pageSize);
 }

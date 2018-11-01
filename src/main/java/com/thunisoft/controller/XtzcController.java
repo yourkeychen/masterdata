@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
+
 @Controller
 @RequestMapping("/masterData")
 public class XtzcController {
@@ -31,6 +33,16 @@ public class XtzcController {
         System.out.println(pageNum);
         System.out.println(pageSize);
         return CommonUtils.getJsonRes(sysRegistryMapper.selectObject(pageNum,pageSize));
+    }
+    @RequestMapping("/showObjectsq")
+    @ResponseBody
+    public Object showObjects1(Integer currentPage,Integer pageSize){
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        stringObjectHashMap.put("code",0);
+        stringObjectHashMap.put("msg","");
+        stringObjectHashMap.put("count",sysRegistryMapper.selectXtCount());
+        stringObjectHashMap.put("data",sysRegistryMapper.selectObject(currentPage,pageSize));
+        return stringObjectHashMap;
     }
     @RequestMapping("/selectCount")
     @ResponseBody
