@@ -38,7 +38,6 @@ function insertObjects() {
             async: false,
             dataType: 'json',
             success: function (data) {
-                console.log(layer.index)
                 layer.close(layer.index);//关闭弹出窗口
                 /*$('#contextMessage').css('display',none)*/
                 $('#xtbs').val('');//清空写入内容
@@ -52,7 +51,6 @@ function insertObjects() {
             }
         });
     }else{
-        alert('xg')
         var xtxx = getValues();
         if(!xtxx.sysCode&&!xtxx.sysName&&!xtxx.sysDesc&&!xtxx.sysIp)return;
         $.ajax({
@@ -164,9 +162,6 @@ function showPageAndTable(currentPage,pageSize){
             ,done: function(res, curr, count){
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
-                console.log(res);
-                console.log(curr);
-                console.log(count);
                 laypage.render({
                     elem:'xtzc-laypage'
                     ,count:count
@@ -177,10 +172,6 @@ function showPageAndTable(currentPage,pageSize){
                         if(!first){
                             curnum = obj.curr;
                             limitcount = obj.limit;
-                            //console.log("curnum"+curnum);
-                            //console.log("limitcount"+limitcount);
-                            //layer.msg(curnum+"-"+limitcount);
-                            //productsearch(productGroupId,curnum,limitcount);
                             showPageAndTable(curnum,limitcount)
                         }
                     }

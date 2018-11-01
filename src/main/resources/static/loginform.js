@@ -32,9 +32,6 @@ function showPageAndTable(currentPage,pageSize){
             ,done: function(res, curr, count){
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
-                console.log(res);
-                console.log(curr);
-                console.log(count);
                 laypage.render({
                     elem:'log-laypage'
                     ,count:count
@@ -45,10 +42,6 @@ function showPageAndTable(currentPage,pageSize){
                         if(!first){
                             curnum = obj.curr;
                             limitcount = obj.limit;
-                            //console.log("curnum"+curnum);
-                            //console.log("limitcount"+limitcount);
-                            //layer.msg(curnum+"-"+limitcount);
-                            //productsearch(productGroupId,curnum,limitcount);
                             showPageAndTable(curnum,limitcount)
                         }
                     }
