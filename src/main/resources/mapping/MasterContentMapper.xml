@@ -6,17 +6,30 @@
     <result column="menu_id" jdbcType="INTEGER" property="menuId" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="conent_name" jdbcType="VARCHAR" property="conentName" />
-    <result column="desc" jdbcType="VARCHAR" property="desc" />
-    <result column="effect" jdbcType="SMALLINT" property="effect" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="effect" jdbcType="INTEGER" property="effect" />
     <result column="creator" jdbcType="VARCHAR" property="creator" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+
+    <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, menu_id, code, conent_name, desc, effect, creator, create_time, update_time
+    id, menu_id, code, conent_name, description, effect, creator, create_time, update_time
   </sql>
+  <select id="findMasterContent" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+     SELECT mc.id, mc.menu_id, mc.code, mc.conent_name, mc.description, mc.effect, mc.creator, mc.create_time, mc.update_time,ar.status
+     FROM master_data.t_master_content mc LEFT JOIN master_data.t_application_reiew ar ON mc.id=ar.master_id
+     where mc.menu_id=#{menuId,jdbcType=INTEGER}
+     limit #{pageNum} offset #{pageStart}
+  </select>
+  <select id="findCountByMenuId" parameterType="java.lang.Integer" resultType="int">
+     SELECT count (1)
+     FROM master_data.t_master_content mc LEFT JOIN master_data.t_application_reiew ar ON mc.id=ar.master_id
+     where mc.menu_id=#{menuId,jdbcType=INTEGER}
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_master_content
     where id = #{id,jdbcType=INTEGER}
@@ -26,13 +39,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.thunisoft.pojo.MasterContent">
-    insert into t_master_content (id, menu_id, code, 
-      conent_name, desc, effect, 
-      creator, create_time, update_time
-      )
-    values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, 
-      #{conentName,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{effect,jdbcType=SMALLINT}, 
-      #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+    insert into master_data.t_master_content (menu_id,code,
+      conent_name, description, effect,creator )
+    values (#{menuId,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR},
+      #{conentName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{effect,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.thunisoft.pojo.MasterContent">
@@ -50,8 +60,8 @@
       <if test="conentName != null">
         conent_name,
       </if>
-      <if test="desc != null">
-        desc,
+      <if test="description != null">
+        description,
       </if>
       <if test="effect != null">
         effect,
@@ -79,11 +89,11 @@
       <if test="conentName != null">
         #{conentName,jdbcType=VARCHAR},
       </if>
-      <if test="desc != null">
-        #{desc,jdbcType=VARCHAR},
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
       </if>
       <if test="effect != null">
-        #{effect,jdbcType=SMALLINT},
+        #{effect,jdbcType=INTEGER},
       </if>
       <if test="creator != null">
         #{creator,jdbcType=VARCHAR},
@@ -108,11 +118,11 @@
       <if test="conentName != null">
         conent_name = #{conentName,jdbcType=VARCHAR},
       </if>
-      <if test="desc != null">
-        desc = #{desc,jdbcType=VARCHAR},
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
       </if>
       <if test="effect != null">
-        effect = #{effect,jdbcType=SMALLINT},
+        effect = #{effect,jdbcType=INTEGER},
       </if>
       <if test="creator != null">
         creator = #{creator,jdbcType=VARCHAR},
@@ -131,8 +141,8 @@
     set menu_id = #{menuId,jdbcType=INTEGER},
       code = #{code,jdbcType=VARCHAR},
       conent_name = #{conentName,jdbcType=VARCHAR},
-      desc = #{desc,jdbcType=VARCHAR},
-      effect = #{effect,jdbcType=SMALLINT},
+      description = #{description,jdbcType=VARCHAR},
+      effect = #{effect,jdbcType=INTEGER},
       creator = #{creator,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

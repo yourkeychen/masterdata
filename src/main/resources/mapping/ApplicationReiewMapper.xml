@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="applicant" property="applicant" jdbcType="VARCHAR" />
     <result column="reason" property="reason" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="SMALLINT" />
+    <result column="status" property="status" jdbcType="INTEGER" />
     <result column="reviewer" property="reviewer" jdbcType="VARCHAR" />
     <result column="audit_optnion" property="auditOptnion" jdbcType="VARCHAR" />
     <result column="review_time" property="reviewTime" jdbcType="TIMESTAMP" />
@@ -33,7 +33,7 @@
       review_time, master_id, create_time, 
       update_time)
     values (#{id,jdbcType=INTEGER}, #{applicant,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR}, 
-      #{status,jdbcType=SMALLINT}, #{reviewer,jdbcType=VARCHAR}, #{auditOptnion,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{reviewer,jdbcType=VARCHAR}, #{auditOptnion,jdbcType=VARCHAR}, 
       #{reviewTime,jdbcType=TIMESTAMP}, #{masterId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -82,7 +82,7 @@
         #{reason,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=SMALLINT},
+        #{status,jdbcType=INTEGER},
       </if>
       <if test="reviewer != null" >
         #{reviewer,jdbcType=VARCHAR},
@@ -114,7 +114,7 @@
         reason = #{reason,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
-        status = #{status,jdbcType=SMALLINT},
+        status = #{status,jdbcType=INTEGER},
       </if>
       <if test="reviewer != null" >
         reviewer = #{reviewer,jdbcType=VARCHAR},
@@ -141,7 +141,7 @@
     update t_application_reiew
     set applicant = #{applicant,jdbcType=VARCHAR},
       reason = #{reason,jdbcType=VARCHAR},
-      status = #{status,jdbcType=SMALLINT},
+      status = #{status,jdbcType=INTEGER},
       reviewer = #{reviewer,jdbcType=VARCHAR},
       audit_optnion = #{auditOptnion,jdbcType=VARCHAR},
       review_time = #{reviewTime,jdbcType=TIMESTAMP},
