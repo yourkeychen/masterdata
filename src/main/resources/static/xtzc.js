@@ -1,6 +1,5 @@
 $(function () {
-    var currentPage = 1;
-    var pageSize = 10;
+
     showPageAndTable(currentPage,pageSize)
     $('#xt-add').bind('click',toAddWindow);
     $('#resetBtn').bind('click',resetBtn);
@@ -44,7 +43,7 @@ function insertObjects() {
                 $('#xtmc').val('');
                 $('#xtms').val('');
                 $('#xtip').val('');
-                showPageAndTable(1,10);//跟新表数据
+                showPageAndTable(currentPage,pageSize);//跟新表数据
                 if (data.result.success) {
                     showTs('添加成功');
                 }
@@ -65,7 +64,7 @@ function insertObjects() {
                 $('#xtmc').val('');
                 $('#xtms').val('');
                 $('#xtip').val('');
-                showPageAndTable(1,10);//跟新表数据
+                showPageAndTable(currentPage,pageSize);//跟新表数据
                 if (data.result.success) {
                     showTs('修改成功');
                 }
@@ -220,7 +219,7 @@ function deleteObject(id) {
                 success : function(data){
                     if(data.result.success){
                         layer.closeAll('dialog');
-                        showPageAndTable(1,10);//跟新表数据
+                        showPageAndTable(currentPage,pageSize);//跟新表数据
                     }
                 }
             });

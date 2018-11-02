@@ -18,7 +18,7 @@ function showPageAndTable(currentPage,pageSize){
                 {field:'id', width:80, title: '序号'}
                 ,{field:'code', width:80, title: '编号'}
                 ,{field:'conent_name', width:80, title: '内容名称'}
-                ,{field:'desc', width:80, title: '描述'}
+                ,{field:'description', width:80, title: '描述'}
                 ,{field:'effect', title: '是否生效', width: 130} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
                 ,{field:'zsjname', title: '主数据',width:80}
                 ,{field:'zsjkname', title: '主数据库',width:130}
