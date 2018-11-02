@@ -30,9 +30,9 @@
 
 
   <insert id="insert" parameterType="com.thunisoft.pojo.Permission" >
-    insert into master_data.t_permission ( user, password,
+    insert into master_data.t_permission ( user_name, password,
       type)
-    values ( #{user,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    values ( #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{type,jdbcType=SMALLINT})
   </insert>
 
@@ -43,8 +43,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="user != null" >
-        user,
+      <if test="userName != null" >
+        user_name,
       </if>
       <if test="password != null" >
         password,
@@ -63,8 +63,8 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="user != null" >
-        #{user,jdbcType=VARCHAR},
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         #{password,jdbcType=VARCHAR},
@@ -85,8 +85,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.thunisoft.pojo.Permission" >
     update master_data.t_permission
     <set >
-      <if test="user != null" >
-        user = #{user,jdbcType=VARCHAR},
+      <if test="userName != null" >
+        user_name = #{user,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
@@ -107,11 +107,10 @@
 
   <update id="updateByPrimaryKey" parameterType="com.thunisoft.pojo.Permission" >
     update master_data.t_permission
-    set user = #{user,jdbcType=VARCHAR},
+    set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       type = #{type,jdbcType=SMALLINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
 
@@ -119,7 +118,8 @@
     select
     <include refid="Base_Column_List" />
     from master_data.t_permission
-    limit ${pageNum} offset ${pageStart}
+    order by id
+    limit ${limit} offset ${limit}*(${page}-1)
   </select>
 
   <select id="selectCount" resultType="int" parameterType="map">

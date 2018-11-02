@@ -1,4 +1,4 @@
-package com.thunisoft.service.serviceImpl;
+package com.thunisoft.service.impl;
 
 import com.thunisoft.dao.PermissionMapper;
 import com.thunisoft.pojo.Permission;
