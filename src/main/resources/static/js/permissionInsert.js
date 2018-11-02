@@ -38,3 +38,9 @@ function getUserValue(){
     user.id = $("#id").val();
     return user;
 }
+
+function resetBtn(){
+    $('#username').val('');
+    $('#password').val('');
+    $('#type').val('');
+}
