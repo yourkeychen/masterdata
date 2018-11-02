@@ -15,18 +15,20 @@ function showPageAndTable(currentPage,pageSize){
             ,skin:'line'
             ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
             ,cols: [[
-                {field:'id', width:80, title: '序号'}
-                ,{field:'code', width:80, title: '编号'}
-                ,{field:'conent_name', width:80, title: '内容名称'}
-                ,{field:'description', width:80, title: '描述'}
-                ,{field:'effect', title: '是否生效', width: 130} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-                ,{field:'zsjname', title: '主数据',width:80}
-                ,{field:'zsjkname', title: '主数据库',width:130}
-                ,{field:'create_time', title: '申请时间',width:180}
-                ,{field:'applicant', width:80, title: '申请人'}
-                ,{field:'reason', width:137, title: '申请理由'}
-                ,{field:'status', width:137, title: '审核状态'}
+                {field:'id', title: '序号', sort: true}
+                ,{field:'code', title: '编号', sort: true}
+                ,{field:'conent_name', title: '内容名称'}
+                ,{field:'description', title: '描述'}
+                ,{field:'effect', title: '是否生效', sort: true} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                ,{field:'zsjname', title: '主数据'}
+                ,{field:'zsjkname', title: '主数据库'}
+                ,{field:'create_time', title: '申请时间', sort: true}
+                ,{field:'applicant',title: '申请人'}
+                ,{field:'reason', title: '申请理由'}
+                ,{field:'status', title: '审核状态', sort: true}
                 ,{field:'audit_optnion',  title: '审核意见'}
+                ,{field:'review_time',  title: '审核时间'}
+
             ]]
             ,page:false
             ,done: function(res, curr, count){

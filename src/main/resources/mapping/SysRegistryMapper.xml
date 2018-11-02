@@ -29,7 +29,7 @@
     CASE WHEN b.effect=0 THEN '有效' WHEN b.effect=1 THEN '无效' ELSE CAST(b.effect as VARCHAR(11)) END as effect,
     c.name zsjname,d.name zsjkname,to_char(a.create_time,'yyyy-mm-dd hh:MM:ss') create_time,a.applicant,a.reason,
     CASE WHEN a.status=0 THEN '不通过' WHEN a.status=1 THEN '通过' ELSE CAST(a.status as VARCHAR(11)) END as status,
-    a.audit_optnion
+    a.audit_optnion,a.review_time
     FROM master_data.t_application_reiew a LEFT JOIN master_data.t_master_content b ON a.master_id=b.id
     LEFT JOIN master_data.t_menu c ON b.menu_id=c.ID
     LEFT JOIN master_data.t_menu d ON c.pa_id=d.id

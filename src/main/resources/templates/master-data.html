@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:margin-left="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>主数据管理系统</title>
     <script src="/jquery-1.8.3.js"></script>
     <script src="/layui/layui.js"></script>
     <script src="/js/master-data.js"></script>
@@ -11,84 +11,53 @@
 </head>
 <body>
 <div style="margin-bottom: 10px;margin-left: 30px;margin-top: 10px">
-    <button class="layui-btn layui-btn-sm" id="pg-master-data-add">增加</button>
+    <button class="layui-btn layui-btn-sm" id="pg-add-master-data">增加</button>
+    <table class="layui-hide" id="fd-master-data"></table>
 </div>
-
+</body>
 
 <!--弹出表单-->
-<form class="layui-form" action="">
-    <div class="layui-form-item">
-        <label class="layui-form-label">编码</label>
+<form class="layui-form" id="pg-add-data-windows" style="display: none">
+    <div class="layui-form-item" style="margin-top: 15px;">
+        <label class="layui-form-label" style="margin-left: 30px;">编码</label>
         <div class="layui-input-block">
-            <input type="text"  id="pg-code" name="code" required  lay-verify="required" placeholder="请输入编码" autocomplete="off" class="layui-input">
+            <input type="text"  id="pg-code" name="code" required  lay-verify="required" placeholder="请输入编码" autocomplete="off" class="layui-input" style="width: 70%;">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">内容名称</label>
+        <label class="layui-form-label" style="margin-left: 30px;">内容名称</label>
         <div class="layui-input-block">
-            <input type="text" id="pg-conentName" name="conentName" required  lay-verify="required" placeholder="请输入内容名称" autocomplete="off" class="layui-input">
+            <input type="text" id="pg-conentName" name="conentName" required  lay-verify="required" placeholder="请输入内容名称" autocomplete="off" class="layui-input" style="width: 70%;">
         </div>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">描述</label>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" style="margin-left: 30px;">描述</label>
         <div class="layui-input-block">
-            <input type="text"  id="pg-desc" name="desc" required  lay-verify="required" placeholder="请输入描述" autocomplete="off" class="layui-input">
+            <textarea name="desc" id="pg-desc" placeholder="请输入描述" class="layui-textarea" style="width: 70%; min-height: 50px;"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" style="margin-left: 30px;">申请原因</label>
+        <div class="layui-input-block">
+            <textarea name="reason" id="pg-reason" placeholder="请输入申请原因" class="layui-textarea" style="width: 70%; min-height: 50px;"></textarea>
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label">是否有效</label>
+        <label class="layui-form-label" style="margin-left: 30px;">是否有效</label>
         <div class="layui-input-block">
-            <input type="radio" class="pg-effect" name="effect" value="0" title="有效">
-            <input type="radio" class="pg-effect"  name="effect" value="1" title="无效" checked>
+            <input type="radio" class="pg-effect" name="effect" value="0" title="有效" checked>
+            <input type="radio" class="pg-effect"  name="effect" value="1" title="无效">
         </div>
     </div>
-
+    <input type="hidden" name="menuId" id="pg-menu-id" th:value="${menuId}">
     <div class="layui-form-item">
-        <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo" onclick="submitMasterData()">立即提交</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        <div class="layui-input-block" style="margin-left: 180px">
+            <button class="layui-btn" lay-submit lay-filter="formDemo" id="pg-submit-data">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" style="margin-left: 20px">重置</button>
         </div>
     </div>
 </form>
 
-</body>
-<script>
-    layui.use('element',function () {
-        var element = layui.element;
-    });
 
-</script>
-
-<script>
-    function submitMasterData() {
-        var saveMasterDataUrl="/saveMasterData"
-        var code=$("#pg-code").val();
-        var conentName=$("#pg-conentName").val();
-        var desc=$("#pg-desc").val();
-        var effect=$("input:radio:checked").val();
-
-        $.ajax({
-            url : "/saveMasterData",
-            type: "POST",
-            dataType: 'json',
-            async: false,
-            data: {
-                code:code,
-                conentName:conentName,
-                desc:desc,
-                effect:effect
-            },
-            success: function (result) {
-             if (result=1){
-                 alert("success")
-             }else {
-                 alert("fail")
-             }
-            }
-        });
-
-    }
-
-</script>
 </html>

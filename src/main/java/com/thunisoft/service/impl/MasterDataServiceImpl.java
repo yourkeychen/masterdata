@@ -1,7 +1,9 @@
 package com.thunisoft.service.impl;
 
+import com.thunisoft.dao.ApplicationReiewMapper;
 import com.thunisoft.dao.MasterContentMapper;
 import com.thunisoft.dao.MenuMapper;
+import com.thunisoft.pojo.ApplicationReiew;
 import com.thunisoft.pojo.MasterContent;
 import com.thunisoft.pojo.Menu;
 import com.thunisoft.service.MasterDataService;
@@ -18,6 +20,9 @@ public class MasterDataServiceImpl implements MasterDataService {
     private MenuMapper menuMapper;
     @Autowired
     private MasterContentMapper masterContentMapper;
+    @Autowired
+    private ApplicationReiewMapper applicationReiewMapper;
+
 
     @Override
     public List<Menu> findAllByPid(Integer pId) {
@@ -36,8 +41,8 @@ public class MasterDataServiceImpl implements MasterDataService {
     }
 
     @Override
-    public List<MasterContent> findMasterContent(Integer pageNum, Integer pageStart, Integer menuId) {
-        return masterContentMapper.findMasterContent(pageNum,pageStart,menuId);
+    public List<MasterContent> findMasterContent(Integer limit, Integer page, Integer menuId) {
+        return masterContentMapper.findMasterContent(limit,page,menuId);
     }
 
     @Override
@@ -47,7 +52,27 @@ public class MasterDataServiceImpl implements MasterDataService {
 
     @Override
     public int insertMasterData(MasterContent mc) {
-        return masterContentMapper.insert(mc);
+        if (masterContentMapper.insert(mc)>0){
+            return mc.getId();
+        }else {
+            return 0;
+        }
+    }
+
+    @Override
+    public int insertApplicationReiew(ApplicationReiew ar) {
+
+        return applicationReiewMapper.insert(ar);
+    }
+
+    @Override
+    public List<Map> findExMasterData(Integer limit, Integer page) {
+        return masterContentMapper.findExMasterData(limit,page);
+    }
+
+    @Override
+    public int findExMasterDataCount() {
+        return masterContentMapper.findExMasterDataCount();
     }
 
 

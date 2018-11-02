@@ -1,5 +1,6 @@
 package com.thunisoft.service;
 
+import com.thunisoft.pojo.ApplicationReiew;
 import com.thunisoft.pojo.MasterContent;
 import com.thunisoft.pojo.Menu;
 
@@ -13,9 +14,15 @@ public interface MasterDataService {
 
     List<MasterContent> findByMenuId(Integer menuId);
 
-    List<MasterContent> findMasterContent(Integer pageNum, Integer pageStart, Integer menuId);
+    List<MasterContent> findMasterContent(Integer limit, Integer page, Integer menuId);
 
     int findCountByMenuId(Integer menuId);
 
     int insertMasterData(MasterContent mc);
+
+    int insertApplicationReiew(ApplicationReiew ar);
+
+    List<Map> findExMasterData(Integer limit, Integer page);
+
+    int findExMasterDataCount();
 }

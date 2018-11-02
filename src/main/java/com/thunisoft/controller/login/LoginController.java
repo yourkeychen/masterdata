@@ -20,7 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 
 /**
  * CommonController
- * @author jiangyishan
+ * @author
  * @version 1.0
  *
  */

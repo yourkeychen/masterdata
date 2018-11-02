@@ -4,6 +4,7 @@ import com.thunisoft.pojo.MasterContent;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MasterContentMapper {
     int deleteByPrimaryKey(Integer id);
@@ -20,7 +21,11 @@ public interface MasterContentMapper {
 
     List<MasterContent> findByMenuId(Integer menuId);
 
-    List<MasterContent> findMasterContent(@Param("pageNum")Integer pageNum, @Param("pageStart")Integer pageStart, @Param("menuId") Integer menuId);
+    List<MasterContent> findMasterContent(@Param("limit")Integer limit, @Param("page")Integer page, @Param("menuId") Integer menuId);
 
     int findCountByMenuId(Integer menuId);
+
+    int findExMasterDataCount();
+
+    List<Map> findExMasterData(@Param("limit") Integer limit, @Param("page") Integer page);
 }

@@ -14,7 +14,8 @@
         <div class="layui-logo">主数据管理</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item layui-this" id="changeToMasterData"><a href="/menu/data?pId=0"> 主数据</a></li>
+            <li class="layui-nav-item layui-this" id="changeToMasterData"><a href="/menu/data?pId=0">主数据</a></li>
+            <li class="layui-nav-item layui-this" id="changeToExamine"><a href="/menu/data?pId=-3">审核</a></li>
             <li class="layui-nav-item" id="changeToLog"><a href="/menu/data?pId=-2">日志</a></li>
             <li class="layui-nav-item" id="changeToSet"><a href="/menu/data?pId=-1">设置</a></li>
         </ul>
@@ -29,6 +30,7 @@
         </ul>
     </div>
 
+    <!--左边导航-->
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!--左侧导航区域（可配合layui已有的垂直导航） -->
@@ -44,14 +46,13 @@
        </div>
     </div>
 
-
         <!--内容主题不符-->
         <iframe class="layui-body" src="/menu/homePage" frameborder="0" id="fd-page-setting" style="height: 770px;width: 100%;background-color: #fff"></iframe>
 
 
-    <div class="layui-footer">
+    <div class="layui-footer" style="text-align: center">
         <!-- 底部固定区域 -->
-       主数据管理@2018.10
+       主数据管理系统@2018.10
     </div>
 </div>
 

@@ -28,14 +28,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.thunisoft.pojo.ApplicationReiew" >
-    insert into t_application_reiew (id, applicant, reason, 
+    insert into master_data.t_application_reiew (applicant, reason,
       status, reviewer, audit_optnion, 
-      review_time, master_id, create_time, 
-      update_time)
-    values (#{id,jdbcType=INTEGER}, #{applicant,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR}, 
+      review_time, master_id)
+    values (#{applicant,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR},
       #{status,jdbcType=INTEGER}, #{reviewer,jdbcType=VARCHAR}, #{auditOptnion,jdbcType=VARCHAR}, 
-      #{reviewTime,jdbcType=TIMESTAMP}, #{masterId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      #{reviewTime,jdbcType=TIMESTAMP}, #{masterId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.thunisoft.pojo.ApplicationReiew" >
     insert into t_application_reiew
