@@ -1,5 +1,7 @@
 package com.thunisoft.pojo;
 
+import java.util.Date;
+
 public class SysRegistry {
     private Integer id;
 

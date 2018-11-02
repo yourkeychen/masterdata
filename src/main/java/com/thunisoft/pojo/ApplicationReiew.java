@@ -9,7 +9,7 @@ public class ApplicationReiew {
 
     private String reason;
 
-    private Short status;
+    private Integer status;
 
     private String reviewer;
 
@@ -47,11 +47,11 @@ public class ApplicationReiew {
         this.reason = reason;
     }
 
-    public Short getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Short status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

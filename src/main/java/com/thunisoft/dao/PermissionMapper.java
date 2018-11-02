@@ -18,7 +18,7 @@ public interface PermissionMapper {
 
     int updateByPrimaryKey(Permission record);
 
-    List<Permission> selectList(Map<String,Object> map);
+    List<Permission> selectList(Map<String, Object> map);
 
-    int selectCount(Map<String,Object> map);
+    int selectCount(Map<String, Object> map);
 }

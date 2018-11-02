@@ -11,15 +11,29 @@ public class MasterContent {
 
     private String conentName;
 
-    private String desc;
+    private String description;
 
-    private Short effect;
+    private Integer effect;
 
     private String creator;
 
     private Date createTime;
 
     private Date updateTime;
+
+    /**
+     * 审核状态
+     */
+    private Integer status;
+
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public Integer getId() {
         return id;
@@ -54,18 +68,18 @@ public class MasterContent {
     }
 
     public String getDesc() {
-        return desc;
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDesc(String description) {
+        this.description = description;
     }
 
-    public Short getEffect() {
+    public Integer getEffect() {
         return effect;
     }
 
-    public void setEffect(Short effect) {
+    public void setEffect(Integer effect) {
         this.effect = effect;
     }
 

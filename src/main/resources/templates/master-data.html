@@ -1,83 +1,94 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:margin-left="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="/jquery-1.8.3.js"></script>
+    <script src="/layui/layui.js"></script>
+    <script src="/js/master-data.js"></script>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
-<link rel="stylesheet" type="text/css" href="/index.css">
-
-<div class="layui-side layui-bg-black">
-    <div class="layui-side-scroll">
-        <!--左侧导航区域（可配合layui已有的垂直导航） -->
-         <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-          <li class="layui-nav-item layui-nav-itemed" th:each="menu:${menuList}">
-                <a class="" href="javascript:;" th:text="${menu.name}"></a>
-                <dl class="layui-nav-child" th:each="child:${menu.childMenus}">
-                    <dd><a href="javascript:;" th:text="${child.name}"></a></dd>
-                </dl>
-            </li>
-        </ul>
-
-
-    </div>
+<div style="margin-bottom: 10px;margin-left: 30px;margin-top: 10px">
+    <button class="layui-btn layui-btn-sm" id="pg-master-data-add">增加</button>
 </div>
 
-<!--<div class="layui-body">
-   &lt;!&ndash;内容主体区域 &ndash;&gt;
-    <div style="margin-bottom: 10px;margin-left: 30px">
-        <button class="layui-btn layui-btn-sm">增加</button>
-        主数据>>>>>>>>>>>>>>>>>>>
-    </div>-->
-    <!--<div style="padding-left: 30px">
-        <table class="psy-table">
-            <tr class="psy-thd">
-                <th>序号</th>
-                <th>系统标识</th>
-                <th>系统名称</th>
-                <th>系统描述</th>
-                <th>系统IP</th>
-                <th>注册时间</th>
-                <th>操作</th>
-            </tr>
-            <tr class="psy-tr">
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
-            </tr>
-            <tr class="psy-tr">
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
-            </tr>
-            <tr class="psy-tr">
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th><button class="layui-btn layui-btn-sm">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm">删除</button></th>
-            </tr>
-        </table>
-    </div>-->
-<!--</div>-->
-</body>
 
-<script src="/jquery-1.8.3.js"></script>
-<script src="/layui/layui.js"></script>
-<script type="text/javascript">
+<!--弹出表单-->
+<form class="layui-form" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">编码</label>
+        <div class="layui-input-block">
+            <input type="text"  id="pg-code" name="code" required  lay-verify="required" placeholder="请输入编码" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">内容名称</label>
+        <div class="layui-input-block">
+            <input type="text" id="pg-conentName" name="conentName" required  lay-verify="required" placeholder="请输入内容名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">描述</label>
+        <div class="layui-input-block">
+            <input type="text"  id="pg-desc" name="desc" required  lay-verify="required" placeholder="请输入描述" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否有效</label>
+        <div class="layui-input-block">
+            <input type="radio" class="pg-effect" name="effect" value="0" title="有效">
+            <input type="radio" class="pg-effect"  name="effect" value="1" title="无效" checked>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo" onclick="submitMasterData()">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+</body>
+<script>
     layui.use('element',function () {
-        var  element=layui.element;
+        var element = layui.element;
     });
+
+</script>
+
+<script>
+    function submitMasterData() {
+        var saveMasterDataUrl="/saveMasterData"
+        var code=$("#pg-code").val();
+        var conentName=$("#pg-conentName").val();
+        var desc=$("#pg-desc").val();
+        var effect=$("input:radio:checked").val();
+
+        $.ajax({
+            url : "/saveMasterData",
+            type: "POST",
+            dataType: 'json',
+            async: false,
+            data: {
+                code:code,
+                conentName:conentName,
+                desc:desc,
+                effect:effect
+            },
+            success: function (result) {
+             if (result=1){
+                 alert("success")
+             }else {
+                 alert("fail")
+             }
+            }
+        });
+
+    }
+
 </script>
 </html>

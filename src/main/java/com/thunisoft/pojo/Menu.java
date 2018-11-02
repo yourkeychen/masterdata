@@ -18,14 +18,6 @@ public class Menu {
 
     private String url;
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     private List<Menu> childMenus;
 
     public List<Menu> getChildMenus() {
@@ -82,5 +74,13 @@ public class Menu {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
