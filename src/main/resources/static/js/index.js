@@ -1,7 +1,7 @@
 $(function () {
-    // layui.use('layer', function() {
-    //     var layer = layui.layer;
-    // });
+    layui.use('layer', function() {
+        var layer = layui.layer;
+    });
     // $('#toxtzc').bind('click',toXtzc)
     // var data = {
     //     tableId: "tab",
