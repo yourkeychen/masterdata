@@ -66,13 +66,18 @@ public class MasterDataServiceImpl implements MasterDataService {
     }
 
     @Override
-    public List<Map> findExMasterData(Integer limit, Integer page) {
-        return masterContentMapper.findExMasterData(limit,page);
+    public List<Map> findExMasterData(Integer limit, Integer page,Integer status) {
+        return masterContentMapper.findExMasterData(limit,page,status);
     }
 
     @Override
     public int findExMasterDataCount() {
         return masterContentMapper.findExMasterDataCount();
+    }
+
+    @Override
+    public int updateExaminDataById(ApplicationReiew appRe) {
+        return applicationReiewMapper.updateByPrimaryKey(appRe);
     }
 
 

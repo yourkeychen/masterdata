@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>主数据管理系统</title>
@@ -10,11 +10,32 @@
 </head>
 <body>
 <div style="margin-bottom: 10px;margin-left: 30px;margin-top: 10px">
-    <table class="layui-hide" id="fd-data-examine"></table>
+    <table class="layui-hide" id="fd-data-examine" lay-filter="fd-examine"></table>
 </div>
 </body>
 
+<!--添加审核意见弹框-->
+<form class="layui-form" id="pg-examine-windows" style="display: none">
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">审核意见</label>
+        <div class="layui-input-block">
+            <textarea name="auditOptnion" id="pg-audit-optnion" placeholder="请输入审核意见" class="layui-textarea" style="width: 80%;margin-top: 15px;min-height: 150px;"></textarea>
+        </div>
+    </div>
+    <input type="hidden" id="pg-app-id" value="" >
+    <input type="hidden" id="pg-examine-status" value="" >
+
+    <div class="layui-form-item" style="margin-top: 30px;">
+        <div class="layui-input-block" style="margin-left: 150px">
+            <button class="layui-btn" lay-submit lay-filter="formDemo" id="pg-submit-examine">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" style="margin-left: 20px">重置</button>
+        </div>
+    </div>
+</form>
+
+
+
 <script type="text/html" id="pg-examine">
-    <button class="layui-btn layui-btn-sm" lay-event="edit">通过</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm" lay-event="del">不通过</button>
+    <button class="layui-btn layui-btn-sm" lay-event="pass">通过</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm" lay-event="noPass">不通过</button>
 </script>
 </html>

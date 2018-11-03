@@ -18,7 +18,7 @@
     id, menu_id, code, conent_name, description, effect, creator, create_time, update_time
   </sql>
   <select id="findMasterContent" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-     SELECT mc.id, mc.menu_id, mc.code, mc.conent_name, mc.description, mc.effect, mc.creator, mc.create_time, mc.update_time,ar.status
+    SELECT mc.id, mc.menu_id, mc.code, mc.conent_name, mc.description, mc.effect, mc.creator, mc.create_time, mc.update_time,ar.status
      FROM master_data.t_master_content mc LEFT JOIN master_data.t_application_reiew ar ON mc.id=ar.master_id
      where mc.menu_id=#{menuId,jdbcType=INTEGER}
      order by mc.id
@@ -30,12 +30,13 @@
      where mc.menu_id=#{menuId,jdbcType=INTEGER}
   </select>
   <select id="findExMasterData" parameterType="java.lang.Integer" resultType="map">
-     SELECT b.id,b.code,b.conent_name,b.description,
+     SELECT a.id,b.code,b.conent_name,b.description,
       CASE WHEN b.effect=0 THEN '有效' WHEN b.effect=1 THEN '无效' ELSE CAST(b.effect as VARCHAR(11)) END as effect,
       c.name zsjname,d.name zsjkname,to_char(a.create_time,'yyyy-mm-dd hh:MM:ss') create_time,a.applicant,a.reason
       FROM master_data.t_application_reiew a LEFT JOIN master_data.t_master_content b ON a.master_id=b.id
       LEFT JOIN master_data.t_menu c ON b.menu_id=c.ID
       LEFT JOIN master_data.t_menu d ON c.pa_id=d.id
+      WHERE a.status=#{status}
       order by a.id
       limit #{limit} offset #{limit}*(#{page}-1)
   </select>

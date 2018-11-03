@@ -136,16 +136,11 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.thunisoft.pojo.ApplicationReiew" >
-    update t_application_reiew
-    set applicant = #{applicant,jdbcType=VARCHAR},
-      reason = #{reason,jdbcType=VARCHAR},
+    update master_data.t_application_reiew
+    set
       status = #{status,jdbcType=INTEGER},
-      reviewer = #{reviewer,jdbcType=VARCHAR},
       audit_optnion = #{auditOptnion,jdbcType=VARCHAR},
-      review_time = #{reviewTime,jdbcType=TIMESTAMP},
-      master_id = #{masterId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      review_time = #{reviewTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

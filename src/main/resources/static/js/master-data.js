@@ -3,10 +3,13 @@ $(function () {
     showMasterDataTab();
     /*主数据弹框*/
     $('#pg-add-master-data').bind('click',toAddMasterData);
-    //提交数据
+    //提交新增主数据
     $('#pg-submit-data').bind('click',submitMasterData);
     /*主数据审核*/
     showMasterDataExamineTab()
+    //提交审核数据
+    $('#pg-submit-examine').bind('click',submitExamineData);
+
 
 });
 
@@ -70,8 +73,36 @@ function addMasterData(ts) {
         })
     });
 }
+//提交审核数据
+function  submitExamineData(){
+    var updateExaminUrl="/updateExaminStatus"
+    var id=$("#pg-app-id").val();
+    var status=$("#pg-examine-status").val();
+    var auditOptnion=$("#pg-audit-optnion").val();
+    $.ajax({
+        url : updateExaminUrl,
+        type: "POST",
+        dataType: 'json',
+        async: false,
+        data: {
+            id:id,
+            status:status,
+            auditOptnion:auditOptnion
+        },
+        success: function (result) {
+            if (result==1){
+                showTs('添加成功');
+                layer.close(layer.index);
+            }else {
+                showTs('添加失败');
+            }
+          //window.parent.location.reload();
+        }
+    });
+}
 
-//提交数据
+
+//提交新增主数据
 function submitMasterData() {
     var saveMasterDataUrl="/saveMasterData"
     var code=$("#pg-code").val();
@@ -145,5 +176,44 @@ function showMasterDataExamineTab() {
                 ,{field:"caozuo",title:"审核",toolbar:'#pg-examine', width:160}
             ]]
         });
+        table.on('tool(fd-examine)',function(obj){
+            var data = obj.data;
+            $("#pg-app-id").val(data.id); //通过
+            if(obj.event == 'pass'){
+                examineData(1,data.id); //通过
+                $("#pg-examine-status").val(1);
+
+            }else if(obj.event == 'noPass'){
+                $("#pg-examine-status").val(2);
+                examineData(2,data.id); //不通过
+            }
+        })
+    });
+}
+
+
+//审核意见 弹出窗口
+function examineData(e,id) {
+    var str;
+    if (e==1){
+        str="通过";
+    }else if(e==2){
+        str="不通过";
+    }
+    layui.use('layer', function(){
+        var layer = layui.layer;
+        layer.open({
+            type:1,
+            title:str,
+            closeBtn:'1',
+            bthAlign:'c',
+            area:['500px','300px'],
+            align:'center',
+            shadeClose:true,
+            content:$('#pg-examine-windows'),
+            end:function(){
+                $('#pg-examine-windows').hide();
+            }
+        })
     });
 }

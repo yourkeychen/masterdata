@@ -27,5 +27,5 @@ public interface MasterContentMapper {
 
     int findExMasterDataCount();
 
-    List<Map> findExMasterData(@Param("limit") Integer limit, @Param("page") Integer page);
+    List<Map> findExMasterData(@Param("limit") Integer limit, @Param("page") Integer page,@Param("status") Integer status);
 }

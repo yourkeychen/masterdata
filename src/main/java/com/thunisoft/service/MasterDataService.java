@@ -22,7 +22,9 @@ public interface MasterDataService {
 
     int insertApplicationReiew(ApplicationReiew ar);
 
-    List<Map> findExMasterData(Integer limit, Integer page);
+    List<Map> findExMasterData(Integer limit, Integer page,Integer status);
 
     int findExMasterDataCount();
+
+    int updateExaminDataById(ApplicationReiew appRe);
 }

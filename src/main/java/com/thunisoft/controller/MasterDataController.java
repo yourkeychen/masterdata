@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Controller
 public class MasterDataController {
+    /*待审核状态*/
+    private static final Integer PENDREVIEWSTATUS=0;
+
     @Autowired
     private MasterDataService masterDataService;
 
@@ -95,12 +99,30 @@ public class MasterDataController {
     @RequestMapping("/getExamineMasterData")
     @ResponseBody
     public Object getExamineMastrData(@RequestParam("limit") Integer limit , @RequestParam("page") Integer page ){
-        Map<String, Object> exMDMap = new HashMap<>();
+        Map<String, Object> exMDMap =new HashMap<>();
         exMDMap.put("code",0);
         exMDMap.put("msg","");
-        exMDMap.put("data",masterDataService.findExMasterData(limit,page));
+        exMDMap.put("data",masterDataService.findExMasterData(limit,page,PENDREVIEWSTATUS));
         exMDMap.put("count",masterDataService.findExMasterDataCount());
         return exMDMap;
+    }
+    /**
+     * 提交审核状态
+     * @param
+     * @param
+     * @return
+     */
+    @RequestMapping("/updateExaminStatus")
+    @ResponseBody
+    public Object updateExaminStatus(@RequestParam("id") Integer id , @RequestParam("status") Integer status,@RequestParam("auditOptnion") String auditOptnion){
+        ApplicationReiew appRe=new ApplicationReiew();
+        appRe.setId(id);
+        appRe.setStatus(status);
+        appRe.setAuditOptnion(auditOptnion);
+        appRe.setReviewTime(new Date());
+        //TODO 要添加操作者
+        int app=masterDataService.updateExaminDataById(appRe);
+        return app;
     }
 
 }
