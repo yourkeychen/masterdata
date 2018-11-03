@@ -8,4 +8,5 @@ public interface XtzcService {
     Map insertObject(SysRegistry sysRegistry);
     Map updateByPrimaryKey(SysRegistry sysRegistry);
     Map deleteObject(SysRegistry sysRegistry);
+    SysRegistry selectById(Integer id);
 }
