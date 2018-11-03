@@ -6,11 +6,13 @@ import com.thunisoft.service.XtzcService;
 import com.thunisoft.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/masterData")
@@ -27,12 +29,15 @@ public class XtzcController {
     public String tolog(){
         return "loginform";
     }
-    @RequestMapping("/showObjects")
-    @ResponseBody
-    public Object showObjects(Integer pageNum,Integer pageSize){
-        System.out.println(pageNum);
-        System.out.println(pageSize);
-        return CommonUtils.getJsonRes(sysRegistryMapper.selectObject(pageNum,pageSize));
+    @RequestMapping("/toAddWindow")
+    public String toAddWindow(@RequestParam Map<String,Object> map, Model model){
+        if(map.get("id")!=null){
+            SysRegistry sysRegistry = xtzcService.selectById(Integer.valueOf((String) map.get("id")));
+            model.addAttribute("sysRegistry",sysRegistry);
+        }else {
+            model.addAttribute("sysRegistry",new SysRegistry());
+        }
+        return "XtzcInsert";
     }
     @RequestMapping("/showObjectsq")
     @ResponseBody
@@ -44,19 +49,6 @@ public class XtzcController {
         stringObjectHashMap.put("data",sysRegistryMapper.selectObject(currentPage,pageSize));
         return stringObjectHashMap;
     }
-    @RequestMapping("/selectCount")
-    @ResponseBody
-    public Object selectCount(){
-        System.out.println(sysRegistryMapper.selectCount());
-        return CommonUtils.getJsonRes(sysRegistryMapper.selectCount());
-    }
-    /*@RequestMapping("/showPagination")
-    @ResponseBody
-    public Object showPagination(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "10") Integer pageSize){
-        System.out.println(pageNum);
-        System.out.println(pageSize);
-        return null;
-    }*/
     @RequestMapping("/insertObject")
     @ResponseBody
     public Object insertObject(SysRegistry sysRegistry){

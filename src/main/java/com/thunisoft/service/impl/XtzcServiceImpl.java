@@ -48,4 +48,10 @@ public class XtzcServiceImpl implements XtzcService {
         }
         return stringObjectHashMap;
     }
+
+    @Override
+    public SysRegistry selectById(Integer id) {
+        SysRegistry sysRegistry = sysRegistryMapper.selectByPrimaryKey(id);
+        return sysRegistry;
+    }
 }
