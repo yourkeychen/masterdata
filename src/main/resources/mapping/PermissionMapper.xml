@@ -125,4 +125,8 @@
   <select id="selectCount" resultType="int" parameterType="map">
     select count(1) from master_data.t_permission
   </select>
+
+  <select id="selectByUserNamePassword" resultMap="BaseResultMap" parameterType="com.thunisoft.pojo.Permission">
+    select <include refid="Base_Column_List" /> from master_data.t_permission where user_name = #{userName} and password = #{password}
+  </select>
 </mapper>

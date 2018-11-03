@@ -13,8 +13,10 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.thunisoft.dao.PermissionMapper;
 import com.thunisoft.pojo.LoginBean;
 import com.thunisoft.pojo.MenuBean;
+import com.thunisoft.pojo.Permission;
 import com.thunisoft.shiro.token.MyToken;
 import com.thunisoft.util.ControllerTool;
 import com.thunisoft.util.PropertiesUtil;
@@ -23,6 +25,8 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONArray;
@@ -38,6 +42,9 @@ import com.alibaba.fastjson.JSONObject;
 public class LoginService {
 
     private static Logger logger = LoggerFactory.getLogger(LoginService.class);
+
+    @Autowired
+    private PermissionMapper permissionMapper;
     
     /**
      * 登录session集合 
@@ -51,11 +58,15 @@ public class LoginService {
     public JSONObject getLoginMessage(){
         JSONObject loginMessage = null;
         if(ControllerTool.isLogin()){
-        	LoginBean user = ControllerTool.getCurrentUser();
+//        	LoginBean user = ControllerTool.getCurrentUser();
+			Permission user = ControllerTool.getCurrentUser2();
         	loginMessage = new JSONObject();
-        	loginMessage.put("id", user.getZybm());
-        	loginMessage.put("login", user.getAccount());
-        	loginMessage.put("name", user.getUsername());
+//        	loginMessage.put("id", user.id());
+//        	loginMessage.put("login", user.getAccount());
+//        	loginMessage.put("name", user.getUsername());
+			loginMessage.put("id", user.getId());
+			loginMessage.put("username", user.getUserName());
+			loginMessage.put("password", user.getPassword());
         }
         return loginMessage;
     }
@@ -163,9 +174,12 @@ public class LoginService {
 	 */
 	public Boolean login(String username, String password) {
 		String loginIP = getLoginIP();
-		LoginBean user = LoginBusiness.loginByAccountAndPassword(username, password, loginIP);
-		return dealSessionAndLoginForShiro(user);
+//		LoginBean user = LoginBusiness.loginByAccountAndPassword(username, password, loginIP);
+//		return dealSessionAndLoginForShiro(user);
+		Permission permission = setPermission(username,password);
+		return dealSessionAndLoginForShiro2(permission,loginIP);
 	}
+
 	/**登陆后处理session和继续登陆shiro
 	 * @param user
 	 * @return
@@ -187,6 +201,31 @@ public class LoginService {
 			session.setAttribute("user", user);
 			loginForShiro(zybm, "",username);
 			logins.put(zybm, session);
+			return true;
+		}
+		return false;
+	}
+
+	/**登陆后处理session和继续登陆shiro
+	 * @param user
+	 * @return
+	 */
+	private Boolean dealSessionAndLoginForShiro2(Permission user,String loginIp) {
+		HttpSession session = getSession(true);
+		if(user != null){
+			String userName = user.getUserName();
+			// 他处登陆挤掉
+			HttpSession httpSession = logins.get(userName);
+			if (httpSession != null&&httpSession!=session) {
+				try {
+					httpSession.invalidate();
+				} catch (Exception e) {
+					logger.info(userName, "已销毁session");
+				}
+			}
+			session.setAttribute("user",user);
+			loginForShiro(userName, "",loginIp);
+			logins.put(userName, session);
 			return true;
 		}
 		return false;
@@ -243,5 +282,12 @@ public class LoginService {
 		Boolean menuQX = ControllerTool.getMenuQXCF(currentUserMenu, menuStr);
         return menuQX;
 	}
-	
+
+	public Permission setPermission(String userName,String password){
+		Permission permission = new Permission();
+		permission.setUserName(userName);
+		permission.setPassword(password);
+		Permission result = permissionMapper.selectByUserNamePassword(permission);
+		return result;
+	}
 }

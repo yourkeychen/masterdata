@@ -4,6 +4,7 @@ package com.thunisoft.util;
 import com.alibaba.druid.util.StringUtils;
 import com.thunisoft.pojo.LoginBean;
 import com.thunisoft.pojo.MenuBean;
+import com.thunisoft.pojo.Permission;
 import org.apache.commons.collections.CollectionUtils;
 
 
@@ -21,7 +22,8 @@ public class ControllerTool {
 	
 	
 	public static boolean isLogin() {
-		LoginBean currentUser = getCurrentUser();
+//		LoginBean currentUser = getCurrentUser();
+		Permission currentUser = getCurrentUser2();
 		if (currentUser!=null) {
 			return true;
 		}
@@ -42,6 +44,20 @@ public class ControllerTool {
 		LoginBean currentUser = (LoginBean) session.getAttribute("user");
 		return currentUser;
 	}
+
+	public static Permission getCurrentUser2() {
+		HttpSession session = RequestUtil.getSession(false);
+		if(session == null){
+			return null;
+		}
+		Permission currentUser = (Permission) session.getAttribute("user");
+		return currentUser;
+	}
+
+	/**
+	 * 获取登录人sessionBean
+	 */
+
 	
 	/**
 	 * 获取登陆人的职员编码
@@ -65,6 +81,8 @@ public class ControllerTool {
 		}
 		return null;
 	}
+
+
 	
 	 /**获取登陆人的在单个菜单是否有权限 系统拆分前的方法
 	 * @param currentUserMenu 菜单list

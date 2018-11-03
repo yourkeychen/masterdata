@@ -85,3 +85,19 @@ function tableReload(id){
     });
 
 }
+
+function ilogin() {
+    $.ajax({
+        url : "/ilogin",
+        type: "POST",
+        data: {
+            username : "123",
+            password : "123"
+        },
+        async: false,
+        dataType: 'json',
+        success: function (data) {
+            console.dir(data);
+        }
+    });
+}

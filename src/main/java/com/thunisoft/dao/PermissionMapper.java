@@ -21,4 +21,6 @@ public interface PermissionMapper {
     List<Permission> selectList(Map<String, Object> map);
 
     int selectCount(Map<String, Object> map);
+
+    Permission selectByUserNamePassword(Permission record);
 }

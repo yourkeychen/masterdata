@@ -7,10 +7,13 @@ import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.DelegatingFilterProxy;
 
 import javax.servlet.Filter;
+import javax.servlet.FilterRegistration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -18,7 +21,17 @@ import java.util.Map;
 public class ShiroConfig {
 
    @Bean
-   public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
+   public FilterRegistrationBean delegatingFilterProxy(){
+      FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
+      DelegatingFilterProxy proxy = new DelegatingFilterProxy();
+      proxy.setTargetFilterLifecycle(true);
+      proxy.setTargetBeanName("shiroFilter");
+      filterRegistration.setFilter(proxy);
+      return filterRegistration;
+   }
+
+   @Bean("shiroFilter")
+   public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
       System.out.println("ShiroConfiguration.shirFilter()");
       ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
       shiroFilterFactoryBean.setSecurityManager(securityManager);

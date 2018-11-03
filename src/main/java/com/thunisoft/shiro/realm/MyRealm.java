@@ -1,6 +1,7 @@
 package com.thunisoft.shiro.realm;
 
 import com.thunisoft.pojo.LoginBean;
+import com.thunisoft.pojo.Permission;
 import com.thunisoft.util.ControllerTool;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -30,7 +31,7 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(
             AuthenticationToken authenticationtoken)
             throws AuthenticationException {
-        LoginBean user = ControllerTool.getCurrentUser();
+        Permission user = ControllerTool.getCurrentUser2();
         return new SimpleAuthenticationInfo(user, "D41D8CD98F00B204E9800998ECF8427E", "sf");
     }
 }
