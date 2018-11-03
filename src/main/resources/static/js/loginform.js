@@ -1,6 +1,6 @@
 $(function () {
     var currentPage = 1;
-    var pageSize = 2;
+    var pageSize = 10;
     showPageAndTable(currentPage,pageSize)
 
 });
@@ -11,7 +11,7 @@ function showPageAndTable(currentPage,pageSize){
         table.render({
             elem: '#log-table'
             ,url:'/loginform/showLogObject?currentPage='+currentPage+'&pageSize='+pageSize
-            ,width:1340
+            ,width:1600
             ,skin:'line'
             ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
             ,cols: [[
