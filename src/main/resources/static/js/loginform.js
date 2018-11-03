@@ -10,10 +10,15 @@ function showPageAndTable(currentPage,pageSize){
         laypage = layui.laypage;
         table.render({
             elem: '#log-table'
-            ,url:'/loginform/showLogObject?currentPage='+currentPage+'&pageSize='+pageSize
+            ,url:'/loginform/showLogObject'
             ,width:1600
             ,skin:'line'
             ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,page:{
+                layout: ['count','prev','page','next','limit','skip'],
+                prev: "上一页",
+                next: "下一页"
+            }
             ,cols: [[
                 {field:'id', title: '序号', sort: true}
                 ,{field:'code', title: '编号', sort: true}
@@ -30,8 +35,7 @@ function showPageAndTable(currentPage,pageSize){
                 ,{field:'review_time',  title: '审核时间'}
 
             ]]
-            ,page:false
-            ,done: function(res, curr, count){
+            /*,done: function(res, curr, count){
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
                 laypage.render({
@@ -48,7 +52,7 @@ function showPageAndTable(currentPage,pageSize){
                         }
                     }
                 })
-            }
+            }*/
         });
     });
 }

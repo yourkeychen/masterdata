@@ -41,12 +41,12 @@ public class XtzcController {
     }
     @RequestMapping("/showObjectsq")
     @ResponseBody
-    public Object showObjects1(Integer currentPage,Integer pageSize){
+    public Object showObjects1(Integer page,Integer limit){
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
         stringObjectHashMap.put("code",0);
         stringObjectHashMap.put("msg","");
         stringObjectHashMap.put("count",sysRegistryMapper.selectXtCount());
-        stringObjectHashMap.put("data",sysRegistryMapper.selectObject(currentPage,pageSize));
+        stringObjectHashMap.put("data",sysRegistryMapper.selectObject(page,limit));
         return stringObjectHashMap;
     }
     @RequestMapping("/insertObject")

@@ -18,16 +18,6 @@ function insertObjects() {
             async: false,
             dataType: 'json',
             success: function (data) {
-               /* parent.layer.close(parent.layer.index);//关闭弹出窗口
-                /!*$('#contextMessage').css('display',none)*!/
-                $('#xtbs').val('');//清空写入内容
-                $('#xtmc').val('');
-                $('#xtms').val('');
-                $('#xtip').val('');
-                showPageAndTable(currentPage,pageSize);//跟新表数据
-                if (data.result.success) {
-                    showTs('添加成功');
-                }*/
                 $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.closeOpen(data,"添加成功");
             }
         });

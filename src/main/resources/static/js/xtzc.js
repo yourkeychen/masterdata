@@ -39,10 +39,15 @@ function showPageAndTable(currentPage,pageSize){
         laypage = layui.laypage;
         table.render({
             elem: '#xtzc-table'
-            ,url:'/masterData/showObjectsq?currentPage='+currentPage+'&pageSize='+pageSize
+            ,url:'/masterData/showObjectsq'
             ,width:1440
             ,skin:'line'
             ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,page:{
+                layout: ['count','prev','page','next','limit','skip'],
+                prev: "上一页",
+                next: "下一页"
+            }
             ,cols: [[
                 {field:'id', width:190, title: '序号'}
                 ,{field:'sysCode', width:190, title: '系统标识'}
@@ -52,8 +57,7 @@ function showPageAndTable(currentPage,pageSize){
                 ,{field:'createTime', title: '注册时间',width:190}
                 ,{field:'create_time', title: '操作', toolbar: '#barDemo',width:200}
             ]]
-            ,page:false
-            ,done: function(res, curr, count){
+            /*,done: function(res, curr, count){
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
                 laypage.render({
@@ -70,7 +74,7 @@ function showPageAndTable(currentPage,pageSize){
                         }
                     }
                 })
-            }
+            }*/
         });
         //监听工具条
         table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
