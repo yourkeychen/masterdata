@@ -32,7 +32,6 @@ function layuiSetTable() {
 
         table.on('tool(test)',function(obj){
             var data = obj.data;
-            alert(data.id);
             if(obj.event == 'edit'){
                 add('修改',data.id);
             }else if(obj.event == 'del'){
