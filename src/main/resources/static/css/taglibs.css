@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+/*选项卡布局时，与标签贴在一起的线条，具体可参考主题集属性页面*/
+.pg-properties-childpage-tag {
+	border-top: 2px solid #26A2C6;
+	width: 100%;
+	height: 100%;
+}
+
+/*标签页的容器*/
+.pg-properties-buttons-tag {
+	height: 30px;
+	border: 1px solid #26A2C6;
+	border-top: none;
+	background: #D8F6FD;
+}
+
+/*选项卡布局时，显示在两侧的渐变线条*/
+.line4pg-properties-childpage-content-tag {
+	background: transparent url(images/taglibs/tbline.gif) no-repeat left top;
+	width: 1px;
+}
+
+/*正常情况下的标签*/
+.pg-properties-page-tag {
+	background: transparent;
+}
+
+.pg-properties-page-tag a {
+	color: #5C6063;
+	font-weight: bold;
+	padding: 4px 10px;
+	display: block;
+}
+
+.pg-properties-page-tag a:link,.pg-properties-page-tag a:visited {
+	text-decoration: none;
+}
+
+.pg-properties-page-tag a:hover,.pg-properties-page-tag a:active {
+	text-decoration: underline;
+}
+
+/*当前激活的标签样式*/
+.active4pg-properties-page-tag {
+	background: #26A2C6;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 4px 10px;
+	cursor: default;
+}
+
+span.pg-properties-button-tag {
+	margin-left: 15px;
+}
+
+/*标签中的链接样式*/
+span.pg-properties-button-tag a {
+	color: #5E649E;
+}
+
+span.pg-properties-button-tag a:link,span.pg-properties-button-tag a:visited {
+	text-decoration: underline;
+}
+
+span.pg-properties-button-tag a:hover,span.pg-properties-button-tag a:active {
+	text-decoration: none;
+}

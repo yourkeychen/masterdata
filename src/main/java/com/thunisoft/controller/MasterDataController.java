@@ -4,7 +4,6 @@ import com.thunisoft.pojo.ApplicationReiew;
 import com.thunisoft.pojo.MasterContent;
 import com.thunisoft.pojo.Menu;
 import com.thunisoft.service.MasterDataService;
-import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +24,7 @@ public class MasterDataController {
     @Autowired
     private MasterDataService masterDataService;
 
-    @RequestMapping(value = {"/","/index"})
-    @ResponseBody
+    @RequestMapping(value = "/homePage")
     public String toIndex(Model model){
         Integer pId=0;
         List<Menu> menuList = masterDataService.findAllByPid(pId);

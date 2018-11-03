@@ -92,11 +92,11 @@ function  submitExamineData(){
         success: function (result) {
             if (result==1){
                 showTs('添加成功');
-                layer.close(layer.index);
+               // layer.close(layer.index);
             }else {
                 showTs('添加失败');
             }
-          //window.parent.location.reload();
+            window.location.reload("/getExamineMasterData")
         }
     });
 }

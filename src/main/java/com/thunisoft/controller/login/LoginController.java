@@ -5,6 +5,8 @@ import com.thunisoft.service.LoginService;
 import com.thunisoft.util.CommonUtils;
 import com.thunisoft.util.ControllerTool;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * CommonController
@@ -70,9 +76,8 @@ public class LoginController {
      */
     @RequestMapping(value="/ilogin",method=RequestMethod.POST)
     @ResponseBody
-    public JSONObject login(@RequestParam String username,String password){
+    public JSONObject login(@RequestParam("username") String username,@RequestParam("password") String password){
         return CommonUtils.getJsonRes(loginService.login(username, password));
-//        return CommonUtils.getJsonRes(loginService.loginSSO(username));
     }
     
     /**
@@ -154,5 +159,24 @@ public class LoginController {
     @ResponseBody
     public JSONObject getType(){
         return CommonUtils.getJsonRes(loginService.getType());
+    }
+
+    /**
+     * 访问登录页面
+     * @return
+     */
+    @RequestMapping("/goLogin")
+    public Object login(){
+        return "login";
+    }
+    /**
+     * 访问登录页面
+     * @return
+     */
+    @RequestMapping("/loginOut")
+    public Object quitlogin(HttpServletRequest request, HttpServletResponse response){
+         HttpSession session = request.getSession(false);
+         session.removeAttribute("user");
+        return "login";
     }
 }

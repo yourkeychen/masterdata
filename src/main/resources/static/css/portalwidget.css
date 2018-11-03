@@ -1,0 +1,1706 @@
+@CHARSET "UTF-8";
+/*## 该文件用于门户编辑及展示页面一些组件的系统自带风格样式  ##*/
+
+/**********************************************************/
+/************** 组件xwidget_button样式  **************/
+.widget-btn {
+	height: 30px;
+	position: relative;
+	width: 100px;
+	cursor:pointer;
+	z-index: 0;
+}
+
+/* 按钮背景 */
+.widget-btn .btn-bg {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* 按钮文字 */
+.widget-btn .btn-content{
+	height: 100%;
+	line-height: 30px;
+	overflow: hidden;
+	padding: 0 10px;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-align: center;
+	font-family: 微软雅黑;
+	font-size: 12px;
+}
+
+/*背景划过的样式*/
+.widget-btn:hover .btn-content{
+}
+
+/* 文字图标 */
+.widget-btn .btn-content img {
+	padding-right: 5px;
+	width: auto;
+	height: 16px;
+	vertical-align: text-top;
+}
+
+/********************* 水晶翡翠绿 **********************/
+/* 文字颜色 */
+.widget-btn-green .btn-content {
+	color: #FFFFFF;
+	background: none;
+	border: none;
+}
+
+.widget-btn-green:hover .btn-content{
+	color: #FFFFFF;
+	background:none;
+	border:none;
+}
+
+/* 备用颜色 */
+.widget-btn-green .btn-content span {
+}
+
+/**********普通状态**********/
+.widget-btn-green .btn-top-left,.widget-btn-green .btn-top-right,.widget-btn-green .btn-top-center,.widget-btn-green .btn-bottom-left,.widget-btn-green .btn-bottom-right,.widget-btn-green .btn-bottom-center {
+	background-image: url(images/btn_green.png);
+	position: absolute;
+}
+
+.widget-btn-green .btn-middle-left,.widget-btn-green .btn-middle-right,.widget-btn-green:hover .btn-middle-left,.widget-btn-green:hover .btn-middle-right{
+	background-image: url(images/btn_green_y.png);
+	background-repeat:repeat-y;
+	position: absolute;
+}
+
+.widget-btn-green .btn-middle-center{
+	background:url(images/btn_green_repeat.png) repeat 0px 0px;
+	position: absolute;
+	top: 14px;
+	bottom: 14px;
+	left: 18px;
+	right: 18px;
+}
+
+/* 顶部 */
+.widget-btn-green .btn-top-left {
+	background-position:0px 0px;
+	width: 18px;
+	height: 14px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-green .btn-top-right {
+	background-position:-19px 0px;
+	width: 18px;
+	height: 14px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-green .btn-top-center {
+	background-position:0px -15px;
+	height: 14px;
+	left: 18px;
+	position: absolute;
+	right: 18px;
+	top: 0;
+}
+/* 中间 */
+.widget-btn-green .btn-middle-left {
+	background-position:0px 0px;
+	width: 18px;
+	position: absolute;
+	left: 0px;
+	top: 14px;
+	bottom: 14px;
+}
+.widget-btn-green .btn-middle-right {
+	background-position:0px 0px;
+	width: 18px;
+	position: absolute;
+	right: 0px;
+	top: 14px;
+	bottom: 14px;
+}
+/* 底部 */
+.widget-btn-green .btn-bottom-left {
+	background-position:-38px 0px;
+	width: 18px;
+	height: 14px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-green .btn-bottom-right {
+	background-position:-57px 0px;
+	width: 18px;
+	height: 14px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-green .btn-bottom-center {
+	height:14px;
+	background-position:0px -30px;
+	left: 18px;
+	position: absolute;
+	right: 18px;
+	bottom: 0;
+}
+
+/**********划过状态**********/
+.widget-btn-green:hover .btn-top-left,.widget-btn-green:hover .btn-top-right,.widget-btn-green:hover .btn-top-center,.widget-btn-green:hover .btn-bottom-left,.widget-btn-green:hover .btn-bottom-right,.widget-btn-green:hover .btn-bottom-center {
+	background-image: url(images/btn_green.png);
+	position: absolute;
+}
+
+.widget-btn-green:hover .btn-middle-center{
+	background:url(images/btn_green_repeat_hover.png) repeat 0px 0px;
+	position: absolute;
+	top: 14px;
+	bottom: 14px;
+	left: 18px;
+	right: 18px;
+}
+
+/* 划过顶部 */
+.widget-btn-green:hover .btn-top-left {
+	background-position:-76px 0px;
+	width: 18px;
+	height: 14px;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-green:hover .btn-top-right{
+	background-position:-95px 0px;
+	width: 18px;
+	height: 14px;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-green:hover .btn-top-center{
+	background-position:0px -45px;
+	height: 14px;
+	left: 18px;
+	right: 18px;
+	top: 0;
+}
+/* 划过中间 */
+.widget-btn-green:hover .btn-middle-left{
+	background-position:-18px 0px;
+	width: 18px;
+	left: 0px;
+	top: 14px;
+	bottom: 14px;
+}
+.widget-btn-green:hover .btn-middle-right{
+	background-position:-18px 0px;
+	width: 18px;
+	right: 0px;
+	top: 14px;
+	bottom: 14px;
+}
+/* 划过底部 */
+.widget-btn-green:hover .btn-bottom-left{
+	background-position:-114px 0px;
+	width: 18px;
+	height: 14px;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-green:hover .btn-bottom-right{
+	background-position:-133px 0px;
+	width: 18px;
+	height: 14px;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-green:hover .btn-bottom-center{
+	background-position:0px -60px;
+	height: 14px;
+	left: 18px;
+	right: 18px;
+	bottom: 0;
+}
+
+
+
+
+/********************* 通用银灰 **********************/
+/* 文字颜色 */
+.widget-btn-silvergrey .btn-content{
+	color: #282828;
+	background:none;
+	border:none;
+}
+
+.widget-btn-silvergrey:hover .btn-content{
+	color: #282828;
+	background:none;
+	border:none;
+}
+
+/* 备用颜色 */
+.widget-btn-silvergrey .btn-content span {
+}
+
+/**********普通状态**********/
+.widget-btn-silvergrey .btn-top-left,.widget-btn-silvergrey .btn-top-right,.widget-btn-silvergrey .btn-top-center,.widget-btn-silvergrey .btn-bottom-left,.widget-btn-silvergrey .btn-bottom-right,.widget-btn-silvergrey .btn-bottom-center {
+	background-image: url(images/btn_silvergrey.png);
+	position: absolute;
+}
+
+.widget-btn-silvergrey .btn-middle-left,.widget-btn-silvergrey .btn-middle-right,.widget-btn-silvergrey:hover .btn-middle-left,.widget-btn-silvergrey:hover .btn-middle-right{
+	background-image: url(images/btn_silvergrey_y.png);
+	background-repeat:repeat-y;
+	position: absolute;
+}
+
+.widget-btn-silvergrey .btn-middle-center{
+	background:url(images/btn_silvergrey_repeat.png) repeat 0px 0px;
+	position: absolute;
+	top: 7px;
+	bottom: 15px;
+	left: 7px;
+	right: 7px;
+}
+
+/* 顶部 */
+.widget-btn-silvergrey .btn-top-left {
+	background-position:0px 0px;
+	width: 7px;
+	height: 7px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-silvergrey .btn-top-right {
+	background-position:-8px 0px;
+	width: 7px;
+	height: 7px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-silvergrey .btn-top-center {
+	background-position:0px -16px;
+	height: 7px;
+	left: 7px;
+	position: absolute;
+	right: 7px;
+	top: 0;
+}
+/* 中间 */
+.widget-btn-silvergrey .btn-middle-left {
+	background-position:0px 0px;
+	width: 7px;
+	position: absolute;
+	left: 0px;
+	top: 7px;
+	bottom: 15px;
+}
+.widget-btn-silvergrey .btn-middle-right {
+	background-position:-8px 0px;
+	width: 7px;
+	position: absolute;
+	right: 0px;
+	top: 7px;
+	bottom: 15px;
+}
+/* 底部 */
+.widget-btn-silvergrey .btn-bottom-left {
+	background-position:-16px 0px;
+	width: 7px;
+	height: 15px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-silvergrey .btn-bottom-right {
+	background-position:-24px 0px;
+	width: 7px;
+	height: 15px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-silvergrey .btn-bottom-center {
+	height:15px;
+	background-position:0px -24px;
+	left: 7px;
+	position: absolute;
+	right: 7px;
+	bottom: 0;
+}
+
+/**********划过状态**********/
+.widget-btn-silvergrey:hover .btn-top-left,.widget-btn-silvergrey:hover .btn-top-right,.widget-btn-silvergrey:hover .btn-top-center,.widget-btn-silvergrey:hover .btn-bottom-left,.widget-btn-silvergrey:hover .btn-bottom-right,.widget-btn-silvergrey:hover .btn-bottom-center {
+	background-image: url(images/btn_silvergrey.png);
+	position: absolute;
+}
+
+.widget-btn-silvergrey:hover .btn-middle-center{
+	background:url(images/btn_silvergrey_repeat_hover.png) repeat 0px 0px;
+	position: absolute;
+	top: 7px;
+	bottom: 15px;
+	left: 7px;
+	right: 7px;
+}
+
+/* 划过顶部 */
+.widget-btn-silvergrey:hover .btn-top-left {
+	background-position:-32px 0px;
+	width: 7px;
+	height: 7px;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-silvergrey:hover .btn-top-right{
+	background-position:-40px 0px;
+	width: 7px;
+	height: 7px;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-silvergrey:hover .btn-top-center{
+	background-position:0px -40px;
+	height: 7px;
+	left: 7px;
+	right: 7px;
+	top: 0;
+}
+/* 划过中间 */
+.widget-btn-silvergrey:hover .btn-middle-left{
+	background-position:-16px 0px;
+	width: 7px;
+	left: 0px;
+	top: 7px;
+	bottom: 15px;
+}
+.widget-btn-silvergrey:hover .btn-middle-right{
+	background-position:-24px 0px;
+	width: 7px;
+	right: 0px;
+	top: 7px;
+	bottom: 15px;
+}
+/* 划过底部 */
+.widget-btn-silvergrey:hover .btn-bottom-left{
+	background-position:-48px 0px;
+	width: 7px;
+	height: 15px;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-silvergrey:hover .btn-bottom-right{
+	background-position:-56px 0px;
+	width: 7px;
+	height: 15px;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-silvergrey:hover .btn-bottom-center{
+	background-position:0px -48px;
+	height: 15px;
+	left: 7px;
+	right: 7px;
+	bottom: 0;
+}
+
+
+
+/********************* 扁平湖蓝 **********************/
+/* 文字颜色 */
+.widget-btn-acidblue .btn-content{
+	color: #fff;
+	background:none;
+	border:none;
+}
+
+.widget-btn-acidblue:hover .btn-content{
+	color: #FFFFFF;
+	background:none;
+	border:none;
+}
+
+/* 备用颜色 */
+.widget-btn-acidblue .btn-content span {
+}
+
+/**********普通状态**********/
+.widget-btn-acidblue .btn-top-left,.widget-btn-acidblue .btn-top-right,.widget-btn-acidblue .btn-top-center,.widget-btn-acidblue .btn-bottom-left,.widget-btn-acidblue .btn-bottom-right,.widget-btn-acidblue .btn-bottom-center {
+	background-image: url(images/btn_acidblue.png);
+	position: absolute;
+}
+
+.widget-btn-acidblue .btn-middle-left,.widget-btn-acidblue .btn-middle-right,.widget-btn-acidblue:hover .btn-middle-left,.widget-btn-acidblue:hover .btn-middle-right{
+	background-image: url(images/btn_acidblue_y.png);
+	background-repeat:repeat-y;
+	position: absolute;
+}
+
+.widget-btn-acidblue .btn-middle-center{
+	background:url(images/btn_acidblue_repeat.png) repeat 0px 0px;
+	position: absolute;
+	top: 7px;
+	bottom: 7px;
+	left: 7px;
+	right: 7px;
+}
+
+/* 顶部 */
+.widget-btn-acidblue .btn-top-left {
+	background-position:0px 0px;
+	width: 7px;
+	height: 7px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-acidblue .btn-top-right {
+	background-position:-8px 0px;
+	width: 7px;
+	height: 7px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-acidblue .btn-top-center {
+	background-position:0px -8px;
+	height: 7px;
+	left: 7px;
+	position: absolute;
+	right: 7px;
+	top: 0;
+}
+/* 中间 */
+.widget-btn-acidblue .btn-middle-left {
+	background-position:0px 0px;
+	width: 7px;
+	position: absolute;
+	left: 0px;
+	top: 7px;
+	bottom: 7px;
+}
+.widget-btn-acidblue .btn-middle-right {
+	background-position:0px 0px;
+	width: 7px;
+	position: absolute;
+	right: 0px;
+	top: 7px;
+	bottom: 7px;
+}
+/* 底部 */
+.widget-btn-acidblue .btn-bottom-left {
+	background-position:-16px 0px;
+	width: 7px;
+	height: 7px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-acidblue .btn-bottom-right {
+	background-position:-24px 0px;
+	width: 7px;
+	height: 7px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-acidblue .btn-bottom-center {
+	height:7px;
+	background-position:0px -16px;
+	left: 7px;
+	position: absolute;
+	right: 7px;
+	bottom: 0;
+}
+
+/**********划过状态**********/
+.widget-btn-acidblue:hover .btn-top-left,.widget-btn-acidblue:hover .btn-top-right,.widget-btn-acidblue:hover .btn-top-center,.widget-btn-acidblue:hover .btn-bottom-left,.widget-btn-acidblue:hover .btn-bottom-right,.widget-btn-acidblue:hover .btn-bottom-center {
+	background-image: url(images/btn_acidblue.png);
+	position: absolute;
+}
+
+.widget-btn-acidblue:hover .btn-middle-center{
+	background:url(images/btn_acidblue_repeat_hover.png) repeat 0px 0px;
+	position: absolute;
+	top: 7px;
+	bottom: 7px;
+	left: 7px;
+	right: 7px;
+}
+
+/* 划过顶部 */
+.widget-btn-acidblue:hover .btn-top-left {
+	background-position:-32px 0px;
+	width: 7px;
+	height: 7px;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-acidblue:hover .btn-top-right{
+	background-position:-40px 0px;
+	width: 7px;
+	height: 7px;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-acidblue:hover .btn-top-center{
+	background-position:0px -24px;
+	height: 7px;
+	left: 7px;
+	right: 7px;
+	top: 0;
+}
+/* 划过中间 */
+.widget-btn-acidblue:hover .btn-middle-left{
+	background-position:-8px 0px;
+	width: 7px;
+	left: 0px;
+	top: 7px;
+	bottom: 7px;
+}
+.widget-btn-acidblue:hover .btn-middle-right{
+	background-position:-8px 0px;
+	width: 7px;
+	right: 0px;
+	top: 7px;
+	bottom: 7px;
+}
+/* 划过底部 */
+.widget-btn-acidblue:hover .btn-bottom-left{
+	background-position:-48px 0px;
+	width: 7px;
+	height: 7px;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-acidblue:hover .btn-bottom-right{
+	background-position:-56px 0px;
+	width: 7px;
+	height: 7px;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-acidblue:hover .btn-bottom-center{
+	background-position:0px -32px;
+	height: 7px;
+	left: 7px;
+	right: 7px;
+	bottom: 0;
+}
+
+
+/********************* 蓝色商务绿色按钮 **********************/
+/* 文字颜色 */
+.widget-btn-blue .btn-content{
+	color: #FFFFFF;
+	background:none;
+	border:none;
+	text-shadow:0px 2px 3px rgba(0,0,0,.75);
+	line-height: 40px;
+}
+
+.widget-btn-blue:hover .btn-content{
+	color: #FFFFFF;
+	background:none;
+	border:none;
+}
+
+/* 备用颜色 */
+.widget-btn-blue .btn-content span {
+	
+}
+
+/**********普通状态**********/
+.widget-btn-blue .btn-top-left,.widget-btn-blue .btn-top-right,.widget-btn-blue .btn-top-center,.widget-btn-blue .btn-bottom-left,.widget-btn-blue .btn-bottom-right,.widget-btn-blue .btn-bottom-center {
+	position: absolute;
+}
+
+.widget-btn-blue .btn-middle-left,.widget-btn-blue .btn-middle-right,.widget-btn-blue:hover .btn-middle-left,.widget-btn-blue:hover .btn-middle-right{
+	background-image: url(images/btn_blue.png);
+	background-repeat:repeat-y;
+	position: absolute;
+}
+
+.widget-btn-blue .btn-middle-center{
+	background:url(images/btn_blue.png) repeat-x 0px -42px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 7px;
+	right: 7px;
+}
+
+/* 顶部 */
+.widget-btn-blue .btn-top-left {
+	background-position:0px 0px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-blue .btn-top-right {
+	background-position:-19px 0px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-blue .btn-top-center {
+	background-position:0px -15px;
+	position: absolute;
+	right: 18px;
+	top: 0;
+}
+/* 中间 */
+.widget-btn-blue .btn-middle-left {
+	background-position:-3px 0px;
+	width: 7px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+.widget-btn-blue .btn-middle-right {
+	background-position:-8px 0px;
+	width: 7px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+/* 底部 */
+.widget-btn-blue .btn-bottom-left {
+	background-position:-38px 0px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-blue .btn-bottom-right {
+	background-position:-57px 0px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-blue .btn-bottom-center {
+	background-position:0px -30px;
+	left: 0px;
+	position: absolute;
+	right: 0px;
+	bottom: 0;
+}
+
+/**********划过状态**********/
+.widget-btn-blue:hover .btn-top-left,.widget-btn-blue:hover .btn-top-right,.widget-btn-blue:hover .btn-top-center,.widget-btn-blue:hover .btn-bottom-left,.widget-btn-blue:hover .btn-bottom-right,.widget-btn-blue:hover .btn-bottom-center {
+	position: absolute;
+}
+
+.widget-btn-blue:hover .btn-middle-center{
+	background:url(images/btn_blue.png) repeat 0px -84px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 7px;
+	right: 7px;
+}
+
+/* 划过顶部 */
+.widget-btn-blue:hover .btn-top-left {
+	background-position:-76px 0px;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-blue:hover .btn-top-right{
+	background-position:-95px 0px;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-blue:hover .btn-top-center{
+	background-position:0px -45px;
+	left: 18px;
+	right: 18px;
+	top: 0;
+}
+/* 划过中间 */
+.widget-btn-blue:hover .btn-middle-left{
+	background-position:-18px 0px;
+	width: 7px;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+.widget-btn-blue:hover .btn-middle-right{
+	background-position:-23px 0px;
+	width: 7px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+/* 划过底部 */
+.widget-btn-blue:hover .btn-bottom-left{
+	background-position:-114px 0px;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-blue:hover .btn-bottom-right{
+	background-position:-133px 0px;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-blue:hover .btn-bottom-center{
+	background-position:0px -60px;
+	left: 18px;
+	right: 18px;
+	bottom: 0;
+}
+
+/********************* 黄金甲按钮 **********************/
+/* 文字颜色 */
+.widget-btn-yellow .btn-content{
+	color: #975300;
+	background:none;
+	border:none;
+	text-shadow:0px 1px 2px rgba(255,255,255,1);
+	line-height: 47px;
+}
+
+.widget-btn-yellow:hover .btn-content{
+	color: #975300;
+	background:none;
+	border:none;
+}
+
+/* 备用颜色 */
+.widget-btn-yellow .btn-content span {
+	
+}
+
+/**********普通状态**********/
+.widget-btn-yellow .btn-top-left,.widget-btn-yellow .btn-top-right,.widget-btn-yellow .btn-top-center,.widget-btn-yellow .btn-bottom-left,.widget-btn-yellow .btn-bottom-right,.widget-btn-yellow .btn-bottom-center {
+	position: absolute;
+}
+
+.widget-btn-yellow .btn-middle-left,.widget-btn-yellow .btn-middle-right,.widget-btn-yellow:hover .btn-middle-left,.widget-btn-yellow:hover .btn-middle-right{
+	background-image: url(images/btn_yellow.png);
+	background-repeat:repeat-y;
+	position: absolute;
+}
+
+.widget-btn-yellow .btn-middle-center{
+	background:url(images/btn_yellow.png) repeat-x 0px -48px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 11px;
+	right: 11px;
+}
+
+/* 顶部 */
+.widget-btn-yellow .btn-top-left {
+	background-position:0px 0px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-yellow .btn-top-right {
+	background-position:-19px 0px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-yellow .btn-top-center {
+	background-position:0px -15px;
+	position: absolute;
+	right: 18px;
+	top: 0;
+}
+/* 中间 */
+.widget-btn-yellow .btn-middle-left {
+	background-position:0px 0px;
+	width: 11px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+.widget-btn-yellow .btn-middle-right {
+	background-position:-11px 0px;
+	width: 11px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+/* 底部 */
+.widget-btn-yellow .btn-bottom-left {
+	background-position:-38px 0px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-yellow .btn-bottom-right {
+	background-position:-57px 0px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-yellow .btn-bottom-center {
+	background-position:0px -30px;
+	left: 0px;
+	position: absolute;
+	right: 0px;
+	bottom: 0;
+}
+
+/**********划过状态**********/
+.widget-btn-yellow:hover .btn-top-left,.widget-btn-yellow:hover .btn-top-right,.widget-btn-yellow:hover .btn-top-center,.widget-btn-yellow:hover .btn-bottom-left,.widget-btn-yellow:hover .btn-bottom-right,.widget-btn-yellow:hover .btn-bottom-center {
+	position: absolute;
+}
+
+.widget-btn-yellow:hover .btn-middle-center{
+	background:url(images/btn_yellow.png) repeat 0px -96px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 11px;
+	right: 11px;
+}
+
+/* 划过顶部 */
+.widget-btn-yellow:hover .btn-top-left {
+	background-position:-76px 0px;
+	top: 0px;
+	left: 0px;
+}
+.widget-btn-yellow:hover .btn-top-right{
+	background-position:-95px 0px;
+	top: 0px;
+	right: 0px;
+}
+.widget-btn-yellow:hover .btn-top-center{
+	background-position:0px -45px;
+	left: 18px;
+	right: 18px;
+	top: 0;
+}
+/* 划过中间 */
+.widget-btn-yellow:hover .btn-middle-left{
+	background-position:-22px 0px;
+	width: 11px;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+.widget-btn-yellow:hover .btn-middle-right{
+	background-position:-33px 0px;
+	width: 11px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+/* 划过底部 */
+.widget-btn-yellow:hover .btn-bottom-left{
+	background-position:-114px 0px;
+	bottom: 0px;
+	left: 0px;
+}
+.widget-btn-yellow:hover .btn-bottom-right{
+	background-position:-133px 0px;
+	bottom: 0px;
+	right: 0px;
+}
+.widget-btn-yellow:hover .btn-bottom-center{
+	background-position:0px -60px;
+	left: 18px;
+	right: 18px;
+	bottom: 0;
+}
+
+
+/*****************************组件widget-panel样式**************************************/
+/***************公共图标样式************/
+.widget-panel{position:relative; width:100%; height:100%; font-family:"微软雅黑"; font-size:12px; color:#000; line-height:18px;}
+/*****************标题部分****************/
+.widget-panel .title{ position: absolute; top:0px; left:0px; height:20px; line-height:20px; text-align:left; width:100%;}
+.widget-panel .title img{ vertical-align:middle; width: auto; height:16px; border:none;}
+.widget-panel .title h5{ position: absolute; top:0px; left:0px; right:50px; color:#000; overflow:hidden; text-overflow: ellipsis; white-space:nowrap; display:block; }
+.widget-panel .title h5 span{ font-size:14px; font-weight:bold;}
+/*标题左侧的图标*/
+.widget-panel .title .left_icon{}
+/*标题左侧的图标位置*/
+.widget-panel .title .left_icontext{ display:inline-block;}
+/*标题右侧的链接文字*/
+.widget-panel .title .icon{ color:#000; text-decoration:none; height:16px;}
+.widget-panel .title .icon:hover{text-decoration: underline;}
+/*标题右侧的图标*/
+.widget-panel .title .right_icon{ position:absolute; right:10px; top:0px; overflow:hidden; white-space:nowrap;}
+/*标题下的结构右、中、右样式被float影响，需要覆盖其样式*/
+.widget-panel .left, .widget-panel .center, .widget-panel .right{ float:none; height:100%;}
+/*展开的图标*/
+.widget-panel .unfold{ background:url(images/panel_black_expansion.png) no-repeat center center; width:16px; height:16px; display:inline-block; vertical-align: middle; padding:1px;}
+/*划过时*/
+.widget-panel .unfold:hover{ background:#fff url(images/panel_black_expansion.png) no-repeat center center; padding:0px; border:1px solid #ccc; cursor:pointer;}
+/*收起的图标*/
+.widget-panel .fold{ background:url(images/panel_blacd_collapse.png) no-repeat center center; width:16px; height:16px; display:inline-block; vertical-align: middle;}
+/*划过时*/
+.widget-panel .fold:hover{ background:#fff url(images/panel_blacd_collapse.png) no-repeat center center; padding:0px; border:1px solid #ccc; cursor:pointer;}
+/****************内容部分**************/
+.widget-panel .content{ position: absolute; top:20px; left:0px; right:0px; bottom:0px; max-height: 100%;}
+.widget-panel .content .middel_center{ padding-top:10px;}
+/* 最里层文字内容区域 */
+.widget-panel .center_content{bottom: 0; left: 0; margin: 10px; max-height: 100%; overflow: auto; position: absolute; right: 0; top: 0;	}
+
+
+/****************** 绿色精灵 *************************/
+/*横向延伸调用的图片*/
+.widget-panel-green .content .top_left, .widget-panel-green .content .top_center{ background-image:url(images/panel_green.png);}
+
+/***************标题部分******************/
+.widget-panel-green .title{height:30px; line-height:30px;}
+.widget-panel-green .title .right_icon{ right:0px;}
+
+/*标题右侧的链接文字*/
+.widget-panel-green .title .icon{ color:#379a93; text-decoration:none; height:16px;}
+.widget-panel-green .title .icon:hover{text-decoration: underline;}
+
+/***************内容部分******************/
+.widget-panel-green .content{ top:30px;}
+/* 最里层文字内容区域 */
+.widget-panel-green .center_content{margin: 10px 0px 0px 0px;}
+
+/****************结构******************/
+/*标题下方的绿线左边带三角的部分*/
+.widget-panel-green .content .top_left{ background-position:0px 0px; background-repeat:no-repeat;}
+/*标题下方的绿线延伸*/
+.widget-panel-green .content .top_center{ background-position:0px -10px; background-repeat:repeat-x; margin:0px 0px 0px 35px; height:6px;}
+
+
+/****************** 灰色匣子 *************************/
+/***************标题部分******************/
+.widget-panel-gray .title{height:30px; line-height:30px;}
+/*展开的图标*/
+.widget-panel-gray .unfold,.widget-panel-gray .unfold:hover{ margin-left:10px;}
+/*收起的图标*/
+.widget-panel-gray .fold, .widget-panel-gray .fold:hover{ margin-left:10px;}
+/***************内容部分******************/
+.widget-panel-gray .content{ top:30px; max-height:100%; background-color:#fff; border:1px solid #d9d9d9;}
+/****************结构******************/
+/*标题左边*/
+.widget-panel-gray .title .left{ background-color:#f1f1f1;  border-left:1px solid #d9d9d9;}
+/*标题右边*/
+.widget-panel-gray .title .right{ background-color:#f1f1f1; border-right:1px solid #d9d9d9;}
+/*标题中间*/
+.widget-panel-gray .title .center{ background-color:#f1f1f1; border-top:1px solid #d9d9d9; border-bottom:1px solid #d9d9d9;}
+/*内容中部的左边*/
+.widget-panel-gray .content .middel_left{height:100%;}
+/* 最里层文字内容区域 */
+.widget-panel-gray .center_content{ margin:0px; padding:10px; }
+
+
+/******************** 湮蓝 **************************/
+/*展开的图标*/
+.widget-panel-blue .unfold{ background:url(images/panel_white_expansion.png) no-repeat center center; width:16px; height:16px; display:inline-block; vertical-align: middle; padding:1px;}
+/*划过时*/
+.widget-panel-blue .unfold:hover{ background:#7392b1 url(images/panel_white_expansion.png) no-repeat center center; border:1px solid #5f7b99; padding:0px; cursor:pointer;}
+/*收起的图标*/
+.widget-panel-blue .fold{ background:url(images/panel_white_collapse.png) no-repeat center center; width:16px; height:16px; display:inline-block; vertical-align: middle;  padding:1px;}
+/*划过时*/
+.widget-panel-blue .fold{ background:url(images/panel_white_collapse.png) no-repeat center center; width:16px; height:16px; display:inline-block;  padding:0px;}
+
+/*横向延伸调用的图片*/
+.widget-panel-blue .title .left, .widget-panel-blue .title .right, .widget-panel-blue .title .center, .widget-panel-blue .content .bottom_left, .widget-panel-blue .content .bottom_right, .widget-panel-blue .content .bottom_center{ background-image:url(images/panel_blue.png);}
+/*纵向延伸调用的图片*/
+.widget-panel-blue .content .middel_left, .widget-panel-blue .content .middel_right{ background-image:url(images/panel_blue_y.png);}
+
+/***************标题部分******************/
+.widget-panel-blue .title{height:35px; line-height:35px;}
+.widget-panel-blue .title h5{ color:#fff; font-size:14px; font-weight:bold;}
+
+/*标题右侧的链接文字*/
+.widget-panel-blue .title .icon{ color:#fff; text-decoration:none; height:16px;}
+.widget-panel-blue .title .icon:hover{ color:#fff; text-decoration: underline;}
+
+/***************内容部分******************/
+.widget-panel-blue .content{ top:35px;}
+
+/****************结构******************/
+/*标题左边*/
+.widget-panel-blue .title .left{ background-position:0px 0px; background-repeat:no-repeat;}
+/*标题右边*/
+.widget-panel-blue .title .right{ background-position:right 0px; background-repeat:no-repeat;}
+/*标题中间*/
+.widget-panel-blue .title .center{ background-position:0px -36px; background-repeat:repeat-x; margin:0px 10px;}
+/*内容中部的左边*/
+.widget-panel-blue .content .middel_left{ background-position:0px 0px; background-repeat:repeat-y; position:absolute; top:0px; left:0px; right:0px; bottom:10px; max-height:100%;}
+/*内容中部的右边*/
+.widget-panel-blue .content .middel_right{ background-position:right 0px; background-repeat:repeat-y; height:100%;}
+/*内容中部的中间*/
+.widget-panel-blue .content .middel_center{ background:url(images/panel_blue_repeat.png) repeat 0px 0px; padding:0px 0px; margin:0px 10px; height:100%;}
+/*内容底部的左边*/
+.widget-panel-blue .content .bottom_left{ background-position:0px bottom; background-repeat:no-repeat; width:100%; position:absolute; bottom:0px; left:0px;}
+/*内容底部的右边*/
+.widget-panel-blue .content .bottom_right{ background-position:right bottom; background-repeat:no-repeat; }
+/*内容底部的中间*/
+.widget-panel-blue .content .bottom_center{ background-position:0px -72px; background-repeat:repeat-x; margin:0px 10px; height:10px;}
+
+
+/******************** 黄金甲 **************************/
+/*展开的图标*/
+.widget-panel-yellow .unfold{ background:url(images/panel_white_expansion.png) no-repeat center center; width:16px; height:16px; display:inline-block; vertical-align: middle; padding:1px;}
+/*划过时*/
+.widget-panel-yellow .unfold:hover{ background:#7392b1 url(images/panel_white_expansion.png) no-repeat center center; border:1px solid #5f7b99; padding:0px; cursor:pointer;}
+/*收起的图标*/
+.widget-panel-yellow .fold{ background:url(images/panel_white_collapse.png) no-repeat center center; width:16px; height:16px; display:inline-block; vertical-align: middle;  padding:1px;}
+/*划过时*/
+.widget-panel-yellow .fold{ background:url(images/panel_white_collapse.png) no-repeat center center; width:16px; height:16px; display:inline-block;  padding:0px;}
+
+/*横向延伸调用的图片*/
+.widget-panel-yellow .title .left, .widget-panel-yellow .title .right, .widget-panel-yellow .title .center, .widget-panel-yellow .content .bottom_left, .widget-panel-yellow .content .bottom_right, .widget-panel-yellow .content .bottom_center{ background-image:url(images/panel_yellow.png);}
+/*纵向延伸调用的图片*/
+.widget-panel-yellow .content .middel_left, .widget-panel-yellow .content .middel_right{ background-image:url(images/panel_yellow_y.png);}
+
+/***************标题部分******************/
+.widget-panel-yellow .title{height:32px; line-height:32px;}
+.widget-panel-yellow .title h5{ color:#fff; font-size:14px; font-weight:bold;}
+
+/*标题右侧的链接文字*/
+.widget-panel-yellow .title .icon{ color:#fff; text-decoration:none; height:16px;}
+.widget-panel-yellow .title .icon:hover{ color:#fff; text-decoration: underline;}
+
+/***************内容部分******************/
+.widget-panel-yellow .content{ top:32px;}
+
+/****************结构******************/
+/*标题左边*/
+.widget-panel-yellow .title .left{ background-position:0px 0px; background-repeat:no-repeat;}
+/*标题右边*/
+.widget-panel-yellow .title .right{ background-position:right 0px; background-repeat:no-repeat;}
+/*标题中间*/
+.widget-panel-yellow .title .center{ background-position:0px -36px; background-repeat:repeat-x; margin:0px 10px;}
+/*内容中部的左边*/
+.widget-panel-yellow .content .middel_left{ background-position:0px 0px; background-repeat:repeat-y; position:absolute; top:0px; left:0px; right:0px; bottom:10px; max-height:100%;}
+/*内容中部的右边*/
+.widget-panel-yellow .content .middel_right{ background-position:right 0px; background-repeat:repeat-y; height:100%;}
+/*内容中部的中间*/
+.widget-panel-yellow .content .middel_center{ background:#fff; padding:0px 0px; margin:0px 10px; height:100%;}
+/*内容底部的左边*/
+.widget-panel-yellow .content .bottom_left{ background-position:0px bottom; background-repeat:no-repeat; width:100%; position:absolute; bottom:0px; left:0px;}
+/*内容底部的右边*/
+.widget-panel-yellow .content .bottom_right{ background-position:right bottom; background-repeat:no-repeat; }
+/*内容底部的中间*/
+.widget-panel-yellow .content .bottom_center{ background-position:0px -72px; background-repeat:repeat-x; margin:0px 10px; height:10px;}
+
+
+/******************** 商务灰色面板 **************************/
+/*展开的图标*/
+.widget-panel-gray3 .unfold{ background:url(images/panel_white_expansion.png) no-repeat center center; width:16px; height:16px; display:inline-block; vertical-align: middle; padding:1px;}
+/*划过时*/
+.widget-panel-gray3 .unfold:hover{ background:#7392b1 url(images/panel_white_expansion.png) no-repeat center center; border:1px solid #5f7b99; padding:0px; cursor:pointer;}
+/*收起的图标*/
+.widget-panel-gray3 .fold{ background:url(images/panel_white_collapse.png) no-repeat center center; width:16px; height:16px; display:inline-block; vertical-align: middle;  padding:1px;}
+/*划过时*/
+.widget-panel-gray3 .fold{ background:url(images/panel_white_collapse.png) no-repeat center center; width:16px; height:16px; display:inline-block;  padding:0px;}
+
+/*横向延伸调用的图片*/
+.widget-panel-gray3 .title .left, .widget-panel-gray3 .title .right, .widget-panel-gray3 .title .center, .widget-panel-gray3 .content .bottom_left, .widget-panel-gray3 .content .bottom_right, .widget-panel-gray3 .content .bottom_center{ background-image:url(images/panel_grey.png);}
+/*纵向延伸调用的图片*/
+.widget-panel-gray3 .content .middel_left, .widget-panel-gray3 .content .middel_right{ }
+
+/***************标题部分******************/
+.widget-panel-gray3 .title{height:24px; line-height:24px; width:auto; z-index:2;}
+.widget-panel-gray3 .title h5{ color:#000; font-size:14px; position:static;}
+
+/*标题右侧的链接文字*/
+.widget-panel-gray3 .title .icon{ color:#fff; text-decoration:none; height:16px;}
+.widget-panel-gray3 .title .icon:hover{ color:#fff; text-decoration: underline;}
+
+/***************内容部分******************/
+.widget-panel-gray3 .content{ top:22px; border:1px solid #c0cede; background-color:#e1e5eb; z-index:1;}
+
+/****************结构******************/
+/*标题左边*/
+.widget-panel-gray3 .title .left{ background-image:none; border-left:1px solid #c0cede;}
+/*标题右边*/
+.widget-panel-gray3 .title .right{ background-position:right 0px; background-repeat:no-repeat;}
+/*标题中间*/
+.widget-panel-gray3 .title .center{ background-position:0px -27px; background-repeat:repeat-x; margin:0px 29px 0px 0px;}
+/*内容中部的左边*/
+.widget-panel-gray3 .content .middel_left{ background-position:0px 0px; background-repeat:repeat-y; position:absolute; top:0px; left:0px; right:0px; bottom:10px; max-height:100%;}
+/*内容中部的右边*/
+.widget-panel-gray3 .content .middel_right{ background-position:right 0px; background-repeat:repeat-y; height:100%;}
+/*内容中部的中间*/
+.widget-panel-gray3 .content .middel_center{  padding:0px 0px; margin:0px 10px; height:100%;}
+/*内容底部的左边*/
+.widget-panel-gray3 .content .bottom_left{ background-image:none; width:100%; position:absolute; bottom:0px; left:0px;}
+/*内容底部的右边*/
+.widget-panel-gray3 .content .bottom_right{ background-image:none; }
+/*内容底部的中间*/
+.widget-panel-gray3 .content .bottom_center{ background-image:none; margin:0px 10px; height:10px;}
+
+
+
+/****************** 商务灰色面板2 *************************/
+/*横向延伸调用的图片*/
+.widget-panel-gray2 .content .top_left, .widget-panel-gray2 .content .top_center{ background-image:url(images/panel_business2.png);}
+
+/***************标题部分******************/
+.widget-panel-gray2 .title{height:30px; line-height:30px;}
+.widget-panel-gray2 .title .right_icon{ right:0px;}
+
+/*标题右侧的链接文字*/
+.widget-panel-gray2 .title .icon{ color:#379a93; text-decoration:none; height:16px;}
+.widget-panel-gray2 .title .icon:hover{text-decoration: underline;}
+
+/***************内容部分******************/
+.widget-panel-gray2 .content{ top:30px;}
+/* 最里层文字内容区域 */
+.widget-panel-gray2 .center_content{margin: 10px 0px 0px 0px;}
+
+/****************结构******************/
+/*标题下方的绿线左边带三角的部分*/
+.widget-panel-gray2 .content .top_left{ background-position:0px 0px; background-repeat:no-repeat;}
+/*标题下方的绿线延伸*/
+.widget-panel-gray2 .content .top_center{ background-position:0px -10px; background-repeat:repeat-x; margin:0px 0px 0px 35px; height:6px;}
+
+
+
+/*****************************组件widget-xtree样式**************************************/
+
+/**************************************绿色精灵****************************************/
+.widget-xtree-green{
+  height: 100%;
+  position: absolute;	
+	background:url(images/xtree_green_bg.png) repeat-x 0px 0px;
+	padding-top:10px;
+}
+
+/*没有选中时的样式*/
+.widget-xtree-green .standartTreeRow, .widget-xtree-green .selectedTreeRow {
+  color: #167E76;
+}
+
+/*选择结点时的样式*/
+.widget-xtree-green .selectedTreeRow {
+	color: #167E76;
+	font-weight:bold;
+}
+
+/*菜单文字前面的图标*/
+.widget-xtree-green .standartTreeImage img {
+	*margin: 0 !important;
+	display: list-item;
+	height: 16px;
+	margin: 0 0 0 3px;
+	padding: 0;
+	width: 16px;
+}
+
+/*菜单一整条选中后的背景*/
+.widget-xtree-green .xtree_selectedRowBg{
+	background-color:#c8efed;
+	background-image:none;
+	height:18px;
+	border-top:1px solid #a1d6d2;
+	border-bottom:1px solid #a1d6d2;
+}
+
+/*菜单文字部分选中后的背景*/
+.widget-xtree-green .mult_selectbg{
+	background:none;
+}
+
+/*收起选中：+-*/
+.widget-xtree-green .xtree_plus7, .widget-xtree-green .xtree_plus8, .widget-xtree-green .xtree_plus10{
+	background-position: -120px 50%;
+	}
+
+/*选中展开：--*/
+.widget-xtree-green .xtree_minus7, .widget-xtree-green .xtree_minus8, .widget-xtree-green .xtree_minus10{
+	background-position: -253px 50%;
+	}
+	
+	
+/**************************************商务红****************************************/
+/*定义了与树控件中相关的图标，其中包括了线、展开与收起、勾选与未勾选等图标，由于这些图标都放在了一张图片中，所以下面的样式是共用的，个体中仅对图片的偏移做改变*/
+
+
+.widget-xtree-red{
+  height: 100%;
+  position: absolute;	
+	background-color:#fff9f9;
+	border:1px solid #fed4d6;
+	padding-top:10px;
+}
+
+/*没有选中时的样式*/
+.widget-xtree-red .standartTreeRow, .widget-xtree-red .selectedTreeRow {
+}
+
+/*选择结点时的样式*/
+.widget-xtree-red .selectedTreeRow {
+	font-weight:bold;
+}
+
+/*菜单文字前面的图标*/
+.widget-xtree-red .standartTreeImage img {
+	*margin: 0 !important;
+	display: list-item;
+	height: 16px;
+	margin: 0 0 0 3px;
+	padding: 0;
+	width: 16px;
+}
+
+/*菜单一整条选中后的背景*/
+.widget-xtree-red .xtree_selectedRowBg{
+	background-color:#eb4048;
+	background-image:none;
+	height:18px;
+  margin: 0 -1px;
+  padding: 0 1px;
+}
+
+/*菜单文字部分选中后的背景*/
+.widget-xtree-red .mult_selectbg{
+	background:none;
+}
+
+
+/**************************************灰色匣子****************************************/
+.widget-xtree-gray{
+  height: 100%;
+  position: absolute;	
+	background-color:#f9f9f9;
+	border:1px solid #d9d9d9;
+	padding-top:10px;
+}
+
+/*没有选中时的样式*/
+.widget-xtree-gray .standartTreeRow, .widget-xtree-gray .selectedTreeRow {
+	color:#000;
+}
+
+/*选择结点时的样式*/
+.widget-xtree-gray .selectedTreeRow {
+}
+
+/*菜单文字前面的图标*/
+.widget-xtree-gray .standartTreeImage img {
+	*margin: 0 !important;
+	display: list-item;
+	height: 16px;
+	margin: 0 0 0 3px;
+	padding: 0;
+	width: 16px;
+}
+
+/*菜单一整条选中后的背景*/
+.widget-xtree-gray .xtree_selectedRowBg{
+	background-color:#c9c9c9;
+	background-image:none;
+	height:18px;
+  margin: 0 -1px;
+  padding: 0 1px;
+}
+
+/*菜单文字部分选中后的背景*/
+.widget-xtree-gray .mult_selectbg{
+	background:none;
+}
+
+/*定义了与树控件中相关的图标，其中包括了线、展开与收起、勾选与未勾选等图标，由于这些图标都放在了一张图片中，所以下面的样式是共用的，个体中仅对图片的偏移做改变*/
+.widget-xtree-gray .xtree_blank, .widget-xtree-gray .xtree_line1, .widget-xtree-gray .xtree_line2,.widget-xtree-gray .xtree_line3, .widget-xtree-gray .xtree_line4, .widget-xtree-gray .xtree_plus1, .widget-xtree-gray .xtree_plus2, .widget-xtree-gray .xtree_plus3, .widget-xtree-gray .xtree_plus4, .widget-xtree-gray .xtree_plus5, .widget-xtree-gray .xtree_plus6, .widget-xtree-gray .xtree_plus7, .widget-xtree-gray .xtree_plus8, .widget-xtree-gray .xtree_plus9, .widget-xtree-gray .xtree_plus10, .widget-xtree-gray .xtree_minus1, .widget-xtree-gray .xtree_minus2, .widget-xtree-gray .xtree_minus3, .widget-xtree-gray .xtree_minus4, .widget-xtree-gray .xtree_minus5, .widget-xtree-gray .xtree_minus6, .widget-xtree-gray .xtree_minus7, .widget-xtree-gray .xtree_minus8, .widget-xtree-gray .xtree_minus9, .widget-xtree-gray .xtree_minus10, .widget-xtree-gray .xtree_uncheck, .widget-xtree-gray .xtree_checked, .widget-xtree-gray .xtree_checked2, .widget-xtree-gray .xtree_grayChecked, .widget-xtree-gray .xtree_grayChecked2{
+	background: transparent url( images/xtree_greybox.gif ) no-repeat 0	50%;
+	width: 10px;
+	height: 100%;
+	display: block;
+	width:15px;
+	height:20px;
+}
+
+
+/*线型：│*/
+.widget-xtree-gray .xtree_line1 {
+	background-repeat: repeat-y;
+	background-position: -22px 0;
+	height: 100%;
+	display: table-cell;
+}
+
+/*线型：└*/
+.widget-xtree-gray .xtree_line2 {
+	background-position: -41px 50%;
+}
+
+/*线型：├*/
+.widget-xtree-gray .xtree_line3 {
+	background-position: -60px 50%;
+}
+
+/*线型：┌*/
+.widget-xtree-gray .xtree_line4 {
+	background-position: -83px 50%;
+}
+
+/*收起：+*/
+.widget-xtree-gray .xtree_plus1 {
+	background-position: -136px 50%;
+}
+
+/*收起：+└*/
+.widget-xtree-gray .xtree_plus2 {
+	background-position: -117px 50%;
+}
+
+/*收起：+├*/
+.widget-xtree-gray .xtree_plus3 {
+	background-position: -136px 50%;
+}
+
+/*收起：+┌*/
+.widget-xtree-gray .xtree_plus4 {
+	background-position: -136px 50%;
+}
+
+/*收起：+-*/
+.widget-xtree-gray .xtree_plus5 {
+	background-position: -174px 50%;
+}
+/*收起选中：+-*/
+.widget-xtree-gray .xtree_plus6{
+	background-position: -390px 50%;
+	}
+	
+/*收起选中：一级根节点+-*/
+.widget-xtree-gray .xtree_plus10{
+	background-position: -174px 50%;
+	}
+	
+/*收起选中：非首末级根节点+-*/
+.widget-xtree-gray .xtree_plus8{
+	background-position: -155px 50%;
+	}
+	
+/*收起选中：末级根节点+-*/
+.widget-xtree-gray .xtree_plus7{
+	background-position: -117px 50%;
+	}
+
+/*展开：-*/
+.widget-xtree-gray .xtree_minus1 {
+	background-position: -212px 50%;
+}
+
+/*展开：-└*/
+.widget-xtree-gray .xtree_minus2 {
+	background-position: -212px 50%;
+}
+
+/*展开：-├*/
+.widget-xtree-gray .xtree_minus3 {
+	background-position: -231px 50%;
+}
+
+/*展开：-┌*/
+.widget-xtree-gray .xtree_minus4 {
+	background-position: -250px 50%;
+}
+
+/*展开：--*/
+.widget-xtree-gray .xtree_minus5 {
+	background-position: -269px 50%;
+}
+/*选中展开：--*/
+.widget-xtree-gray .xtree_minus6{
+	background-position: -250px 50%;
+	}
+	
+/*收起选中：一级根节点+-*/
+.widget-xtree-gray .xtree_minus10{
+	background-position: -269px 50%;
+	}
+	
+/*收起选中：非首末级根节点+-*/
+.widget-xtree-gray .xtree_minus8{
+	background-position: -231px 50%;
+	}
+	
+/*收起选中：末级根节点+-*/
+.widget-xtree-gray .xtree_minus7{
+	background-position: -212px 50%;
+	}
+	
+/*子结点的样式*/
+.widget-xtree-gray .xtree_node {
+	padding: 0px 0px 0px 5px;
+	width: 100%;
+}
+
+/**************************************商务蓝****************************************/
+.widget-xtree-blue{
+  height: 100%;
+  position: absolute;	
+	background-color:#e1e5eb;
+	padding-top:10px;
+	font-size:14px;
+}
+
+/*子结点的样式*/
+.widget-xtree-blue .xtree_node{
+	padding:8px 0px 0px;
+}
+
+/*没有选中时的样式*/
+.widget-xtree-blue .standartTreeRow, .widget-xtree-blue .selectedTreeRow {
+  color: #374151;
+}
+
+/*选择结点时的样式*/
+.widget-xtree-blue .selectedTreeRow {
+	color: #000000;
+}
+
+/*菜单文字前面的图标*/
+.widget-xtree-blue .standartTreeImage img {
+	*margin: 0 !important;
+	display: list-item;
+	height: 16px;
+	margin: 0 0 0 3px;
+	padding: 0;
+	width: 16px;
+}
+
+/*菜单一整条选中后的背景*/
+.widget-xtree-blue .xtree_selectedRowBg{
+	background-color:#b3bdcb;
+	background-image:none;
+	height:20px;
+}
+
+/*菜单文字部分选中后的背景*/
+.widget-xtree-blue .mult_selectbg{
+	background:none;
+}
+
+/*收起选中：+-*/
+.widget-xtree-blue .xtree_plus7, .widget-xtree-blue .xtree_plus8, .widget-xtree-blue .xtree_plus10{
+	background-position: -120px 50%;
+}
+
+/*选中展开：--*/
+.widget-xtree-blue .xtree_minus7, .widget-xtree-blue .xtree_minus8, .widget-xtree-blue .xtree_minus10{
+	background-position: -253px 50%;
+}
+
+/**************************************商务黑****************************************/
+.widget-xtree-black{
+  height: 100%;
+  position: absolute;	
+	background-color:#3a3a3a;
+	padding-top:10px;
+	font-size:14px;
+	scrollbar-arrow-color: #666; /*三角箭头的颜色*/
+	scrollbar-face-color: #666; /*立体滚动条的颜色*/
+	scrollbar-3dlight-color: #3a3a3a; /*立体滚动条亮边的颜色*/
+	scrollbar-highlight-color: #3a3a3a; /*滚动条空白部分的颜色*/
+	scrollbar-shadow-color: #3a3a3a; /*立体滚动条阴影的颜色*/
+	scrollbar-darkshadow-color: #3a3a3a; /*立体滚动条强阴影的颜色*/
+	scrollbar-track-color: #3a3a3a; /*立体滚动条背景颜色*/
+	scrollbar-base-color:#3a3a3a; /*滚动条的基本颜色*/
+}
+
+/*子结点的样式*/
+.widget-xtree-black .xtree_node{
+	padding:6px 0px;
+}
+
+/*没有选中时的样式*/
+.widget-xtree-black .standartTreeRow, .widget-xtree-black .selectedTreeRow {
+  color: #b1b9c3;
+  font-size: 14px;
+  display: block;
+	margin:5px 0px 0px 0px;
+}
+
+/*选择结点时的样式*/
+.widget-xtree-black .selectedTreeRow {
+	color: #fff;
+	font-size: 14px;
+	display: block;
+	margin:5px 0px 0px 0px;
+}
+
+/*菜单文字前面的图标*/
+.widget-xtree-black .standartTreeImage img {
+	*margin: 0 !important;
+	display: list-item;
+	height: 16px;
+	margin: 0 0 0 3px;
+	padding: 0;
+	width: 16px;
+}
+
+/*菜单一整条选中后的背景*/
+.widget-xtree-black .xtree_selectedRowBg{
+	background-color:#202020;
+	background-image:none;
+	height:36px;
+}
+
+/*菜单文字部分选中后的背景*/
+.widget-xtree-black .mult_selectbg{
+	background:none;
+}
+
+/*收起选中：+-*/
+.widget-xtree-black .xtree_plus7, .widget-xtree-black .xtree_plus8, .widget-xtree-black .xtree_plus10{
+	background-position: -120px 50%;
+}
+
+/*选中展开：--*/
+.widget-xtree-black .xtree_minus7, .widget-xtree-black .xtree_minus8, .widget-xtree-black .xtree_minus10{
+	background-position: -253px 50%;
+}
+
+/**************************************商务橙****************************************/
+.widget-xtree-orange{
+  height: 100%;
+  position: absolute;	
+	background:url(images/widget-xtree-orange-bg.png) repeat left top;
+	padding-top:10px;
+	font-size:14px;
+}
+
+/*子结点的样式*/
+.widget-xtree-orange .xtree_node{
+	padding:0px 0px;
+	*margin:2px 0px 0px 0px;
+}
+
+/*没有选中时的样式*/
+.widget-xtree-orange .standartTreeRow, .widget-xtree-orange .selectedTreeRow {
+  color: #333333;
+  font-size: 14px;
+  display: block;
+	margin:0px 0px 0px 0px;
+	line-height: 36px;
+	*padding:0px;
+}
+
+/*选择结点时的样式*/
+.widget-xtree-orange .selectedTreeRow {
+	color: #fff;
+	font-size: 14px;
+	display: block;
+	margin:0px 0px 0px 0px;
+	padding:0px;
+	line-height: 36px;
+}
+
+/*菜单文字前面的图标*/
+.widget-xtree-orange .standartTreeImage img {
+	*margin: 0 !important;
+	display: list-item;
+	height: 16px;
+	margin: 0 0 0 3px !important;
+	padding: 0;
+	width: 16px;
+}
+
+/*菜单一整条选中后的背景*/
+.widget-xtree-orange .xtree_selectedRowBg{
+	background:url(images/xtree_orange_selectedRowBg.jpg) repeat-x left center;
+	height:36px;
+}
+
+/*菜单文字部分选中后的背景*/
+.widget-xtree-orange .mult_selectbg{
+	background:none;
+}
+
+/*收起选中：+-*/
+.widget-xtree-orange .xtree_plus7, .widget-xtree-orange .xtree_plus8, .widget-xtree-orange .xtree_plus10{
+	background-position: -120px 50%;
+}
+
+/*选中展开：--*/
+.widget-xtree-orange .xtree_minus7, .widget-xtree-orange .xtree_minus8, .widget-xtree-orange .xtree_minus10{
+	background-position: -253px 50%;
+}
+
+/**************************************自定义大间距****************************************/
+.widget-xtree-largespace{
+  height: 100%;
+  position: absolute;	
+	background-color:transparent;
+	padding-top:10px;
+	font-size:14px;
+}
+
+/*子结点的样式*/
+.widget-xtree-largespace .xtree_node{
+	padding:6px 0px;
+}
+
+/*没有选中时的样式*/
+.widget-xtree-largespace .standartTreeRow, .widget-xtree-largespace .selectedTreeRow {
+  color: #000000;
+  font-size: 14px;
+  display: block;
+	margin:5px 0px 0px 0px;
+}
+
+/*选择结点时的样式*/
+.widget-xtree-largespace .selectedTreeRow {
+	color: #fff;
+	font-size: 14px;
+	display: block;
+	margin:5px 0px 0px 0px;
+}
+
+/*菜单文字前面的图标*/
+.widget-xtree-largespace .standartTreeImage img {
+	*margin: 0 !important;
+	display: list-item;
+	height: 16px;
+	margin: 0 0 0 3px;
+	padding: 0;
+	width: 16px;
+}
+
+/*菜单一整条选中后的背景*/
+.widget-xtree-largespace .xtree_selectedRowBg{
+	background-color:transparent;
+	background-image:none;
+	height:36px;
+}
+
+/*菜单文字部分选中后的背景*/
+.widget-xtree-largespace .mult_selectbg{
+	background:none;
+}
+
+/*收起选中：+-*/
+.widget-xtree-largespace .xtree_plus7, .widget-xtree-largespace .xtree_plus8, .widget-xtree-largespace .xtree_plus10{
+	background-position: -120px 50%;
+}
+
+/*选中展开：--*/
+.widget-xtree-largespace .xtree_minus7, .widget-xtree-largespace .xtree_minus8, .widget-xtree-largespace .xtree_minus10{
+	background-position: -253px 50%;
+}
+
+/*--搜索组件中结果列表划过样式--*/
+.widget_search_list:hover{background:#f3f3f3;cursor: pointer;}
+.widget_search_list_cap:hover{font-weight:bold;}
+
+
+
+

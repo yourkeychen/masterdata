@@ -1,0 +1,984 @@
+@charset "utf-8";
+
+/*ESENFACE公共平台CSS*/
+/*作者：陈雪松*/
+/*完成日期：2013-06-13*/
+
+/************************** 全局样式  ****************************/
+.box {
+	-webkit-box-sizing: content-box !important;
+	-moz-box-sizing: content-box !important;
+	box-sizing: content-box !important;
+}
+
+html, body {
+	/*width: 100%;
+	height: 100%;*/
+	margin: 0px;
+	padding: 0px;
+	font-family:"Microsoft Yahei","simsun";
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+table,tr,td,th{
+	padding:0px;
+	margin:0px;
+}
+
+/*针对chrome的ul,li的list-style问题*/
+ul,li{
+	list-style:none;
+}
+.width100{
+	width:100%;
+}
+
+.list-style ul, .list-style ul li{
+	list-style: none;
+}
+
+.table-layout{
+	table-layout: fixed;
+}
+/* 常规input应该调用的样式 */
+/* 未划过时灰色边框白色背景 */
+.input_edit {
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	padding: 0 2px;
+	width: 100%;
+	height: 20px;
+}
+
+/* 划过时蓝色色边框蓝色背景 */
+.input_edit:focus {
+	background: #edf2fd;
+	border: 1px solid #6a9ae6;
+}
+
+/* 表单TABLE字段标签一列，超过10个字符后出现省略号 */
+.token_width{
+	max-width:135px;
+}
+
+/* 表单TABLE字段标签的”：“单独用一个TD来控制宽度 */
+.onetext_width{
+	vertical-align: text-top;
+	width: 2px;
+	/*浏览器兼容 ie6特殊处理*/
+	*vertical-align: middle;
+	*width: 4px;
+}
+
+img {
+	border: 0;
+}
+
+/*导航树title右侧的小图标划过背景色*/
+.tree_title_icon_li img{
+	vertical-align: top;
+	_vertical-align: middle;	
+}
+.tree_title_icon_li a{
+	width: 16px;
+	height: 16px;
+	display:block;
+	
+	/*IE7*/
+	*display: inline;
+	*zoom: 1;
+	_position: relative;
+}
+
+.tree_title_icon_li a:hover{
+	background:url(coolblue/images/icon/16/treeicon_hoverbg.png) no-repeat center;
+}
+
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.inline_block {
+	display: inline-block;
+	/* IE7 */
+	*display: inline;
+	*zoom: 1;
+}
+
+
+/* 处理IE上面勾选和单选按钮出现边框  */
+input[type="radio"],input[type="checkbox"]{
+	border: 0px;
+	vertical-align: middle;
+	margin:0px;
+	margin-right: 5px;
+}
+
+/* 禁用IE10 输入框后面的叉叉和眼睛 */
+::-ms-clear { display: none; }
+::-ms-reveal { display: none; }
+
+/*处理某些样式名调用一样但结构不一样，导致的距离不一致时使用*/
+/* 距离顶部-10px */
+.margintop_10{
+	margin-top:-10px;
+}
+
+/* 距离左侧-8px */
+.marginleft_8{
+	margin-left:-8px;
+}
+
+/* 距离左侧10px */
+.marginleft10{
+	margin-left:10px;
+}
+
+/* 距离左侧20px */
+.paddingleft20{
+	padding-left:20px;
+}
+
+/* 距离左侧25px */
+.paddingleft25{
+	padding-left:25px;
+}
+
+/* 距离顶部8px */
+.margintop8{
+	margin-top:8px;
+}
+
+/* 距离底部8px */
+.marginbottom8{
+	margin-bottom:8px;
+}
+
+/* 距离左边15px */
+.paddingleft15{
+	padding-left: 15px;
+}
+
+/*距离右边5px*/
+.paddingright5{
+	padding-right:5px;
+}
+
+/* 距离左边10px */
+.paddingleft10{
+	padding-left: 10px;
+}
+
+/* 距离右边10px */
+.paddingright10{
+	padding-right: 10px;
+}
+
+/* 距离顶部10px */
+.paddingtop10{
+	padding-top: 10px;
+}
+
+/* 距离顶部5px */
+.paddingtop5{
+	padding-top: 5px;
+}
+
+/* 距离底部10px */
+.paddingbottom10{
+	padding-bottom: 10px;
+}
+
+/* 四周距离10px */
+.padding10{
+	padding: 10px;
+}
+
+/**************************   字体   ****************************/
+/* 文字超出隐藏加省略号  */
+.text_overflow{
+	white-space:nowrap;
+	word-break:keep-all;
+	overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*表达式专用字体样式*/
+.exptextarea{
+	font-size:12px;
+	/*font-family: Courier New,Arial !important;*/
+	padding:3px;
+	color: #333;
+}
+
+/* 文本域默认样式 */
+.textarea_border,.input_border,.select_border{
+	border: 1px solid #DCDCDC;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	font-size: 12px;
+	margin: 0;
+	background: #FFF;
+}
+
+.select_border option{
+	height: 16px;
+}
+
+.button_border{
+	border: 1px solid #DCDCDC;
+}
+
+p{
+	text-indent: 2em;
+}
+
+h1 {
+	padding:0px;
+	margin:0px;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+/* 标题默认间距 */
+.h1{
+	margin:0px;
+	padding:0px;
+}
+
+/* 用于404报错大标题 */
+h2{
+	font-size:32px;
+	color:#535353;
+	margin: 0px;
+	font-weight: normal;
+}
+
+.f14 {
+	font-size: 14px;
+}
+
+/* 弱化的灰色可读性文字 */
+h5 {
+	font-size:12px;
+	color: #848484;
+	margin:0px;
+	padding:0px;
+	font-weight: normal;
+}
+
+/* 用于容器里的标题文字，加粗并与标题下的内容间有间距*/
+h6 {
+	font-size:12px;
+	margin:0px;
+	padding:0px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+/* 用于输入框里的灰色提示字体 */
+.prompttext{
+	color:#CCCCCC;
+}
+
+/* 橙色提示文字 */
+.orange_text{color:#f66c4f;}
+.orange_text span{ color:#f66c4f; text-decoration: underline;}
+.orange_text span:hover{ color:#ef4623;}
+
+/* 绿色提示文字 */
+.green_text{color:#61a71a;}
+.green_text span{color:#61a71a; text-decoration: underline;}
+.green_text span:hover{color:#4b8c09;}
+
+/* 亮蓝警告文字 */
+.warning_blue{
+	color: #0000FF;
+}
+
+.font_orange {
+	color: #EC6418;
+}
+
+.font_green {
+    color: #6EA71A;
+}
+
+.font_hui {
+	color: #6e6e6e;
+}
+
+.font_weight {
+	font-weight: bold;
+}
+
+.font_gray {
+	color: #696969;
+}
+
+.font_red {
+	color: #ff0000	
+}
+
+.font_left {
+	text-align: left !important;
+}
+
+.font_center {
+	text-align: center;
+}
+
+/* 深蓝色字 */
+.font_blue1 {
+	color:#1a3d72;
+}
+
+/* 蓝色字 */
+.blue{
+	color:#478fca;
+	}
+
+/* 左边1px灰线 */
+.left_border{
+	border-left: 1px solid #d4d4d4;
+}
+/**************************   登录页主框架   ****************************/
+.layout_login_main {
+	width:100%;
+	height:100%;
+	margin: 0 auto;
+	table-layout: fixed;
+}
+
+.layout_login_head {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.layout_login_bottom {
+	width: 100%;
+	height:100%;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+.layout_login_bottom_content{
+	position: absolute;
+	width:500px;
+	left:50%;
+	top:15px;
+	margin-left:-250px;	
+}
+/**************************   内页主框架   ****************************/
+.layout_main {
+	/*width: 100%;
+    height: 100%;*/
+}
+
+.layout_main_head {
+	width: 100%;
+	height: 55px;
+	overflow: hidden;
+}
+
+.layout_main_mbx {
+	width: 100%;
+	height: 30px;
+	overflow: hidden;
+}
+
+.layout_main_content {
+	width: 100%;
+	overflow: hidden;
+	top: 85px;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	max-height: 100%;
+	height: 100%;
+}
+
+/**************************   顶部框架   ****************************/
+.layout_main_head_left {
+	width: 23%;
+	min-width:240px;
+	height: 100%;
+	float: left;
+}
+
+.layout_main_head_center {
+	width: 53%;
+	height: 100%;
+	float: left;
+	/*position: relative; 暂时隐藏IE7中显示有问题*/
+}
+
+.layout_main_head_right {
+	width: 23%;
+	min-width:225px;
+	height: 100%;
+	float: right;
+}
+
+/**************************   底部框架   ****************************/
+
+/* 左侧树形 */
+.layout_main_left_tree {
+	width: 100%;
+	height: 100%;
+	min-height: 560px;
+}
+
+/* 左侧图标菜单≤3个 */
+.layout_main_left_icon3 {
+	width: 80px;
+	float: left;
+	height: 100%;
+}
+
+/* 左侧图标菜单＞3个 */
+.layout_main_left_icon5 {
+	/*width: 180px;*/
+	height: 100%;
+	min-height: 560px;
+	padding:0px 10px;
+}
+
+/* 左侧树 */
+.left_tree_scroll {
+	height: 100%;
+	overflow: scroll;
+	width: 100%;
+}
+
+/* 中间分割线 */
+.layout_main_center {
+	width: 1px;
+	overflow: hidden;
+	height: 100%;
+}
+
+/* 右侧内容区域 */
+.layout_main_right {
+}
+
+.layout_main_right_conter {
+	width: 100%;
+	padding: 0px;
+}
+
+/**************************   首页框架   ****************************/
+/* 首页左侧 */
+.layout_home_left {
+	width: 340px;
+	float: left;
+	height: 100%;
+}
+
+
+/* 首页右侧 */
+.layout_home_right {
+ margin-left: 340px;
+ *display: inline-block;
+ *float: left;
+ *margin:0px;
+}
+
+/* 内容整体框架 */
+.nr_conter {	
+	margin: 0 auto;
+	width: 99%;
+}
+
+.width30 {
+	width: 30%
+}
+
+.width70 {
+	width: 70%
+}
+
+.border {
+	border: 1px solid #cad1d7;
+}
+
+/* 去掉xlist边框样式 */
+.border .xlistview{
+	border:none;
+}
+
+
+/**************************************** 右侧内容区域样式 ****************************************/
+/*有padding,没有toolbar,没有滚动条,宽高不撑满*/
+.noscrollpadding10{
+	padding:10px;
+}
+
+/*没有padding,没有toolbar,没有滚动条,宽高撑满*/
+.nopaddingarea{
+	height:100%;
+}
+
+/* 没有padding,没有toolbar，有滚动条，宽高撑满 */
+.scrollcnopaddingarea{
+	height: 100%;
+	overflow:auto;
+	
+	/*IE7*/
+	*position: relative;
+}
+
+/* 有padding,没有toolbar，没有滚动条,宽高撑满 */
+.right_container {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+		*padding:0px;/* IE6\7中宽度100% 内容撑出屏幕外先注销padding距离 */
+}
+
+/* 没有toolbar情况 只用一个div将全部需要滚动区域包住 
+	<div class="right_conter">内容区域</div>
+*/
+.right_conter {
+	padding: 10px;
+	height: 100%;
+	overflow:auto;
+	margin:0px;
+	
+	/*IE7*/
+	*zoom:1;
+	*position: relative;
+	/*height: expression((this.parentNode.clientHeight-20) + 'px'); 工作流-实例查询-已完成 页面太卡*/
+}
+/* 有toolbar情况下页面滚动区域 分别用3个div来实现 
+	<div class="right_scroll">
+	  <div class="right_toolbar">这里放toolbar</div>
+	  <div class="right_toolbar_search">toolbar右侧有空间时添加搜索功能</div>
+	  <div class="right_conter_area">内容区域</div>
+	</div>
+*/
+.right_scroll {
+	position:relative;
+	width:100%;
+	height:100%;
+}
+
+.right_scroll .right_toolbar {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+}
+
+/*内容区域有间隙时的样式*/
+.right_scroll .right_conter_area{
+	position:absolute;
+	top:31px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	overflow:auto;
+	max-height:100%;
+	padding:10px;
+}
+
+/*内容区域没有间隙时的样式*/
+.right_scroll .right_conter_areanopadding{
+	position:absolute;
+	top:31px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	overflow:auto;
+	max-height:100%;
+}
+
+.right_scroll .right_conter_btn{
+	position:absolute;
+	top:20px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	overflow:auto;
+	max-height:100%;
+	padding:10px;
+}
+
+/* toolbar 右侧搜索框 */
+.right_scroll .right_toolbar_search{
+	position: absolute;
+	top:6px;
+	right:10px;
+}
+
+/* 有toolbar,并且按钮永远居底，页面内容有padding，有滚动区域情况， 分别用4个div来实现 
+	<div class="right_scroll">
+	  <div class="right_toolbar">这里放toolbar</div>
+	  <div class="right_conter_area2">内容区域</div>
+	  <div class="button_area">蓝色按钮区域</div>
+	</div>
+*/
+
+/* 有toolbar时，有padding，调用right_conter_area2 */
+.right_scroll .right_conter_area2{
+	position:absolute;
+	top:31px;
+	left:0px;
+	right:0px;
+	bottom:50px;
+	overflow:auto;
+	max-height:100%;
+	padding:10px;
+}
+
+/* 没有toolbar时,有padding，调用right_conter_area3 */
+.right_scroll .right_conter_area3{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:50px;
+	overflow:auto;
+	max-height:100%;
+	padding:10px;
+}
+
+/* 有toolbar，没有padding时，调用right_conter_area4 */
+.right_scroll .right_conter_area4{
+	position:absolute;
+	top:31px;
+	left:0px;
+	right:0px;
+	bottom:50px;
+	overflow:auto;
+	max-height:100%;
+}
+
+/* 没有toolbar,没有padding时，调用right_conter_area5 */
+.right_scroll .right_conter_area5{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:50px;
+	overflow:auto;
+	max-height:100%;
+}
+
+/* 没有toolbar时,有padding，无滚动条，调用right_conter_area_nooverflow */
+.right_scroll .right_conter_area_nooverflow{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:80px;
+	max-height:100%;
+	padding:10px;
+}
+
+/* 没有toolbar时,有padding，无滚动条，底部按钮高度50px 调用right_conter_area_nooverflow2 */
+.right_scroll .right_conter_area_nooverflow2{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:50px;
+	max-height:100%;
+	padding:10px;
+}
+
+/* 按钮在屏幕最底部 */
+.right_scroll .button_area {
+	height:50px;
+	border-top: 1px solid #E4E4E4;
+	padding:10px 0px;
+	position:absolute;
+	left:10px;
+	right:10px;
+	bottom:0px;
+	
+	/* IE7 */
+	*height:30px;
+	_width:100%;
+}
+
+/* 按钮在屏幕最底部  顶部无线 */
+.right_scroll .button_area_noborder {
+	height:50px;
+	padding:10px 0px;
+	position:absolute;
+	left:10px;
+	right:10px;
+	bottom:0px;
+	
+	/* IE7 */
+	*height:30px;
+	_width:100%;
+}
+
+
+/* 查看报表在页底有TAB分页标签的结构，有toolbar,并且TAB分页永远居底，页面内容有padding，有滚动区域情况， 分别用4个div来实现 
+	<div class="right_scroll">
+	  <div class="right_toolbar">这里放toolbar</div>
+	  <div class="right_conter_area6">内容区域</div>
+	  <div class="bottom_tab">底部tab分页控件</div>
+	</div>
+*/
+
+.right_scroll .right_conter_area6{
+	position:absolute;
+	top:31px;
+	left:0px;
+	right:0px;
+	bottom:20px;
+	overflow:auto;
+	max-height:100%;
+}
+
+/*有toolbar，有padding,有滚动条，按钮在底部50px*/
+.right_scroll .right_conter_area7{
+	position:absolute;
+	top:31px;
+	left:0px;
+	right:0px;
+	bottom:50px;
+	overflow:auto;
+	max-height:100%;
+	padding:10px;
+}
+
+/*没有toolbar，有padding,有滚动条，分页标签在底部*/
+.right_scroll .right_conter_area8{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:20px;
+	overflow:auto;
+	padding:10px;
+	max-height:100%;
+}
+
+/*有toolbar，有padding,没有滚动条，分页标签在底部*/
+.right_scroll .right_conter_area9{
+	position:absolute;
+	top:31px;
+	left:0px;
+	right:0px;
+	bottom:20px;
+	max-height:100%;
+	padding:10px;
+}
+
+/*没有toolbar，没有padding,没有滚动条，分页标签在底部*/
+.right_scroll .right_conter_area10{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:20px;
+	max-height:100%;
+}
+
+/* 按钮在屏幕最底部 */
+.right_scroll .bottom_tab {
+	height:20px;
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	width:100%;
+}
+
+/**************************************** 内容容器样式 ****************************************/
+/*白底带灰色边框的容器(上下左右未设margin)*/
+.container_01 {
+	background-color: #fff;
+	border: solid 1px #C8C8C8;
+	padding: 10px;
+	position: relative;
+}
+
+/***** 与tab标签一致的容器样式，例子如下所示
+<div class="containertab">
+  <div class="title"><span>这里放标题文字</span></div>
+  <div class="icon">
+        <ul>
+          <li>图标文件</li>
+          <li>图标文件</li>
+        </ul>
+  </div>
+  <div class="content">这里放内容</div>
+</div> *******/
+.containertab{
+	position:relative;
+	width:100%;
+	height:100%;
+	}
+.containertab .title{
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index: 999;
+}
+.containertab .title span{	
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-left:1px solid #ccc;
+	background-color:#fff;
+	font-weight:bold;
+	height:24px;
+	line-height:24px;
+	padding: 0 10px;
+	display:inline-block;
+	}
+	
+	/*标题右侧的图标*/
+	.containertab .icon{
+	position:absolute;
+	top:4px;
+	right:0px;
+}	
+
+.containertab .icon ul{
+	list-style:none;
+}
+	
+.containertab .icon ul li{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	margin-left:5px;
+	
+	/*IE7*/
+	zoom: 1;
+	*display: inline;
+}
+
+.containertab .icon ul li img{
+	cursor: pointer;
+}
+
+/*内容区 lile2013.12.12修改此处*/
+.containertab .content{
+	position:absolute;
+	top:23px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	overflow:auto;
+	max-height:100%;
+	border:1px solid #ccc;
+	max-height:100%;
+	padding:5px;
+	
+	/*IE7*/
+	*zoom: expression(this.runtimeStyle["width"]=Math.max(this.parentNode.clientWidth-12,0) + 'px',1);
+	}
+
+/*内容为二级标签页显示，例如：个人设置--外观与主题*/
+.container_tab2 {
+	width: 100%;
+	overflow:auto;
+	padding: 8px;
+	height: 100%;
+}
+
+.pagectrl_tab2 {
+	padding: 0 0 8px 0;
+}
+
+.pagectrl_tab2_conter {
+	padding: 10px 10px 20px 10px;
+	overflow: auto;
+	height: 430px;
+}
+
+/*单独的一个table里td的样式*/
+.setwidth{
+	width:128px;
+}
+
+/* 带边框的表格样式 */
+.table-striped {
+    background-color: rgba(0, 0, 0, 0);
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+}
+.table-striped th, .table-striped td {
+    border: 1px solid #c6c6c6;
+    line-height: 20px;
+    padding: 5px;
+}
+
+/* 默认基础表格样式  */
+.table_default{
+	table-layout: fixed;
+	padding:0px;
+	margin:0px;
+}
+.table_default tr,.table_default td{
+	padding:0px;
+	margin:0px;
+}
+
+
+/* 灰色背景表头样式 */
+.gray_title{
+    background:#F6F6F6;
+    line-height: 26px;
+    width: 100%;
+    display: inline-block;
+}
+
+.gray_title img {
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+.margintop50{
+	margin-top: 50px;
+}
+
+/* 背景为灰色的边框 */
+.grayborder{
+	border:1px solid #e8e8e8;
+	background: #f8f8f8;
+	line-height: 25px;
+}
+
+/* 间距为22px的深灰色字 */
+.lineheight22{
+	line-height: 22px;
+	color: #494949;
+}
+
+/***********很多xlist套在标签页里时不显示边框时的样式***************/
+.noxlist_border .xlistview{ border:none;}
+
+
+/***********帮助系统背景***************/
+.help_main_bg{
+	background: #f8f8f8;
+}
