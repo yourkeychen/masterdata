@@ -30,7 +30,7 @@ public class LogInformController {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
         stringObjectHashMap.put("code",0);
         stringObjectHashMap.put("msg","");
-        stringObjectHashMap.put("count",sysRegistryMapper.selectCountPagesize(page,limit));
+        stringObjectHashMap.put("count",sysRegistryMapper.selectCountPagesize());
         stringObjectHashMap.put("data",sysRegistryMapper.selectLogObject(page,limit));
         return stringObjectHashMap;
     }

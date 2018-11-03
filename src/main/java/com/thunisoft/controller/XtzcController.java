@@ -18,8 +18,6 @@ import java.util.Map;
 @RequestMapping("/masterData")
 public class XtzcController {
     @Autowired
-    private SysRegistryMapper sysRegistryMapper;
-    @Autowired
     private XtzcService xtzcService;
     @RequestMapping("/toxtzc")
     public String toXtzc(){
@@ -45,8 +43,8 @@ public class XtzcController {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
         stringObjectHashMap.put("code",0);
         stringObjectHashMap.put("msg","");
-        stringObjectHashMap.put("count",sysRegistryMapper.selectXtCount());
-        stringObjectHashMap.put("data",sysRegistryMapper.selectObject(page,limit));
+        stringObjectHashMap.put("count",xtzcService.selectXtCount());
+        stringObjectHashMap.put("data",xtzcService.selectObject(page,limit));
         return stringObjectHashMap;
     }
     @RequestMapping("/insertObject")
@@ -64,5 +62,4 @@ public class XtzcController {
     public Object deleteObject(SysRegistry sysRegistry){
         return CommonUtils.getJsonRes(xtzcService.deleteObject(sysRegistry));
     }
-
 }

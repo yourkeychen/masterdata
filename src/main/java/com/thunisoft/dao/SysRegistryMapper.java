@@ -23,5 +23,5 @@ public interface SysRegistryMapper {
     Integer selectXtCount();
     List<Map> selectLogObject(@Param("currentPage")Integer currentPage,@Param("pageSize")Integer pageSize);
 
-    Integer selectCountPagesize(@Param("currentPage")Integer currentPage, @Param("pageSize")Integer pageSize);
+    Integer selectCountPagesize();
 }

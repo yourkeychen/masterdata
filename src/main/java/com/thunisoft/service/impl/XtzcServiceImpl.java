@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -53,5 +54,15 @@ public class XtzcServiceImpl implements XtzcService {
     public SysRegistry selectById(Integer id) {
         SysRegistry sysRegistry = sysRegistryMapper.selectByPrimaryKey(id);
         return sysRegistry;
+    }
+
+    @Override
+    public Integer selectXtCount() {
+        return sysRegistryMapper.selectCount();
+    }
+
+    @Override
+    public List<SysRegistry> selectObject(Integer pageNum, Integer pageSize) {
+        return sysRegistryMapper.selectObject(pageNum,pageSize);
     }
 }
