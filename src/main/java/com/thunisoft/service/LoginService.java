@@ -50,8 +50,16 @@ public class LoginService {
      * 登录session集合 
      */
     private static Map<String,HttpSession> logins = new HashMap<String,HttpSession>();
-    
-    /**
+
+	/**
+	 * 获取登录权限
+	 */
+	public Short getType(){
+		Permission user = ControllerTool.getCurrentUser2();
+		return user.getType();
+	}
+
+	/**
      * 获取登录信息
      * @return
      */

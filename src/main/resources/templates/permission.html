@@ -11,8 +11,8 @@
 <body>
 
         <!-- 内容主体区域 -->
-        <div style="margin-bottom: 10px;margin-left: 30px">
-            <button class="layui-btn layui-btn-sm" onclick="toAddWindow()">增加</button>
+        <div style="margin-bottom: 10px;margin-left: 30px;margin-top: 10px;">
+            <button class="layui-btn layui-btn-sm" id="add" onclick="toAddWindow()">增加</button>
         </div>
         <div style="padding-left: 30px">
             <table id="tab" class="psy-table" lay-filter="test">
@@ -20,7 +20,7 @@
         </div>
 
 <script type="text/html" id="xiugai">
-    <button class="layui-btn layui-btn-sm" lay-event="edit">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm" lay-event="del">删除</button>
+    <button class="layui-btn layui-btn-sm" name="btn" lay-event="edit">修改</button>&nbsp&nbsp&nbsp<button class="layui-btn layui-btn-sm" name="btn" lay-event="del">删除</button>
 </script>
 <script src="/js/table.js"></script>
 <script src="/jquery-1.8.3.js"></script>

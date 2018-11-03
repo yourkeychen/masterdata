@@ -7,8 +7,7 @@ $(function () {
 function layuiSetTable() {
     layui.use("table",function () {
         var table = layui.table;
-
-        table.render({
+        var aaa = {
             elem: "#tab",
             id:'permissionTable',
             url: "/permission/list",
@@ -25,10 +24,12 @@ function layuiSetTable() {
                 {field:"password",title:"密码",sort:true},
                 {field:"type",title:"类型",sort:true},
                 {field:"createTime",title:"创建时间",sort:true},
-                {field:"updateTime",title:"修改时间",sort:true},
-                {field:"caozuo",title:"操作",toolbar:'#xiugai',width: 200}
+                {field:"updateTime",title:"修改时间",sort:true}
             ]]
-        });
+        };
+        var bbb = {field:"caozuo",title:"操作",toolbar:"#xiugai",width: 200};
+        aaa.cols[0].push(bbb);
+        table.render(aaa);
 
         table.on('tool(test)',function(obj){
             var data = obj.data;
@@ -100,4 +101,8 @@ function ilogin() {
             console.dir(data);
         }
     });
+}
+
+function toHidden() {
+    $("button[name='btn']").css("display","none");
 }

@@ -146,4 +146,13 @@ public class LoginController {
     public JSONObject getSingleMenu(@RequestParam("menuName")String menuName){
     	return CommonUtils.getJsonRes(loginService.getSingleMenu(menuName));
     }
+
+    /**
+     * 获取权限
+     */
+    @RequestMapping(value="/getType")
+    @ResponseBody
+    public JSONObject getType(){
+        return CommonUtils.getJsonRes(loginService.getType());
+    }
 }
