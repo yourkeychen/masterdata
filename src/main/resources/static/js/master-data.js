@@ -17,10 +17,11 @@ $(function () {
 function showMasterDataTab(){
     layui.use('table', function(){
         var table = layui.table;
-        var menuId=$("#pg-menu-id").val();
+        var menuId=$("#pg-menu-id-add").val();
         table.render({
             elem: '#fd-master-data'
             ,url:'/getData'
+            ,id:'masterDataTable'
             ,where:{
                 menuId:menuId
             },
@@ -54,25 +55,7 @@ function toAddMasterData() {
     addMasterData('添加');
 };
 
-//弹出窗口
-function addMasterData(ts) {
-    layui.use('layer', function(){
-        var layer = layui.layer;
-        layer.open({
-            type:1,
-            title:ts,
-            closeBtn:'1',
-            bthAlign:'c',
-            area:['550px','420px'],
-            align:'center',
-            shadeClose:true,
-            content:$('#pg-add-data-windows'),
-            end:function(){
-                $('#pg-add-data-windows').hide();
-            }
-        })
-    });
-}
+
 //提交审核数据
 function  submitExamineData(){
     var updateExaminUrl="/updateExaminStatus"
@@ -89,14 +72,8 @@ function  submitExamineData(){
             status:status,
             auditOptnion:auditOptnion
         },
-        success: function (result) {
-            if (result==1){
-                showTs('添加成功');
-               // layer.close(layer.index);
-            }else {
-                showTs('添加失败');
-            }
-            window.location.reload("/getExamineMasterData")
+        success: function (data) {
+            closeOpenShow(data,"examineMasterDataShow");
         }
     });
 }
@@ -111,42 +88,28 @@ function submitMasterData() {
     var reason=$("#pg-reason").val();
     var menuId=$("#pg-menu-id").val();
     var effect=$("input:radio:checked").val();
-
+if(code!=""||conentName!=""){
     $.ajax({
-        url : saveMasterDataUrl,
+        url: saveMasterDataUrl,
         type: "POST",
         dataType: 'json',
         async: false,
         data: {
-            code:code,
-            conentName:conentName,
-            desc:desc,
-            effect:effect,
-            menuId:menuId,
-            reason:reason
+            code: code,
+            conentName: conentName,
+            desc: desc,
+            effect: effect,
+            menuId: menuId,
+            reason: reason
         },
-        success: function (result) {
-            if (result==1){
-                showTs('添加成功');
-                layer.close(layer.index);
-                window.parent.location.reload();
-            }else {
-                showTs('添加失败');
-            }
+        success: function (data) {
+           closeOpenShow(data,"masterDataTable");
         }
     });
+  }
 }
 
-//提示
-function showTs(content) {
-    layui.use('layer', function(){
-        var layer = layui.layer;
-        layer.alert(content,{
-            icon:1,
-            skin:'my-skin',
-            title:"提示"});
-    });
-}
+
 
 /*主数据审核tab显示*/
 function showMasterDataExamineTab() {
@@ -178,42 +141,87 @@ function showMasterDataExamineTab() {
         });
         table.on('tool(fd-examine)',function(obj){
             var data = obj.data;
-            $("#pg-app-id").val(data.id); //通过
+            $("#pg-app-id").val(data.id);
             if(obj.event == 'pass'){
                 examineData(1,data.id); //通过
-                $("#pg-examine-status").val(1);
+                //$("#pg-examine-status").val(1);
 
             }else if(obj.event == 'noPass'){
-                $("#pg-examine-status").val(2);
+               // $("#pg-examine-status").val(2);
                 examineData(2,data.id); //不通过
             }
         })
     });
 }
-
+//弹出窗口
+function addMasterData(ts) {
+    var menuId=$("#pg-menu-id-add").val();
+    var redirectUrl="/redirectMasterDataAdd?menuId="+menuId
+    layui.use('layer', function(){
+        var layer = layui.layer;
+        parent.layer.open({
+            type:2,
+            title:ts,
+            closeBtn:'1',
+            bthAlign:'c',
+            area:['550px','420px'],
+            align:'center',
+            shadeClose:true,
+            content:redirectUrl,
+            end:function(){
+                $('#pg-add-data-windows').hide();
+            }
+        })
+    });
+}
 
 //审核意见 弹出窗口
-function examineData(e,id) {
+function examineData(status,id) {
     var str;
-    if (e==1){
+    if (status==1){
         str="通过";
-    }else if(e==2){
+    }else if(status==2){
         str="不通过";
     }
     layui.use('layer', function(){
+        var redirectExamineUrl="/redirectExamineShow?status="+status+"&id="+id;
         var layer = layui.layer;
-        layer.open({
-            type:1,
+        parent.layer.open({
+            type:2,
+            id:"examineMasterDataShow",
             title:str,
             closeBtn:'1',
             bthAlign:'c',
             area:['500px','300px'],
             align:'center',
             shadeClose:true,
-            content:$('#pg-examine-windows'),
+            content:redirectExamineUrl,
             end:function(){
                 $('#pg-examine-windows').hide();
             }
         })
     });
+}
+
+/**
+ * 关闭弹框
+ * @param data
+ * @param msg
+ */
+function closeOpenShow(data,idName){
+    parent.layer.close(parent.layer.index);//关闭弹出窗口
+    tableReload(idName);
+    if (data.success ==true) {
+        parent.showTs("添加成功");
+    }else {
+        parent.showTs("添加失败");
+    }
+}
+
+function tableReload(id){
+    layui.use("table",function () {
+        var table = layui.table;
+        table.reload(id);
+    });
+
 }

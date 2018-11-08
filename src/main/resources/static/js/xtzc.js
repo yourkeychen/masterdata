@@ -22,7 +22,7 @@ function addWindow(ts,id) {
             title:ts,
             closeBtn:'1',
             bthAlign:'c',
-            area:['550px','310px'],
+            area:['550px','360px'],
             align:'center',
             shadeClose:true,
             content:url,

@@ -3,34 +3,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>主数据管理系统</title>
+    <title>主数据管理平台</title>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="/index.css">
 
 </head>
 <body>
 
-<div id="contextMessage123" style="text-align: center ">
+<div id="contextMessage123" style="text-align: center;margin-top: 15px">
     <div class="layui-form-item center" style="width: 371px;margin: auto;margin-bottom: 10px;">
-        <label class="layui-form-label" style="width: 100px" >用户名</label>
+        <label class="layui-form-label" style="width: 60px" >用户名</label>
         <div class="layui-input-block">
             <input type="text" name="name" required th:value="${permission.userName}" style="width: 240px" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" id="username">
         </div>
     </div>
     <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
-        <label class="layui-form-label" style="width: 100px">密码</label>
+        <label class="layui-form-label" style="width: 60px">密码</label>
         <div class="layui-input-block">
             <input type="text" name="type" required th:value="${permission.password}" style="width: 240px" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" id="password">
         </div>
     </div>
     <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
-        <label class="layui-form-label" style="width: 100px">类型</label>
+        <label class="layui-form-label" style="width: 60px">类型</label>
         <div class="layui-input-block">
             <input type="text" name="value" required th:value="${permission.type}" style="width: 240px" lay-verify="required" placeholder="请选择类型" autocomplete="off" class="layui-input" id="type">
             <input type="hidden" name="id" id="id" th:value="${permission.id}" style="width: 240px" autocomplete="off" class="layui-input">
         </div>
     </div>
-    <div class="layui-form-item">
+    <div class="layui-form-item" style="margin-top: 30px">
         <div>
             <button class="layui-btn" lay-submit lay-filter="save" id="savebutton" onclick="insertOrUpd()">确定</button>
             <button type="reset" class="layui-btn layui-btn-primary" id="resetBtn" onclick="resetBtn()">重置</button>

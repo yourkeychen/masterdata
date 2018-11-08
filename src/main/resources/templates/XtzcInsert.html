@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Title</title>
+    <title>主数据管理平台</title>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="/index.css">
 
 </head>
 <body>
-<div id="contextMessage" style="text-align: center;">
+<div id="contextMessage" style="text-align: center;margin-top: 15px">
         <div class="layui-form-item center" style="width: 371px;margin: auto;margin-bottom: 10px;">
-            <label class="layui-form-label" style="width: 100px" >系统标识</label>
+            <label class="layui-form-label" style="width: 60px;" >系统标识</label>
             <div class="layui-input-block">
                     <input type="hidden" name="id" id="xtzc-id" th:value="${sysRegistry.id}" style="width: 240px" autocomplete="off" class="layui-input">
                     <input type="text" name="name" required th:value="${sysRegistry.sysCode}" style="width: 240px" lay-verify="required" placeholder="请输入系统标识" autocomplete="off" class="layui-input" id="xtbs">
             </div>
         </div>
         <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
-            <label class="layui-form-label" style="width: 100px">系统名称</label>
+            <label class="layui-form-label" style="width: 60px;">系统名称</label>
             <div class="layui-input-block">
                     <input type="text" name="type" required th:value="${sysRegistry.sysName}" style="width: 240px" lay-verify="required" placeholder="请输入系统名称" autocomplete="off" class="layui-input" id="xtmc">
             </div>
         </div>
         <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
-            <label class="layui-form-label" style="width: 100px">系统描述</label>
+            <label class="layui-form-label" style="width: 60px;" >系统描述</label>
             <div class="layui-input-block">
                     <input type="text" name="value" required th:value="${sysRegistry.sysDesc}" style="width: 240px" lay-verify="required" placeholder="请输入系统描述" autocomplete="off" class="layui-input" id="xtms">
                     <!-- <input type="hidden" name="id" style="width: 240px" autocomplete="off" class="layui-input"> -->
             </div>
         </div>
         <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 30px;">
-            <label class="layui-form-label" style="width: 100px">系统IP</label>
+            <label class="layui-form-label" style="width: 60px;">系统IP</label>
             <div class="layui-input-block">
                     <input type="text" name="value" required th:value="${sysRegistry.sysIp}" style="width: 240px" lay-verify="required" placeholder="请输入系统IP" autocomplete="off" class="layui-input" id="xtip">
                     <!-- <input type="hidden" name="id" style="width: 240px" autocomplete="off" class="layui-input"> -->

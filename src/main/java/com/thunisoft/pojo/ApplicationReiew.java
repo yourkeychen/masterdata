@@ -58,11 +58,9 @@ public class ApplicationReiew {
     public String getReviewer() {
         return reviewer;
     }
-
     public void setReviewer(String reviewer) {
         this.reviewer = reviewer;
     }
-
     public String getAuditOptnion() {
         return auditOptnion;
     }

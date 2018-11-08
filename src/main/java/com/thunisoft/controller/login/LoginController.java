@@ -4,6 +4,7 @@ package com.thunisoft.controller.login;
 import com.thunisoft.service.LoginService;
 import com.thunisoft.util.CommonUtils;
 import com.thunisoft.util.ControllerTool;
+import com.thunisoft.util.Validator;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
@@ -165,7 +166,7 @@ public class LoginController {
      * 访问登录页面
      * @return
      */
-    @RequestMapping("/goLogin")
+    @RequestMapping(value = {"/","/goLogin"})
     public Object login(){
         return "login";
     }
@@ -176,7 +177,10 @@ public class LoginController {
     @RequestMapping("/loginOut")
     public Object quitlogin(HttpServletRequest request, HttpServletResponse response){
          HttpSession session = request.getSession(false);
-         session.removeAttribute("user");
+        session.getAttribute("user");
+         if (Validator.isNotNullOrEmpty(session.getAttribute("user"))) {
+             session.removeAttribute("user");
+         }
         return "login";
     }
 }
