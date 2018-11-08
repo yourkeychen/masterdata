@@ -5,6 +5,7 @@ import com.thunisoft.pojo.ApplicationReiew;
 import com.thunisoft.pojo.MasterContent;
 import com.thunisoft.pojo.Menu;
 import com.thunisoft.service.MasterDataService;
+import com.thunisoft.util.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -163,8 +164,8 @@ public class MasterDataController {
         appRe.setStatus(status);
         appRe.setAuditOptnion(auditOptnion);
         appRe.setReviewTime(new Date());
-        HttpSession session = request.getSession(false);
-       /* if (Validator.isNotNullOrEmpty(session.getAttribute("user").toString())) {
+        HttpSession session = request.getSession();
+       /*if (Validator.isNotNullOrEmpty(session.getAttribute("user").toString())) {
             appRe.setReviewer(session.getAttribute("user").toString());
         }*/
          appId=masterDataService.updateExaminDataById(appRe);

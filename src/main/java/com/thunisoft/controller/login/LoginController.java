@@ -176,8 +176,7 @@ public class LoginController {
      */
     @RequestMapping("/loginOut")
     public Object quitlogin(HttpServletRequest request, HttpServletResponse response){
-         HttpSession session = request.getSession(false);
-        session.getAttribute("user");
+         HttpSession session = request.getSession();
          if (Validator.isNotNullOrEmpty(session.getAttribute("user"))) {
              session.removeAttribute("user");
          }
