@@ -104,7 +104,8 @@ function deleteObject(id) {
                 success : function(data){
                     if(data.result.success){
                         parent.layer.closeAll('dialog');
-                        tableReload('xtzc-table');
+                        //tableReload('xtzc-table');
+                        showPageAndTable();
                         parent.showTs('删除成功');
                     }
                 }

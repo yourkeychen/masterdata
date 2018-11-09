@@ -36,11 +36,11 @@ function insertObjects() {
     }
 }
 function getValues() {
-    var xtbs=$('#xtbs').val();
-    var xtmc=$('#xtmc').val();
-    var xtms=$('#xtms').val();
-    var xtip=$('#xtip').val();
-    var id=$('#xtzc-id').val();
+    var xtbs=$.trim($('#xtbs').val());
+    var xtmc=$.trim($('#xtmc').val());
+    var xtms=$.trim($('#xtms').val());
+    var xtip=$.trim($('#xtip').val());
+    var id=$.trim($('#xtzc-id').val());
     var xtxx={}
     xtxx.sysCode=xtbs;
     xtxx.sysName=xtmc;
