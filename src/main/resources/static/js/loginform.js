@@ -20,7 +20,7 @@ function showPageAndTable(currentPage,pageSize){
                 next: "下一页"
             }
             ,cols: [[
-                {field:'id', title: '序号', sort: true}
+                {width:80,type:'numbers'}
                 ,{field:'code', title: '编号', sort: true}
                 ,{field:'conent_name', title: '内容名称'}
                 ,{field:'description', title: '描述'}

@@ -1,5 +1,4 @@
 $(function () {
-
     showPageAndTable(currentPage,pageSize)
     $('#xt-add').bind('click',toAddWindow);
 
@@ -49,7 +48,7 @@ function showPageAndTable(currentPage,pageSize){
                 next: "下一页"
             }
             ,cols: [[
-                {field:'id', width:190, title: '序号'}
+                {width:80,type:'numbers', title: '序号'}
                 ,{field:'sysCode', width:190, title: '系统标识'}
                 ,{field:'sysName', width:190, title: '系统名称'}
                 ,{field:'sysDesc', title: '系统描述', width: 190} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
@@ -57,24 +56,6 @@ function showPageAndTable(currentPage,pageSize){
                 ,{field:'createTime', title: '注册时间',width:190}
                 ,{field:'create_time', title: '操作', toolbar: '#barDemo',width:200}
             ]]
-            /*,done: function(res, curr, count){
-                //如果是异步请求数据方式，res即为你接口返回的信息。
-                //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
-                laypage.render({
-                    elem:'xtzc-laypage'
-                    ,count:count
-                    ,curr:currentPage
-                    ,limit:pageSize
-                    ,layout: ['count', 'prev', 'page', 'next', 'skip']
-                    ,jump:function (obj,first) {
-                        if(!first){
-                            curnum = obj.curr;
-                            limitcount = obj.limit;
-                            showPageAndTable(curnum,limitcount)
-                        }
-                    }
-                })
-            }*/
         });
         //监听工具条
         table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
@@ -106,7 +87,9 @@ function deleteObject(id) {
                         parent.layer.closeAll('dialog');
                         //tableReload('xtzc-table');
                         showPageAndTable();
-                        parent.showTs('删除成功');
+                        parent.layer.msg('删除成功',{
+                            time:3000
+                        })
                     }
                 }
             });
@@ -117,7 +100,10 @@ function closeOpen(data,msg){
     parent.layer.close(parent.layer.index);//关闭弹出窗口
     tableReload('xtzc-table');
     if (data.code == 'success') {
-        parent.showTs(msg);
+        // parent.showTs(msg);
+        parent.layer.msg(msg,{
+            time:3000
+        })
     }
 }
 function tableReload(id){

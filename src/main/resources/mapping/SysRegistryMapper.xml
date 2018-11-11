@@ -33,7 +33,7 @@
     FROM master_data.t_application_reiew a LEFT JOIN master_data.t_master_content b ON a.master_id=b.id
     LEFT JOIN master_data.t_menu c ON b.menu_id=c.ID
     LEFT JOIN master_data.t_menu d ON c.pa_id=d.id
-    where a.status=1
+    where a.status=1 or a.status=2
     order by review_time desc
     LIMIT #{pageSize,jdbcType=INTEGER} OFFSET  (#{currentPage,jdbcType=INTEGER}-1)*#{pageSize,jdbcType=INTEGER}
   </select>
@@ -42,7 +42,7 @@
     FROM master_data.t_application_reiew a LEFT JOIN master_data.t_master_content b ON a.master_id=b.id
     LEFT JOIN master_data.t_menu c ON b.menu_id=c.ID
     LEFT JOIN master_data.t_menu d ON c.pa_id=d.id
-    where a.status=1
+    where a.status=1 or a.status=2
   </select>
   <!--(#{pageNum,jdbcType=INTEGER}-1)* #{pageSize,jdbcType=INTEGER}-->
   <!--/*LIMIT #{pageSize} OFFSET  (#{pageNum}-1)*#{pageSize}*/-->
