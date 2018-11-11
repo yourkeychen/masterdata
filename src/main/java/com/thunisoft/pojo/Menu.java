@@ -1,5 +1,7 @@
 package com.thunisoft.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -11,9 +13,9 @@ public class Menu {
     private Integer paId;
 
     private String operator;
-
+    @JsonFormat(timezone = "GMT+8",pattern="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
-
+    @JsonFormat(timezone = "GMT+8",pattern="yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     private String url;

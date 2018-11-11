@@ -33,12 +33,19 @@ function showMasterDataTab(){
                 next: "下一页"
             }
             ,cols: [[
-                {field:'id', title: '序号', sort: true}
+               /* {field:'id', title: '序号', sort: true,type:'numbers'}*/
+                 {title: '序号', sort: true,width:80,type:'numbers'}
                 ,{field:'code', title: '编码',sort: true}
                 ,{field:'conentName', title: '内容名称'}
                 ,{field:'desc',  title: '描述',minWidth: 150}
-                ,{field:'status', title: '审核状态',sort: true }
-                ,{field:'effect', title: '是否生效', sort: true}
+                ,{field:'status', title: '审核状态',sort: true,
+                    templet:function(row){
+                    return forStatus(row.status);
+                    }}
+                ,{field:'effect', title: '是否生效', sort: true,
+                    templet:function (row) {
+                        return forEffect(row.effect);
+                }}
                 ,{field:'creator', title: '创建人', sort: true}
                 ,{field:'createTime', title: '创建时间',sort: true}
             ]]
@@ -46,7 +53,25 @@ function showMasterDataTab(){
     });
 }
 
+//审核状态转换
+function forStatus(status) {
+    if (status==0){
+        return "待审核"
+    }else if(status==1){
+        return "通过"
+    }else {
+        return "不通过"
+    }
+}
 
+//是否有效转换
+function forEffect(effect) {
+    if(effect==0){
+      return "有效";
+    }else {
+      return "无效";
+    }
+}
 function toAddMasterData() {
  /*   $('#xtbs').val('');//清空写入内容
     $('#xtmc').val('');
@@ -126,7 +151,7 @@ function showMasterDataExamineTab() {
                 next: "下一页"
             }
             ,cols: [[
-                 {field:'id',title: '序号', sort: true}
+                 {title: '序号', sort: true,width:80,type:'numbers'}
                 ,{field:'code',title: '编号', sort: true}
                 ,{field:'conent_name',title: '内容名称'}
                 ,{field:'description',title: '描述'}
