@@ -16,7 +16,7 @@ function submitLoginData() {
             password:pwd
         },
         success: function (data) {
-            if (data.result==true){
+            if (data.result===true){
                 window.location.href="/homePage";
             }
 
