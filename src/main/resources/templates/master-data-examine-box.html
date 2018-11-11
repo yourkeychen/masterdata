@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>主数据管理平台</title>
-    <script src="/jquery-1.8.3.js"></script>
-    <script src="/layui/layui.js"></script>
-    <script src="/js/master-data.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
 </head>
 <body>
 <!--添加审核意见弹框-->
-<form class="layui-form" id="pg-examine-windows">
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">审核意见</label>
         <div class="layui-input-block">
@@ -25,10 +22,20 @@
             <button type="reset" class="layui-btn layui-btn-primary" style="margin-left: 20px">重置</button>
         </div>
     </div>
-</form>
+
 <input type="hidden" id="pg-app-id" th:value="${id}" >
 <input type="hidden" id="pg-examine-status" th:value="${status}" >
 
 </body>
+<script src="/jquery-1.8.3.js"></script>
+<script src="/layui/layui.js"></script>
+<script src="/js/master-data.js"></script>
+<script>
+    //JavaScript代码区域
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
 
+    });
+</script>
 </html>

@@ -24,11 +24,20 @@
         </div>
     </div>
     <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
-        <label class="layui-form-label" style="width: 60px">类型</label>
+        <label class="layui-form-label" style="width: 60px">角色</label>
         <div class="layui-input-block">
+            <select name="" lay-verify="required" style="width: 240px;height: 38px; float: left;" >
+                <option value="请选择类型">请选择类型</option>
+                <option value="2">数据查看</option>
+                <option value="1">数据维护</option>
+                <option value="0">数据审核</option>
+
+            </select>
+        </div>
+        <!--<div class="layui-input-block">
             <input type="text" name="value" required th:value="${permission.type}" style="width: 240px" lay-verify="required" placeholder="请选择类型" autocomplete="off" class="layui-input" id="type">
             <input type="hidden" name="id" id="id" th:value="${permission.id}" style="width: 240px" autocomplete="off" class="layui-input">
-        </div>
+        </div>-->
     </div>
     <div class="layui-form-item" style="margin-top: 30px">
         <div>

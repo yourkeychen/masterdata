@@ -22,7 +22,7 @@ function layuiSetTable() {
                 {field:"id",title:"ID",sort:true},
                 {field:"userName",title:"用户名",sort:true},
                 {field:"password",title:"密码",sort:true},
-                {field:"type",title:"类型",sort:true},
+                {field:"type",title:"角色",sort:true},
                 {field:"createTime",title:"创建时间",sort:true},
                 {field:"updateTime",title:"修改时间",sort:true}
             ]]

@@ -144,10 +144,7 @@ function showMasterDataExamineTab() {
             $("#pg-app-id").val(data.id);
             if(obj.event == 'pass'){
                 examineData(1,data.id); //通过
-                //$("#pg-examine-status").val(1);
-
             }else if(obj.event == 'noPass'){
-               // $("#pg-examine-status").val(2);
                 examineData(2,data.id); //不通过
             }
         })
@@ -156,7 +153,7 @@ function showMasterDataExamineTab() {
 //弹出窗口
 function addMasterData(ts) {
     var menuId=$("#pg-menu-id-add").val();
-    var redirectUrl="/redirectMasterDataAdd?menuId="+menuId
+    var redirectUrl="/redirectMasterDataAdd?menuId="+menuId;
     layui.use('layer', function(){
         var layer = layui.layer;
         parent.layer.open({
@@ -168,8 +165,9 @@ function addMasterData(ts) {
             align:'center',
             shadeClose:true,
             content:redirectUrl,
+            success: function(layero,index){
+            },
             end:function(){
-                $('#pg-add-data-windows').hide();
             }
         })
     });
@@ -196,9 +194,10 @@ function examineData(status,id) {
             align:'center',
             shadeClose:true,
             content:redirectExamineUrl,
+            success: function(layero,index){
+            },
             end:function(){
-                $('#pg-examine-windows').hide();
-            }
+            },
         })
     });
 }
