@@ -56,13 +56,30 @@ $(function () {
     setTable(data);
 }*/
 
-function delbyindex(id){
+function delbyindex(id,url){
     layer.confirm("你确定删除这条数据吗？",{
-        offset:'300px'
+        offset:'300px',
+        btn:['确认','取消'],
+        success: function (layero,index) {
+            $(':focus').blur();
+            this.enterConfirm = function (event){
+                if(event.keyCode == 13){
+                    $(".layui-layer-btn0").click();
+                    return false;
+                }else if(event.keyCode == 27){
+                    $(".layui-layer-btn1").click();
+                    return false;
+                }
+            };
+            $(document).on("keydown",this.enterConfirm);
+        },
+        end: function () {
+            $(document).off("keydown",this.enterConfirm);
+        }
     }, function () {
         $.ajax({
             type: 'post',
-            url: '/permission/delete',
+            url: url,
             data: {id: id},
             async: false,
             dataType: 'json',

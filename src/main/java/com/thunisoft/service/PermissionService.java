@@ -22,4 +22,6 @@ public interface PermissionService {
     public List<Permission> selectList(Map<String, Object> map);
 
     public int selectCount(Map<String, Object> map);
+
+    public Permission selectByUserNamePassword(Permission record);
 }

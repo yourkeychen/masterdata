@@ -54,4 +54,9 @@ public class PermissionServiceImpl implements PermissionService {
     public int selectCount(Map<String, Object> map) {
         return permissionMapper.selectCount(map);
     }
+
+    @Override
+    public Permission selectByUserNamePassword(Permission record) {
+        return permissionMapper.selectByUserNamePassword(record);
+    }
 }

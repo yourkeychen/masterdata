@@ -19,10 +19,21 @@ function layuiSetTable() {
                 next: "下一页"
             },
             cols: [[
-                {field:"id",title:"ID",sort:true},
+                {field:"id",width:80,type:'numbers',title:"序号"},
                 {field:"userName",title:"用户名",sort:true},
                 {field:"password",title:"密码",sort:true},
-                {field:"type",title:"角色",sort:true},
+                {field:"type",title:"角色",sort:true,templet: function(res){
+                   if(res.type == 0){
+                       return "数据审核";
+                   }
+                   if(res.type == 1){
+                       return "数据维护";
+                   }
+                   if(res.type == 2){
+                       return "数据查看";
+                   }
+
+                }},
                 {field:"createTime",title:"创建时间",sort:true},
                 {field:"updateTime",title:"修改时间",sort:true}
             ]]
@@ -36,7 +47,7 @@ function layuiSetTable() {
             if(obj.event == 'edit'){
                 add('修改',data.id);
             }else if(obj.event == 'del'){
-                parent.delbyindex(data.id);
+                parent.delbyindex(data.id,'/permission/delete');
             }
         })
     });

@@ -17,7 +17,18 @@ public class MasterdataApplicationTests {
 
     @Test
     public void contextLoads() {
-        loginService.login("123","123");
+        print();
+    }
+
+    public void print(){
+        String a = new String("123");
+        setString(a);
+        System.out.println(a);
+    }
+
+    public void setString(String a){
+         a += "123";
+//        System.out.println(a);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.thunisoft.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -13,8 +14,10 @@ public class Permission {
 
     private Short type;
     @JsonFormat(timezone = "GMT+8",pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     @JsonFormat(timezone = "GMT+8",pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     public Integer getId() {

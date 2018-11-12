@@ -44,8 +44,13 @@ public class PermissionController {
     @ResponseBody
     public Map<String, Object> getList(@RequestParam Map<String,Object> map){
         Map<String,Object> result = new HashMap<>();
-        List<Permission> list = permissionService.selectList(map);
         int count = permissionService.selectCount(map);
+        List<Permission> list = permissionService.selectList(map);
+        Integer page = Integer.valueOf((String) map.get("page"));
+        if(list.isEmpty()&&  page > 1){
+           map.put("page",page-1);
+           list = permissionService.selectList(map);
+        }
         result.put("data",list);
         result.put("count",count);
         result.put("code",0);
@@ -78,5 +83,24 @@ public class PermissionController {
     @ResponseBody
     public JSONObject delete(@RequestParam Map<String,Object> map){
         return CommonUtils.getJsonRes(permissionService.deleteByPrimaryKey(Integer.valueOf((String) map.get("id"))));
+    }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public JSONObject test(){
+        return CommonUtils.getJsonRes("true");
+    }
+
+    @RequestMapping("/getUsername")
+    @ResponseBody
+    public JSONObject getUsername(@RequestParam Map<String,Object> map){
+        Permission permission = new Permission();
+        permission.setUserName((String) map.get("username"));
+        Permission p = permissionService.selectByUserNamePassword(permission);
+        if(p !=null){
+            return CommonUtils.getJsonRes(true);
+        }else{
+            return CommonUtils.getJsonRes(false);
+        }
     }
 }

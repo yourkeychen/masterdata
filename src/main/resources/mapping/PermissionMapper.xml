@@ -11,7 +11,7 @@
   </resultMap>
 
   <sql id="Base_Column_List" >
-    id, user_name, password, type, to_char(create_time,'yyyy-mm-dd hh:MM:ss') create_time, to_char(update_time,'yyyy-mm-dd hh:MM:ss') update_time
+    id, user_name, password, type, to_char(create_time,'YYYY-MM-DD HH24:MI:SS') create_time, to_char(update_time,'YYYY-MM-DD HH24:MI:SS') update_time
   </sql>
 
 
@@ -118,15 +118,42 @@
     select
     <include refid="Base_Column_List" />
     from master_data.t_permission
+    where 1=1
+    <if test="username != null and username != ''">
+      and user_name = #{username}
+    </if>
+    <if test="password != null and password != ''">
+      and password = #{password}
+    </if>
+    <if test="type != null">
+      and type = #{type}
+    </if>
     order by id
     limit ${limit} offset ${limit}*(${page}-1)
   </select>
 
   <select id="selectCount" resultType="int" parameterType="map">
     select count(1) from master_data.t_permission
+    where 1=1
+    <if test="username != null and username != ''">
+      and user_name = #{username}
+    </if>
+    <if test="password != null and password != ''">
+      and password = #{password}
+    </if>
+    <if test="type != null">
+      and type = #{type}
+    </if>
   </select>
 
   <select id="selectByUserNamePassword" resultMap="BaseResultMap" parameterType="com.thunisoft.pojo.Permission">
-    select <include refid="Base_Column_List" /> from master_data.t_permission where user_name = #{userName} and password = #{password}
+    select <include refid="Base_Column_List" /> from master_data.t_permission
+    where 1=1
+    <if test="userName != null and userName != ''">
+      and user_name = #{userName}
+    </if>
+    <if test="password != null and password != ''">
+      and password = #{password}
+    </if>
   </select>
 </mapper>
