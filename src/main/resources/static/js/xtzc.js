@@ -26,6 +26,7 @@ function addWindow(ts,id) {
             shadeClose:true,
             content:url,
             success: function(layero,index){
+                $(':focus').blur();
             },
             end:function(){
             }
