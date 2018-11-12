@@ -61,7 +61,7 @@
     insert into master_data.t_master_content (menu_id,code,
       content_name, description, effect,creator )
     values (#{menuId,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR},
-      #{conentName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{effect,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}
+      #{contentName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{effect,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.thunisoft.pojo.MasterContent">

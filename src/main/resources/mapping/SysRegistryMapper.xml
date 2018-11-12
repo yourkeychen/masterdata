@@ -25,7 +25,7 @@
     from master_data.t_sys_registry
   </select>
   <select id="selectLogObject" resultType="map">
-    SELECT b.id,b.code,b.conent_name,b.description,
+    SELECT b.id,b.code,b.content_name,b.description,
     CASE WHEN b.effect=0 THEN '有效' WHEN b.effect=1 THEN '无效' ELSE CAST(b.effect as VARCHAR(11)) END as effect,
     c.name zsjname,d.name zsjkname,to_char(a.create_time,'YYYY-MM-DD HH24:MI:SS') create_time,a.applicant,a.reason,
     CASE WHEN a.status=0 THEN '待审核' WHEN a.status=1 THEN '通过' WHEN a.status=2 THEN '不通过' ELSE CAST(a.status as VARCHAR(11)) END as status,
