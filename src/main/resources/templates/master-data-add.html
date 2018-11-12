@@ -9,7 +9,8 @@
     <script src="/js/master-data.js"></script>
 </head>
 <body >
-<form class="layui-form" id="addMasterDataform">
+<!--<form class="layui-form" id="addMasterDataform">-->
+<form  id="addMasterDataform">
 <!--弹出表单-->
     <div class="layui-form-item" style="margin-top: 15px;">
         <label class="layui-form-label" style="margin-left: 30px;">编码</label>
@@ -46,7 +47,7 @@
     <input type="hidden" name="menuId" id="pg-menu-id" th:value="${menuId}">
     <div class="layui-form-item">
         <div class="layui-input-block" style="margin-left: 180px">
-            <button class="layui-btn" lay-submit lay-filter="addMDSubmit" id="pg-submit-data">立即提交</button>
+            <button class="layui-btn" lay-submit lay-filter="addMDSubmit" id="pg-submit-data">确定</button>
             <button type="reset" class="layui-btn layui-btn-primary" style="margin-left: 20px">重置</button>
         </div>
     </div>
