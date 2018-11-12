@@ -11,7 +11,7 @@ public class MasterContent {
 
     private String code;
 
-    private String conentName;
+    private String contentName;
 
     private String description;
 
@@ -62,12 +62,12 @@ public class MasterContent {
         this.code = code;
     }
 
-    public String getConentName() {
-        return conentName;
+    public String getContentName() {
+        return contentName;
     }
 
-    public void setConentName(String conentName) {
-        this.conentName = conentName;
+    public void setContentName(String contentName) {
+        this.contentName = contentName;
     }
 
     public String getDesc() {

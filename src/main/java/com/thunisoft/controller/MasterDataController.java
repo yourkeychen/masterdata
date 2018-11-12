@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.thunisoft.pojo.ApplicationReiew;
 import com.thunisoft.pojo.MasterContent;
 import com.thunisoft.pojo.Menu;
+import com.thunisoft.pojo.Permission;
 import com.thunisoft.service.MasterDataService;
 import com.thunisoft.util.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 @Controller
 public class MasterDataController {
     /*待审核状态*/
@@ -28,6 +30,9 @@ public class MasterDataController {
 
     @Autowired
     private MasterDataService masterDataService;
+
+    @Autowired
+    private HttpSession session;
 
     @RequestMapping(value = "/homePage")
     public String toIndex(Model model){
@@ -66,7 +71,7 @@ public class MasterDataController {
     /**
      * 新增主数据
      * @param code
-     * @param conentName
+     * @param contentName
      * @param desc
      * @param effect
      * @param menuId
@@ -75,15 +80,19 @@ public class MasterDataController {
      */
     @RequestMapping(value = "/saveMasterData")
     @ResponseBody
-    public Object insertMasterData(@RequestParam("code") String code,@RequestParam("conentName")String conentName,@RequestParam("desc") String desc,
+    public Object insertMasterData(@RequestParam("code") String code,@RequestParam("contentName")String contentName,@RequestParam("desc") String desc,
                                    @RequestParam("effect") Integer effect,@RequestParam("menuId") Integer menuId,@RequestParam("reason") String reason){
         JSONObject rtn = new JSONObject();
         MasterContent mc=new MasterContent();
         mc.setCode(code);
-        mc.setConentName(conentName);
+        mc.setContentName(contentName);
         mc.setDesc(desc);
         mc.setEffect(effect);
         mc.setMenuId(menuId);
+        Permission permission= (Permission) session.getAttribute("user");
+       if (Validator.isNotNullOrEmpty(permission)){
+            mc.setCreator(permission.getUserName());
+        }
         int mcId=masterDataService.insertMasterData(mc);
         int arId = 0;
         if (mcId!=0){
@@ -91,6 +100,7 @@ public class MasterDataController {
             ar.setReason(reason);
             ar.setMasterId(mcId);
             ar.setStatus(0); //0 待审核;
+            ar.setApplicant(mc.getCreator());
             arId =masterDataService.insertApplicationReiew(ar);
         }
         rtn.put("result",arId);
@@ -144,7 +154,7 @@ public class MasterDataController {
         exMDMap.put("code",0);
         exMDMap.put("msg","");
         exMDMap.put("data",masterDataService.findExMasterData(limit,page,PENDREVIEWSTATUS));
-        exMDMap.put("count",masterDataService.findExMasterDataCount());
+        exMDMap.put("count",masterDataService.findExMasterDataCount(PENDREVIEWSTATUS));
         return exMDMap;
     }
     /**
@@ -164,10 +174,10 @@ public class MasterDataController {
         appRe.setStatus(status);
         appRe.setAuditOptnion(auditOptnion);
         appRe.setReviewTime(new Date());
-        HttpSession session = request.getSession();
-       /*if (Validator.isNotNullOrEmpty(session.getAttribute("user").toString())) {
-            appRe.setReviewer(session.getAttribute("user").toString());
-        }*/
+        Permission permission= (Permission) session.getAttribute("user");
+        if (Validator.isNotNullOrEmpty(permission)){
+            appRe.setReviewer(permission.getUserName());
+        }
          appId=masterDataService.updateExaminDataById(appRe);
         jb.put("result",appId);
         if (appId>0){

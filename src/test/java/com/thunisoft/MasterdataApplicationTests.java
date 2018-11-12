@@ -21,13 +21,13 @@ public class MasterdataApplicationTests {
     }
 
     public void print(){
-        String a = new String("123");
+       /* String a = new String("123");
         setString(a);
-        System.out.println(a);
+        System.out.println(a);*/
     }
 
     public void setString(String a){
-         a += "123";
+         /*a += "123";*/
 //        System.out.println(a);
     }
 

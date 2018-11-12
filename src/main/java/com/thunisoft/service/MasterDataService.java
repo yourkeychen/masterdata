@@ -24,7 +24,7 @@ public interface MasterDataService {
 
     List<Map> findExMasterData(Integer limit, Integer page,Integer status);
 
-    int findExMasterDataCount();
+    int findExMasterDataCount(Integer status);
 
     int updateExaminDataById(ApplicationReiew appRe);
 }

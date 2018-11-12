@@ -7,25 +7,26 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
 </head>
 <body>
+<form class="layui-form" id="examineform">
 <!--添加审核意见弹框-->
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">审核意见</label>
         <div class="layui-input-block">
-            <textarea name="auditOptnion" id="pg-audit-optnion" placeholder="请输入审核意见" class="layui-textarea" style="width: 80%;margin-top: 15px;min-height: 150px;"></textarea>
+            <textarea name="auditOptnion" id="pg-audit-optnion" lay-verify="optnionValid|required"  placeholder="请输入审核意见,不超过200字..." class="layui-textarea" style="width: 80%;margin-top: 15px;min-height: 150px;"></textarea>
         </div>
     </div>
 
 
     <div class="layui-form-item" style="margin-top: 30px;">
         <div class="layui-input-block" style="margin-left: 150px">
-            <button class="layui-btn" lay-submit lay-filter="formDemo" id="pg-submit-examine">立即提交</button>
+            <button class="layui-btn" lay-submit lay-filter="examineSubmit" id="pg-submit-examine">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary" style="margin-left: 20px">重置</button>
         </div>
     </div>
 
 <input type="hidden" id="pg-app-id" th:value="${id}" >
 <input type="hidden" id="pg-examine-status" th:value="${status}" >
-
+</form>
 </body>
 <script src="/jquery-1.8.3.js"></script>
 <script src="/layui/layui.js"></script>

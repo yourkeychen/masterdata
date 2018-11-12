@@ -25,7 +25,7 @@ public interface MasterContentMapper {
 
     int findCountByMenuId(Integer menuId);
 
-    int findExMasterDataCount();
+    int findExMasterDataCount(Integer status);
 
     List<Map> findExMasterData(@Param("limit") Integer limit, @Param("page") Integer page,@Param("status") Integer status);
 }

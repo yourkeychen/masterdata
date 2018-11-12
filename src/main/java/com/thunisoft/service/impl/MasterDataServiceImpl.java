@@ -71,8 +71,9 @@ public class MasterDataServiceImpl implements MasterDataService {
     }
 
     @Override
-    public int findExMasterDataCount() {
-        return masterContentMapper.findExMasterDataCount();
+    public int findExMasterDataCount(Integer status) {
+
+        return masterContentMapper.findExMasterDataCount(status);
     }
 
     @Override

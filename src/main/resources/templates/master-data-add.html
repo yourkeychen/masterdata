@@ -9,47 +9,48 @@
     <script src="/js/master-data.js"></script>
 </head>
 <body >
-
+<form class="layui-form" id="addMasterDataform">
 <!--弹出表单-->
     <div class="layui-form-item" style="margin-top: 15px;">
         <label class="layui-form-label" style="margin-left: 30px;">编码</label>
         <div class="layui-input-block">
-            <input type="text"  id="pg-code" name="code" required  lay-verify="required" placeholder="请输入编码" autocomplete="off" class="layui-input" style="width: 70%;">
+            <input type="text"  id="pg-code"  required  lay-verify="dataCode|required" placeholder="请输入编码" autocomplete="off" class="layui-input" style="width: 70%;">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label" style="margin-left: 30px;">内容名称</label>
         <div class="layui-input-block">
-            <input type="text" id="pg-conentName" name="conentName" required  lay-verify="required" placeholder="请输入内容名称" autocomplete="off" class="layui-input" style="width: 70%;">
+            <input type="text" id="pg-contentName" required  lay-verify="contentName|required" placeholder="请输入内容名称" autocomplete="off" class="layui-input" style="width: 70%;">
         </div>
     </div>
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label" style="margin-left: 30px;">描述</label>
         <div class="layui-input-block">
-            <textarea name="desc" id="pg-desc" placeholder="请输入描述" class="layui-textarea" style="width: 70%; min-height: 50px;"></textarea>
+            <textarea name="desc" id="pg-desc" placeholder="请输入描述" lay-verify="dataDescrption" class="layui-textarea" style="width: 70%; min-height: 50px;"></textarea>
         </div>
     </div>
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label" style="margin-left: 30px;">申请原因</label>
         <div class="layui-input-block">
-            <textarea name="reason" id="pg-reason" placeholder="请输入申请原因" class="layui-textarea" style="width: 70%; min-height: 50px;"></textarea>
+            <textarea name="reason" id="pg-reason" placeholder="请输入申请原因" lay-verify="dataReason" class="layui-textarea" style="width: 70%; min-height: 50px;"></textarea>
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label" style="margin-left: 30px;">是否有效</label>
-        <div class="layui-input-block">
-            <input type="radio" class="pg-effect" name="effect" value="0" title="有效" checked>
-            <input type="radio" class="pg-effect"  name="effect" value="1" title="无效">
+        <div class="layui-input-block" style="margin-left: 30px;">
+            <input type="radio" class="pg-effect" name="effect" value="0"  style="margin-top: 12px;" checked>&nbsp;有效 &nbsp;&nbsp; &nbsp;&nbsp;
+            <input type="radio" class="pg-effect"  name="effect" value="1">&nbsp;无效
         </div>
     </div>
     <input type="hidden" name="menuId" id="pg-menu-id" th:value="${menuId}">
     <div class="layui-form-item">
         <div class="layui-input-block" style="margin-left: 180px">
-            <button class="layui-btn" lay-submit lay-filter="formDemo" id="pg-submit-data">立即提交</button>
+            <button class="layui-btn" lay-submit lay-filter="addMDSubmit" id="pg-submit-data">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary" style="margin-left: 20px">重置</button>
         </div>
     </div>
+ </form>
 </body>
 <script>
     //JavaScript代码区域

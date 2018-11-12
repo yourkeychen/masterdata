@@ -11,7 +11,7 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">主数据管理平台</div>
+        <div class="layui-logo" style="color: #fff;font-size: 19px;font-weight: 600;">主数据管理平台</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item layui-this" id="changeToMasterData"><a href="/menu/data?pId=0">主数据</a></li>
@@ -21,10 +21,10 @@
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
-                </dl>
+                <a href="javascript:;">
+                    <img src="/images/userImg.jpg" class="layui-nav-img">
+                    <p th:text="${session.user.userName}" style="float: right;">[...]</p>
+                </a>
             </li>
             <li class="layui-nav-item"><a href="/loginOut">退出</a></li>
         </ul>
@@ -52,7 +52,7 @@
 
     <div class="layui-footer" style="text-align: center">
         <!-- 底部固定区域 -->
-       主数据管理系统@2018.10
+       主数据管理平台 @2018.10
     </div>
 </div>
 

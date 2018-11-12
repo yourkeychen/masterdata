@@ -3,12 +3,8 @@ $(function () {
     showMasterDataTab();
     /*主数据弹框*/
     $('#pg-add-master-data').bind('click',toAddMasterData);
-    //提交新增主数据
-    $('#pg-submit-data').bind('click',submitMasterData);
     /*主数据审核*/
     showMasterDataExamineTab()
-    //提交审核数据
-    $('#pg-submit-examine').bind('click',submitExamineData);
 
 
 });
@@ -20,8 +16,8 @@ function showMasterDataTab(){
         var menuId=$("#pg-menu-id-add").val();
         table.render({
             elem: '#fd-master-data'
-            ,url:'/getData'
             ,id:'masterDataTable'
+            ,url:'/getData'
             ,where:{
                 menuId:menuId
             },
@@ -81,59 +77,6 @@ function toAddMasterData() {
 };
 
 
-//提交审核数据
-function  submitExamineData(){
-    var updateExaminUrl="/updateExaminStatus"
-    var id=$("#pg-app-id").val();
-    var status=$("#pg-examine-status").val();
-    var auditOptnion=$("#pg-audit-optnion").val();
-    $.ajax({
-        url : updateExaminUrl,
-        type: "POST",
-        dataType: 'json',
-        async: false,
-        data: {
-            id:id,
-            status:status,
-            auditOptnion:auditOptnion
-        },
-        success: function (data) {
-            closeOpenShow(data,"examineMasterDataShow");
-        }
-    });
-}
-
-
-//提交新增主数据
-function submitMasterData() {
-    var saveMasterDataUrl="/saveMasterData"
-    var code=$("#pg-code").val();
-    var conentName=$("#pg-conentName").val();
-    var desc=$("#pg-desc").val();
-    var reason=$("#pg-reason").val();
-    var menuId=$("#pg-menu-id").val();
-    var effect=$("input:radio:checked").val();
-if(code!=""||conentName!=""){
-    $.ajax({
-        url: saveMasterDataUrl,
-        type: "POST",
-        dataType: 'json',
-        async: false,
-        data: {
-            code: code,
-            conentName: conentName,
-            desc: desc,
-            effect: effect,
-            menuId: menuId,
-            reason: reason
-        },
-        success: function (data) {
-           closeOpenShow(data,"masterDataTable");
-        }
-    });
-  }
-}
-
 
 
 /*主数据审核tab显示*/
@@ -143,7 +86,8 @@ function showMasterDataExamineTab() {
         table.render({
             elem: '#fd-data-examine'
             ,url:'/getExamineMasterData'
-            ,cellMinWidth: 80,
+            ,cellMinWidth: 80
+            ,id:"examineMasterDataShow",
             width: 1500,
             page:{
                 layout: ['count','prev','page','next','limit','skip'],
@@ -191,6 +135,7 @@ function addMasterData(ts) {
             shadeClose:true,
             content:redirectUrl,
             success: function(layero,index){
+                $(':focus').blur();
             },
             end:function(){
             }
@@ -211,7 +156,6 @@ function examineData(status,id) {
         var layer = layui.layer;
         parent.layer.open({
             type:2,
-            id:"examineMasterDataShow",
             title:str,
             closeBtn:'1',
             bthAlign:'c',
@@ -220,6 +164,7 @@ function examineData(status,id) {
             shadeClose:true,
             content:redirectExamineUrl,
             success: function(layero,index){
+                $(':focus').blur();
             },
             end:function(){
             },
@@ -235,17 +180,106 @@ function examineData(status,id) {
 function closeOpenShow(data,idName){
     parent.layer.close(parent.layer.index);//关闭弹出窗口
     tableReload(idName);
-    if (data.success ==true) {
+   if (data.success ==true) {
         parent.showTs("添加成功");
     }else {
         parent.showTs("添加失败");
     }
 }
 
-function tableReload(id){
+function tableReload(idName){
     layui.use("table",function () {
-        var table = layui.table;
-        table.reload(id);
+        layui.table.reload(idName);
     });
 
 }
+
+////////////////////////////////////////////////////////////////////
+
+
+layui.use('form',function () {
+    var form =layui.form;
+    form.verify({ //校验
+        optnionValid:function (value,o) {
+            if (value.length>200){
+                return '字符长度不能超过200'
+            }
+        },
+        dataCode:function (value) {
+            if (value.length>50){
+                return '字符长度不能超过50'
+            }
+        },
+        contentName:function (value) {
+            if (value.length>100){
+                return '字符长度不能超过100'
+            }
+        },
+        dataDescrption:function (value) {
+            if (value.length>255){
+                return '字符长度不能超过255'
+            }
+        },
+        dataReason:function (value) {
+            if (value.length>200){
+                return '字符长度不能超过200'
+            }
+        }
+    })
+    //提交审核通过、不通过意见
+    form.on('submit(examineSubmit)',function () {
+        var updateExaminUrl="/updateExaminStatus"
+        var id=$("#pg-app-id").val();
+        var status=$("#pg-examine-status").val();
+        var auditOptnion=$("#pg-audit-optnion").val();
+
+        $.ajax({
+            url : updateExaminUrl,
+            type: "POST",
+            dataType: 'json',
+            async: false,
+            data: {
+                id:id,
+                status:status,
+                auditOptnion:auditOptnion
+            },
+            success: function (data) {
+                closeOpenShow(data,"examineMasterDataShow");
+            }
+        });
+        return false;
+    });
+
+    //提交新增主数据
+    form.on('submit(addMDSubmit)',function () {
+        var saveMasterDataUrl="/saveMasterData"
+        var code=$("#pg-code").val();
+        var contentName=$("#pg-contentName").val();
+        var desc=$("#pg-desc").val();
+        var reason=$("#pg-reason").val();
+        var menuId=$("#pg-menu-id").val();
+        var effect=$("input:radio:checked").val();
+        if(code!=""||contentName!=""){
+            $.ajax({
+                url: saveMasterDataUrl,
+                type: "POST",
+                dataType: 'json',
+                async: false,
+                data: {
+                    code: code,
+                    conentName: contentName,
+                    desc: desc,
+                    effect: effect,
+                    menuId: menuId,
+                    reason: reason
+                },
+                success: function (data) {
+                    closeOpenShow(data,"masterDataTable");
+                }
+            });
+        }
+        return false;
+    });
+
+
+})

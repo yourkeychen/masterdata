@@ -138,6 +138,7 @@
   <update id="updateByPrimaryKey" parameterType="com.thunisoft.pojo.ApplicationReiew" >
     update master_data.t_application_reiew
     set
+      reviewer = #{reviewer,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
       audit_optnion = #{auditOptnion,jdbcType=VARCHAR},
       review_time = #{reviewTime,jdbcType=TIMESTAMP}

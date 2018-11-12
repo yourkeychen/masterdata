@@ -168,6 +168,7 @@ public class LoginController {
      */
     @RequestMapping(value = {"/","/goLogin"})
     public Object login(){
+
         return "login";
     }
     /**
