@@ -77,12 +77,15 @@
             '-2':2,
             '-1':3
         }
-        var tab = this.location.href.split("?")[1].split("=")[1];
-        var tabChildren = $('#tab').children();
-        for(var i=0;i<tabChildren.length;i++) {
-            tabChildren[tabConfig[tab]].className = "";
+        var length = this.location.href.split("?").length;
+        if(length>1){
+            var tab = this.location.href.split("?")[1].split("=")[1];
+            var tabChildren = $('#tab').children();
+            for(var i=0;i<tabChildren.length;i++) {
+                tabChildren[tabConfig[tab]].className = "";
+            }
+            tabChildren[tabConfig[tab]].className = "layui-this";
         }
-        tabChildren[tabConfig[tab]].className = "layui-this";
     })();
 
     /*右侧页面局部刷新*/
