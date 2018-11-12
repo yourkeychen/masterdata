@@ -11,7 +11,7 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header index-header">
-        <div class="layui-logo logo-title">主数据管理平台</div>
+        <div class="layui-logo logo-title" style="color: #fff;font-size: 19px;font-weight: 600;">主数据管理平台</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <div class="layui-tab layui-tab-brief menu-tab">
             <ul class="layui-tab-title" id="tab">
@@ -23,10 +23,10 @@
         </div>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
-                </dl>
+                <a href="javascript:;">
+                    <img src="/images/userImg.jpg" class="layui-nav-img">
+                    <p th:text="${session.user.userName}" style="float: right;">[...]</p>
+                </a>
             </li>
             <li class="layui-nav-item"><a href="/loginOut">退出</a></li>
         </ul>

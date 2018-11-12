@@ -267,7 +267,7 @@ layui.use('form',function () {
                 async: false,
                 data: {
                     code: code,
-                    conentName: contentName,
+                    contentName: contentName,
                     desc: desc,
                     effect: effect,
                     menuId: menuId,
