@@ -61,6 +61,25 @@ html, body {
     background-repeat: no-repeat;
 }
 
+#login-error{
+    position: absolute;
+    bottom: -30px;
+    left: 25px;
+}
+
+#login-error>.error-icon{
+    width: 15px;
+    height: 16px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(/images/login_icon.png) no-repeat left top;
+}
+
+#login-error>span{
+    font-size: 12px;
+}
+
 .login-input{
     height: 38px;
     width: 80%;

@@ -17,7 +17,10 @@ function submitLoginData() {
         },
         success: function (data) {
             if (data.result===true){
+                $('#login-error').hide();
                 window.location.href="/homePage";
+            }else{
+                $('#login-error').show();
             }
 
         }
