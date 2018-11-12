@@ -43,3 +43,15 @@
 .my-skin{
     margin-top: 150px;
 }
+.index-header{
+    display: flex;
+}
+.index-header>.logo-title{
+    position: static!important;
+}
+.index-header .layui-tab-title{
+    border-style: none!important;
+}
+.white{
+    color: #FFFFFF;
+}

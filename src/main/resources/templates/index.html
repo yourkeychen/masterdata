@@ -10,21 +10,23 @@
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
-    <div class="layui-header">
-        <div class="layui-logo" style="color: #fff;font-size: 19px;font-weight: 600;">主数据管理平台</div>
+    <div class="layui-header index-header">
+        <div class="layui-logo logo-title">主数据管理平台</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item layui-this" id="changeToMasterData"><a href="/menu/data?pId=0">主数据</a></li>
-            <li class="layui-nav-item layui-this" id="changeToExamine"><a href="/menu/data?pId=-3">审核</a></li>
-            <li class="layui-nav-item" id="changeToLog"><a href="/menu/data?pId=-2">日志</a></li>
-            <li class="layui-nav-item" id="changeToSet"><a href="/menu/data?pId=-1">设置</a></li>
-        </ul>
+        <div class="layui-tab layui-tab-brief">
+            <ul class="layui-tab-title" id="tab">
+                <li class="layui-nav-item" id="changeToMasterData"><a class="white" href="/menu/data?pId=0">主数据</a></li>
+                <li class="layui-nav-item" id="changeToExamine"><a class="white" href="/menu/data?pId=-3">审核</a></li>
+                <li class="layui-nav-item" id="changeToLog"><a class="white" href="/menu/data?pId=-2">日志</a></li>
+                <li class="layui-nav-item" id="changeToSet"><a class="white" href="/menu/data?pId=-1">设置</a></li>
+            </ul>
+        </div>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <a href="javascript:;">
-                    <img src="/images/userImg.jpg" class="layui-nav-img">
-                    <p th:text="${session.user.userName}" style="float: right;">[...]</p>
-                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
             </li>
             <li class="layui-nav-item"><a href="/loginOut">退出</a></li>
         </ul>
@@ -43,16 +45,16 @@
                 </li>
             </ul>
 
-       </div>
+        </div>
     </div>
 
-        <!--内容主题不符-->
-        <iframe class="layui-body" src="/menu/homePage" frameborder="0" id="fd-page-setting" style="height: 770px;width: 100%;background-color: #fff"></iframe>
+    <!--内容主题不符-->
+    <iframe class="layui-body" src="/menu/homePage" frameborder="0" id="fd-page-setting" style="height: 770px;width: 100%;background-color: #fff"></iframe>
 
 
     <div class="layui-footer" style="text-align: center">
         <!-- 底部固定区域 -->
-       主数据管理平台 @2018.10
+        主数据管理平台 @2018.10
     </div>
 </div>
 
@@ -62,11 +64,27 @@
 <script src="/js/table.js"></script>
 <script>
     //JavaScript代码区域
-    //JavaScript代码区域
     layui.use('element', function(){
         var element = layui.element;
 
     });
+
+    //切换tab选项卡下划线
+    (function(){
+        var tabConfig = {
+            '0':0,
+            '-3':1,
+            '-2':2,
+            '-1':3
+        }
+        var tab = this.location.href.split("?")[1].split("=")[1];
+        var tabChildren = $('#tab').children();
+        for(var i=0;i<tabChildren.length;i++) {
+            tabChildren[tabConfig[tab]].className = "";
+        }
+        tabChildren[tabConfig[tab]].className = "layui-this";
+    })();
+
     /*右侧页面局部刷新*/
     function loadXMLDoc(e) {
         var url=$(e).attr('value')+"?menuId="+$(e).attr("menu-id");
