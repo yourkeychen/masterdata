@@ -74,7 +74,10 @@ function deleteObject(id) {
     layui.use('layer', function(){
         parent.layer.confirm('您确定要删除这条数据吗？', {
             btn: ['确定','取消'], //按钮
-            skin:'my-skin'
+            skin:'my-skin',
+            success: function (layero,index) {
+                $(':focus').blur();
+            }
         }, function()
         {
             $.ajax({
