@@ -52,6 +52,10 @@
 .index-header .layui-tab-title{
     border-style: none!important;
 }
+
+.index-header>.menu-tab{
+    margin-left: 50px;
+}
 .white{
     color: #FFFFFF;
 }
