@@ -43,12 +43,6 @@ function getUserValue(){
     return user;
 }
 
-function resetBtn(){
-    $('#username').val('');
-    $('#password').val('');
-    $('#type').val('');
-}
-
 layui.use('form',function () {
     var form =layui.form;
     form.verify({

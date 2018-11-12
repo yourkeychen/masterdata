@@ -12,6 +12,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.SessionException;
 
 import com.thunisoft.dao.PermissionMapper;
 import com.thunisoft.pojo.LoginBean;
@@ -129,6 +130,18 @@ public class LoginService {
 		try {
 			subject.login(token);
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * shiro 登出
+	 */
+	public void logout(){
+		Subject subject = SecurityUtils.getSubject();
+		try{
+			subject.logout();
+		}catch (Exception e){
 			e.printStackTrace();
 		}
 	}

@@ -59,4 +59,9 @@ public class PermissionServiceImpl implements PermissionService {
     public Permission selectByUserNamePassword(Permission record) {
         return permissionMapper.selectByUserNamePassword(record);
     }
+
+    @Override
+    public Permission selectByUserName(Map<String, Object> map) {
+        return permissionMapper.selectByUserName(map);
+    }
 }
