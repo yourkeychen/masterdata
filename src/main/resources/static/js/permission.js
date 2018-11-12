@@ -67,7 +67,7 @@ function add(ts,id){
             title: ts,
             closeBtn: '1',
             bthAlign: 'c',
-            area:['550px','310px'],
+            area:['550px','400px'],
             align:'center',
             shadeClose:true,
             content:url,

@@ -148,12 +148,11 @@
 
   <select id="selectByUserNamePassword" resultMap="BaseResultMap" parameterType="com.thunisoft.pojo.Permission">
     select <include refid="Base_Column_List" /> from master_data.t_permission
-    where 1=1
-    <if test="userName != null and userName != ''">
-      and user_name = #{userName}
-    </if>
-    <if test="password != null and password != ''">
-      and password = #{password}
-    </if>
+    where user_name = #{userName} and password = #{password}
+  </select>
+
+  <select id="selectByUserName" resultMap="BaseResultMap" parameterType="map">
+    select <include refid="Base_Column_List" /> from master_data.t_permission
+    where user_name = #{username}
   </select>
 </mapper>

@@ -94,9 +94,7 @@ public class PermissionController {
     @RequestMapping("/getUsername")
     @ResponseBody
     public JSONObject getUsername(@RequestParam Map<String,Object> map){
-        Permission permission = new Permission();
-        permission.setUserName((String) map.get("username"));
-        Permission p = permissionService.selectByUserNamePassword(permission);
+        Permission p = permissionService.selectByUserName(map);
         if(p !=null){
             return CommonUtils.getJsonRes(true);
         }else{
