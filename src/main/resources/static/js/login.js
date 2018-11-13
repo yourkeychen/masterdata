@@ -19,6 +19,7 @@ function submitLoginData() {
             if (data.result===true){
                 $('#login-error').hide();
                 window.location.href="/homePage";
+                //window.location.href="/partMasterData?";
             }else{
                 $('#login-error').show();
             }
