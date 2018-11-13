@@ -11,24 +11,39 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header index-header">
-        <div class="layui-logo logo-title" style="color: #fff;font-size: 19px;font-weight: 600;">主数据管理平台</div>
+        <div class="layui-logo logo-title" style="background-color: #3e6bb8;margin-left: 70px;background: url(/images/logo.png) no-repeat;width: 230px;"></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
-        <div class="layui-tab layui-tab-brief">
-            <ul class="layui-tab-title" id="tab">
-                <li class="layui-nav-item" id="changeToMasterData"><a class="white" href="/menu/data?pId=0">主数据</a></li>
-                <li class="layui-nav-item" id="changeToExamine"><a class="white" href="/menu/data?pId=-3">审核</a></li>
-                <li class="layui-nav-item" id="changeToLog"><a class="white" href="/menu/data?pId=-2">日志</a></li>
-                <li class="layui-nav-item" id="changeToSet"><a class="white" href="/menu/data?pId=-1">设置</a></li>
-            </ul>
-        </div>
-        <ul class="layui-nav layui-layout-right">
+        <ul id="tab">
+            <li data-pid="0" class="tab-item">
+                <img src="/images/master_data.png">
+                <a href="/menu/data?pId=0">主数据</a>
+            </li>
+            <li data-pid="-3" class="tab-item" th:style="${session.user.type eq 0}? '':'display:none'">
+                <img src="/images/resolve.png">
+                <a href="/menu/data?pId=-3">审核</a>
+            </li>
+            <li data-pid="-2" class="tab-item">
+                <img src="/images/log.png">
+                <a href="/menu/data?pId=-2">日志</a>
+            </li>
+            <li data-pid="-1" class="tab-item" th:style="${session.user.type eq 0}? '':'display:none'">
+                <img src="/images/setting.png">
+                <a href="/menu/data?pId=-1">设置</a>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right"  style="padding:0">
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="/images/userImg.jpg" class="layui-nav-img">
                     <p th:text="${session.user.userName}" style="float: right;">[...]</p>
                 </a>
             </li>
-            <li class="layui-nav-item"><a href="/loginOut">退出</a></li>
+            <li class="layui-nav-item">
+                <a id="exit" href="/loginOut">
+                    <img src="/images/exit.png">
+                    <span>退出</span>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -36,11 +51,14 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!--左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test" style="padding:0 !important">
                 <li class="layui-nav-item layui-nav-itemed" th:each="menu:${menuList}">
-                    <a class="" href="javascript:;" th:text="${menu.name}"></a>
+                    <a href="javascript:;" >
+                        <img th:src="${menu.iconUrl}"/>
+                        <span th:text="${menu.name}"></span>
+                    </a>
                     <dl class="layui-nav-child" th:each="child:${menu.childMenus}">
-                        <dd><a href="javascript:void(0)"  onclick="loadXMLDoc(this)" th:text="${child.name}" th:menu-id="${child.id}" th:value="${child.url}"></a></dd>
+                        <dd><a style="padding-left: 40px;" href="javascript:void(0)"  onclick="loadXMLDoc(this)" th:text="${child.name}" th:menu-id="${child.id}" th:value="${child.url}"></a></dd>
                     </dl>
                 </li>
             </ul>
@@ -71,6 +89,11 @@
 
     //切换tab选项卡下划线
     (function(){
+        $("#tab>li").bind('click',function(){
+            $(this).focus();
+            window.location = "/menu/data?pId=" + $(this).attr('data-pid');
+        });
+
         var tabConfig = {
             '0':0,
             '-3':1,
@@ -78,14 +101,12 @@
             '-1':3
         }
         var length = this.location.href.split("?").length;
-        if(length>1){
-            var tab = this.location.href.split("?")[1].split("=")[1];
-            var tabChildren = $('#tab').children();
-            for(var i=0;i<tabChildren.length;i++) {
-                tabChildren[tabConfig[tab]].className = "";
-            }
-            tabChildren[tabConfig[tab]].className = "layui-this";
+        var tab = length>1 ? this.location.href.split("?")[1].split("=")[1] : 0;
+        var tabChildren = $('#tab').children();
+        for(var i=0;i<tabChildren.length;i++) {
+            tabChildren[tabConfig[tab]].className = "tab-item";
         }
+        tabChildren[tabConfig[tab]].className = "tab-item tab-focus";
     })();
 
     /*右侧页面局部刷新*/
