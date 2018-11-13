@@ -49,13 +49,45 @@
 .index-header>.logo-title{
     position: static!important;
 }
-.index-header .layui-tab-title{
-    border-style: none!important;
-}
-
-.index-header>.menu-tab{
+#tab{
     margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+#tab>.tab-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    height: 100%;
+    padding-top: 20px;
+    cursor: pointer;
+}
+#tab>.tab-item:hover{
+    background-color: #76A2E6;
+}
+#tab>.tab-item>img{
+    width: 24px;
+    height: 24px;
+}
+#tab>.tab-item>a{
+    text-decoration:none;
+    color:white;
+}
+.tab-focus{
+    background-color: #76A2E6;
 }
 .white{
     color: #FFFFFF;
+}
+#exit{
+    display: flex;
+    align-items: center;
+}
+#exit:hover{
+    background-color: #91B7F3;
+}
+#exit>img{
+    width:28px;
+    height:28px;
 }
