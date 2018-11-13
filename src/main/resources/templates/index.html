@@ -57,7 +57,6 @@
                         <img th:src="${menu.iconUrl}"/>
                         <span th:text="${menu.name}"></span>
                     </a>
-                    <a class="" href="javascript:;" th:text="${menu.name}"></a>
                     <dl class="layui-nav-child" th:each="child:${menu.childMenus}">
                         <dd><a style="padding-left: 40px;" href="javascript:void(0)"  onclick="loadXMLDoc(this)" th:text="${child.name}" th:menu-id="${child.id}" th:value="${child.url}"></a></dd>
                     </dl>
