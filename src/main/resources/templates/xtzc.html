@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>主数据管理平台</title>
@@ -14,12 +14,12 @@
     </script>
 </head>
 <body>
-<div style="margin-bottom: 10px;margin-left: 30px;margin-top: 10px">
-    <button class="layui-btn layui-btn-sm" id="xt-add">增加</button>
-</div>
-<div style="padding-left: 30px;">
-    <table class="layui-hide" id="xtzc-table" lay-filter="test"></table>
-    <div id="xtzc-laypage"></div>
+    <div th:style="${session.user.type eq 2}? 'margin-top:35px;margin-bottom: 10px;margin-left: 30px;':'margin-top:10px;margin-bottom: 10px;margin-left: 30px;'">
+        <div th:if="${session.user.type} eq '0'">
+          <button class="layui-btn layui-btn-sm" id="xt-add" >增加</button>
+          <table class="layui-hide" id="xtzc-table" lay-filter="test"></table>
+        </div>
+      <div id="xtzc-laypage"></div>
 </div>
 </body>
 <script type="text/html" id="barDemo">

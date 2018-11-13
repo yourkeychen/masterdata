@@ -7,9 +7,11 @@
 
 </head>
 <body>
-<div style="margin-bottom: 10px;margin-left: 30px;margin-top: 10px">
+<div th:style="${session.user.type eq 2}? 'margin-top:35px;margin-bottom: 10px;margin-left: 30px;':'margin-top:10px;margin-bottom: 10px;margin-left: 30px;'">
     <input type="hidden" name="menuId" id="pg-menu-id-add" th:value="${menuId}">
-    <button class="layui-btn layui-btn-sm" id="pg-add-master-data">增加</button>
+    <div th:if="${session.user.type} ne '2'">
+        <button class="layui-btn layui-btn-sm" id="pg-add-master-data">增加</button>
+    </div>
     <table class="layui-hide" id="fd-master-data"></table>
 </div>
 </body>

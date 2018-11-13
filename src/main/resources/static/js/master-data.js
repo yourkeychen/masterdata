@@ -4,10 +4,12 @@ $(function () {
     /*主数据弹框*/
     $('#pg-add-master-data').bind('click',toAddMasterData);
     /*主数据审核*/
-    showMasterDataExamineTab()
-
+    showMasterDataExamineTab();
 
 });
+
+
+
 
 /*主数据查询tab显示*/
 function showMasterDataTab(){
@@ -29,7 +31,6 @@ function showMasterDataTab(){
                 next: "下一页"
             }
             ,cols: [[
-               /* {field:'id', title: '序号', sort: true,type:'numbers'}*/
                  {title: '序号', sort: true,width:80,type:'numbers'}
                 ,{field:'code', title: '编码',sort: true}
                 ,{field:'conentName', title: '内容名称'}
@@ -69,21 +70,18 @@ function forEffect(effect) {
     }
 }
 function toAddMasterData() {
- /*   $('#xtbs').val('');//清空写入内容
-    $('#xtmc').val('');
-    $('#xtms').val('');
-    $('#xtip').val('');*/
     addMasterData('添加');
 };
 
 
 
 
-/*主数据审核tab显示*/
+/!*主数据审核tab显示*!/
 function showMasterDataExamineTab() {
     layui.use('table', function(){
         var table = layui.table;
-        table.render({
+
+        var tab = {
             elem: '#fd-data-examine'
             ,url:'/getExamineMasterData'
             ,cellMinWidth: 80
@@ -95,7 +93,7 @@ function showMasterDataExamineTab() {
                 next: "下一页"
             }
             ,cols: [[
-                 {title: '序号', sort: true,width:80,type:'numbers'}
+                {title: '序号', sort: true,width:80,type:'numbers'}
                 ,{field:'code',title: '编号', sort: true}
                 ,{field:'conent_name',title: '内容名称'}
                 ,{field:'description',title: '描述'}
@@ -105,9 +103,13 @@ function showMasterDataExamineTab() {
                 ,{field:'create_time', title: '申请时间', sort: true}
                 ,{field:'applicant', title: '申请人', sort: true}
                 ,{field:'reason', title: '申请理由'}
-                ,{field:"caozuo",title:"审核",toolbar:'#pg-examine', width:160}
             ]]
-        });
+        };
+        if($(".userType").val()==0){
+            tab.cols[0].push({field:"caozuo",title:"审核",toolbar:'#pg-examine', width:160});
+        }
+        table.render(tab);
+
         table.on('tool(fd-examine)',function(obj){
             var data = obj.data;
             $("#pg-app-id").val(data.id);
@@ -179,7 +181,7 @@ function examineData(status,id) {
  */
 function closeOpenShow(data,idName){
     parent.layer.close(parent.layer.index);//关闭弹出窗口
-    tableReload(idName);
+    $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.tableReload(idName);
    if (data.success ==true) {
         parent.showTs("添加成功");
     }else {
@@ -187,9 +189,11 @@ function closeOpenShow(data,idName){
     }
 }
 
-function tableReload(idName){
+function tableReload(id){
     layui.use("table",function () {
-        layui.table.reload(idName);
+        var table = layui.table;
+
+        table.reload(id);
     });
 
 }
@@ -228,6 +232,7 @@ layui.use('form',function () {
     })
     //提交审核通过、不通过意见
     form.on('submit(examineSubmit)',function () {
+        if(parent.beforeSend()){
         var updateExaminUrl="/updateExaminStatus"
         var id=$("#pg-app-id").val();
         var status=$("#pg-examine-status").val();
@@ -247,39 +252,43 @@ layui.use('form',function () {
                 closeOpenShow(data,"examineMasterDataShow");
             }
         });
+        }
         return false;
     });
 
     //提交新增主数据
     form.on('submit(addMDSubmit)',function () {
-        var saveMasterDataUrl="/saveMasterData"
-        var code=$("#pg-code").val();
-        var contentName=$("#pg-contentName").val();
-        var desc=$("#pg-desc").val();
-        var reason=$("#pg-reason").val();
-        var menuId=$("#pg-menu-id").val();
-        var effect=$("input:radio:checked").val();
-        if(code!=""||contentName!=""){
-            $.ajax({
-                url: saveMasterDataUrl,
-                type: "POST",
-                dataType: 'json',
-                async: false,
-                data: {
-                    code: code,
-                    contentName: contentName,
-                    desc: desc,
-                    effect: effect,
-                    menuId: menuId,
-                    reason: reason
-                },
-                success: function (data) {
-                    closeOpenShow(data,"masterDataTable");
-                }
-            });
+        if(parent.beforeSend()) {
+            var saveMasterDataUrl = "/saveMasterData"
+            var code = $("#pg-code").val();
+            var contentName = $("#pg-contentName").val();
+            var desc = $("#pg-desc").val();
+            var reason = $("#pg-reason").val();
+            var menuId = $("#pg-menu-id").val();
+            var effect = $("input:radio:checked").val();
+            if (code != "" || contentName != "") {
+                $.ajax({
+                    url: saveMasterDataUrl,
+                    type: "POST",
+                    dataType: 'json',
+                    async: false,
+                    data: {
+                        code: code,
+                        contentName: contentName,
+                        desc: desc,
+                        effect: effect,
+                        menuId: menuId,
+                        reason: reason
+                    },
+                    success: function (data) {
+                        closeOpenShow(data, "masterDataTable");
+                    }
+                });
+            }
         }
         return false;
     });
 
 
 })
+
