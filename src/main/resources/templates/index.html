@@ -18,7 +18,7 @@
                 <img src="/images/master_data.png">
                 <a href="/menu/data?pId=0">主数据</a>
             </li>
-            <li data-pid="-3" class="tab-item">
+            <li data-pid="-3" class="tab-item" th:style="${session.user.type eq 0}? '':'display:none'">
                 <img src="/images/resolve.png">
                 <a href="/menu/data?pId=-3">审核</a>
             </li>
@@ -26,7 +26,7 @@
                 <img src="/images/log.png">
                 <a href="/menu/data?pId=-2">日志</a>
             </li>
-            <li data-pid="-1" class="tab-item">
+            <li data-pid="-1" class="tab-item" th:style="${session.user.type eq 0}? '':'display:none'">
                 <img src="/images/setting.png">
                 <a href="/menu/data?pId=-1">设置</a>
             </li>
@@ -54,9 +54,10 @@
             <ul class="layui-nav layui-nav-tree"  lay-filter="test" style="padding:0 !important">
                 <li class="layui-nav-item layui-nav-itemed" th:each="menu:${menuList}">
                     <a href="javascript:;" >
-                        <img src="/images/person.png"/>
+                        <img th:src="${menu.iconUrl}"/>
                         <span th:text="${menu.name}"></span>
                     </a>
+                    <a class="" href="javascript:;" th:text="${menu.name}"></a>
                     <dl class="layui-nav-child" th:each="child:${menu.childMenus}">
                         <dd><a style="padding-left: 40px;" href="javascript:void(0)"  onclick="loadXMLDoc(this)" th:text="${child.name}" th:menu-id="${child.id}" th:value="${child.url}"></a></dd>
                     </dl>

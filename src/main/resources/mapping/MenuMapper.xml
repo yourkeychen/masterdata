@@ -7,11 +7,12 @@
     <result column="pa_id" jdbcType="INTEGER" property="paId" />
     <result column="operator" jdbcType="VARCHAR" property="operator" />
     <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="icon_url" jdbcType="VARCHAR" property="iconUrl" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, pa_id, operator, url, create_time, update_time
+    id, name, pa_id, operator, url,icon_url, create_time, update_time
   </sql>
 
   <select id="findAllByPid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
