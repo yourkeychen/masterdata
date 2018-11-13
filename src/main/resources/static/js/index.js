@@ -100,3 +100,19 @@ function showTs(content) {
         layer.msg(content,{offset:'50px'});
     });
 }
+
+function beforeSend(){
+    $.ajax({
+        type: 'post',
+        url: '/islogin',
+        async: false,
+        dataType: 'json',
+        success: function (data) {
+            if(data.result != true){
+                window.location.href = "/goLogin";
+                return false;
+            }
+        }
+    });
+    return true;
+}

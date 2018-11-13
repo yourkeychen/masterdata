@@ -79,29 +79,31 @@ layui.use('form',function () {
         }
     })
     form.on('submit(save)',function () {
-        var user = getUserValue();
-        if($("#id").val() == "") {
-            $.ajax({
-                type: 'post',
-                url: '/permission/insert',
-                data: user,
-                async: false,
-                dataType: 'json',
-                success: function (data) {
-                    $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.closeOpen(data,"添加成功");
-                }
-            });
-        }else{
-            $.ajax({
-                type:'post',
-                url:'/permission/update',
-                data:user,
-                dataType : 'json',
-                success:function(data){
-                    $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.closeOpen(data,"修改成功");
-                }
-            });
+        if(parent.beforeSend()){
+            var user = getUserValue();
+            if($("#id").val() == "") {
+                $.ajax({
+                    type: 'post',
+                    url: '/permission/insert',
+                    data: user,
+                    async: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.closeOpen(data,"添加成功");
+                    }
+                });
+            }else{
+                $.ajax({
+                    type:'post',
+                    url:'/permission/update',
+                    data:user,
+                    dataType : 'json',
+                    success:function(data){
+                        $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.closeOpen(data,"修改成功");
+                    }
+                });
+            }
+            return false;
         }
-        return false;
     })
 })
