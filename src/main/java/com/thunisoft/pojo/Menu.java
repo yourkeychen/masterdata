@@ -20,8 +20,16 @@ public class Menu {
 
     private String url;
 
+    private String iconUrl;
+
     private List<Menu> childMenus;
 
+    public String getIconUrl() {
+        return iconUrl;
+    }
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
+    }
     public List<Menu> getChildMenus() {
         return childMenus;
     }

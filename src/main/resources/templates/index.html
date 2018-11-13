@@ -16,9 +16,9 @@
         <div class="layui-tab layui-tab-brief menu-tab">
             <ul class="layui-tab-title" id="tab">
                 <li class="layui-nav-item" id="changeToMasterData"><a class="white" href="/menu/data?pId=0">主数据</a></li>
-                <li class="layui-nav-item" id="changeToExamine"><a class="white" href="/menu/data?pId=-3">审核</a></li>
+                 <li class="layui-nav-item" id="changeToExamine" th:style="${session.user.type eq 0}? '':'display:none'"><a class="white" href="/menu/data?pId=-3" >审核</a></li>
                 <li class="layui-nav-item" id="changeToLog"><a class="white" href="/menu/data?pId=-2">日志</a></li>
-                <li class="layui-nav-item" id="changeToSet"><a class="white" href="/menu/data?pId=-1">设置</a></li>
+                <li class="layui-nav-item" id="changeToSet" th:style="${session.user.type eq 0}? '': 'display:none'"><a class="white" href="/menu/data?pId=-1" >设置</a></li>
             </ul>
         </div>
         <ul class="layui-nav layui-layout-right">
@@ -38,6 +38,7 @@
             <!--左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed" th:each="menu:${menuList}">
+                    <img th:text="${menu.iconUrl}"> //导航图标
                     <a class="" href="javascript:;" th:text="${menu.name}"></a>
                     <dl class="layui-nav-child" th:each="child:${menu.childMenus}">
                         <dd><a href="javascript:void(0)"  onclick="loadXMLDoc(this)" th:text="${child.name}" th:menu-id="${child.id}" th:value="${child.url}"></a></dd>
