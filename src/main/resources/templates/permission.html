@@ -14,7 +14,7 @@
         <div th:style="${session.user.type eq 2}? 'margin-top:25px;margin-bottom: 10px;margin-left: 30px;':'margin-top:10px;margin-bottom: 10px;margin-left: 30px;'">
             <div th:if="${session.user.type} eq '0'">
               <button class="layui-btn layui-btn-sm" id="add" onclick="toAddWindow()">增加</button>
-              <table id="tab" class="psy-table" lay-filter="test" ></table>
+              <table id="tab" class="layui-hide" lay-filter="test" ></table>
             </div>
         </div>
 <script type="text/html" id="xiugai">
