@@ -17,7 +17,10 @@ function layuiSetTable() {
                 page:{
                     layout: ['count','prev','page','next','limit','skip'],
                     prev: "上一页",
-                    next: "下一页"
+                    next: "下一页",
+                    jump: function (obj,first) {
+                        parent.beforeSend();
+                    }
                 },
                 cols: [[
                     {field:"id",width:80,type:'numbers',title:"序号"},

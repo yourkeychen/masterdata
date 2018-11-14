@@ -102,6 +102,7 @@ function showTs(content) {
 }
 
 function beforeSend(){
+    var rtn = true;
     $.ajax({
         type: 'post',
         url: '/islogin',
@@ -109,12 +110,19 @@ function beforeSend(){
         dataType: 'json',
         success: function (data) {
             if(data.result != true){
-                layer.confirm("会话已过期，请重新登陆",function () {
+                layer.confirm("会话已过期，请重新登陆",{
+                    btn : ['确定'],
+                    end: function () {
+                        window.location.href = "/goLogin";
+                    }
+                },function () {
                     window.location.href = "/goLogin";
-                    return false;
+
                 })
+                rtn =  false;
             }
+
         }
     });
-    return true;
+    return rtn;
 }
