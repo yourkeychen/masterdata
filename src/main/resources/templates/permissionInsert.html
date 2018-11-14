@@ -13,20 +13,20 @@
 <div id="contextMessage123" style="text-align: center;margin-top: 15px">
     <div class="layui-form-item center" style="width: 371px;margin: auto;margin-bottom: 10px;">
         <label class="layui-form-label" style="width: 60px" >用户名</label>
-        <div class="layui-input-block">
+        <div class="layui-input-block" style="margin-left: 10px">
             <input type="text" name="name" required th:value="${permission.userName}" style="width: 261px" lay-verify="required|username" placeholder="请输入用户名" autocomplete="off" class="layui-input" id="username">
         </div>
     </div>
     <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
         <label class="layui-form-label" style="width: 60px">密码</label>
-        <div class="layui-input-block">
+        <div class="layui-input-block" style="margin-left: 10px">
             <input type="text" name="type" required th:value="${permission.password}" style="width: 261px" lay-verify="required|password" placeholder="请输入密码" autocomplete="off" class="layui-input" id="password">
         </div>
     </div>
     <div class="layui-form-item" style="width: 371px;margin: auto;margin-bottom: 10px;">
         <label class="layui-form-label" style="width: 60px">角色</label>
-        <div class="layui-input-block">
-            <select name="interest" lay-filter="aihao" lay-verify="required" style="width: 240px;height: 38px; float: left;" id="type" >
+        <div class="layui-input-block" style="margin-left: 90px;width: 261px">
+            <select name="interest" lay-filter="aihao" lay-verify="required" style="width: 200px;height: 38px; float: left;" id="type" >
                 <option value="">请选择类型</option>
                 <option th:selected="${permission.type == 2}" value="2">数据查看</option>
                 <option th:selected="${permission.type == 1}" value="1">数据维护</option>
@@ -39,9 +39,9 @@
         </div>-->
         <input type="hidden" name="id" id="id" th:value="${permission.id}" style="width: 240px" autocomplete="off" class="layui-input">
     </div>
-    <div class="layui-form-item" style="margin-top: 30px">
+    <div class="layui-form-item" style="margin-top: 45px">
         <div>
-            <button class="layui-btn" lay-submit lay-filter="save">确定</button>
+            <button class="layui-btn" lay-submit lay-filter="save">确定</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="reset" class="layui-btn layui-btn-primary" id="resetBtn">重置</button>
         </div>
     </div>
