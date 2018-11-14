@@ -39,32 +39,35 @@ layui.use('form',function () {
         }
     })
     form.on('submit(*)',function () {
-        if($('#xtzc-id').val()=='') {
-            var xtxx = getValues();
-            if(!xtxx.sysCode&&!xtxx.sysName&&!xtxx.sysDesc&&!xtxx.sysIp)return;
-            $.ajax({
-                type: 'post',
-                url: '/masterData/insertObject',
-                data: xtxx,
-                async: false,
-                dataType: 'json',
-                success: function (data) {
-                    $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.closeOpen(data,"添加成功");
-                }
-            });
-        }else{
-            var xtxx = getValues();
-            if(!xtxx.sysCode&&!xtxx.sysName&&!xtxx.sysDesc&&!xtxx.sysIp)return;
-            $.ajax({
-                type:'get',
-                url:'/masterData/updateObject',
-                data:xtxx,
-                dataType : 'json',
-                success:function(data){
-                    $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.closeOpen(data,"修改成功");
-                }
-            });
+        if(parent.beforeSend()){
+            if($('#xtzc-id').val()=='') {
+                var xtxx = getValues();
+                if(!xtxx.sysCode&&!xtxx.sysName&&!xtxx.sysDesc&&!xtxx.sysIp)return;
+                $.ajax({
+                    type: 'post',
+                    url: '/masterData/insertObject',
+                    data: xtxx,
+                    async: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.closeOpen(data,"添加成功");
+                    }
+                });
+            }else{
+                var xtxx = getValues();
+                if(!xtxx.sysCode&&!xtxx.sysName&&!xtxx.sysDesc&&!xtxx.sysIp)return;
+                $.ajax({
+                    type:'get',
+                    url:'/masterData/updateObject',
+                    data:xtxx,
+                    dataType : 'json',
+                    success:function(data){
+                        $(window.parent.document).contents().find("#fd-page-setting")[0].contentWindow.closeOpen(data,"修改成功");
+                    }
+                });
+            }
+            return false;
         }
-        return false;
+
     })
 })
