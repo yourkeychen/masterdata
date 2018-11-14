@@ -33,7 +33,7 @@ function showMasterDataTab(){
             ,cols: [[
                  {title: '序号', sort: true,width:80,type:'numbers'}
                 ,{field:'code', title: '编码',sort: true}
-                ,{field:'conentName', title: '内容名称'}
+                ,{field:'contentName', title: '内容名称'}
                 ,{field:'desc',  title: '描述',minWidth: 150}
                 ,{field:'status', title: '审核状态',sort: true,
                     templet:function(row){
@@ -95,7 +95,7 @@ function showMasterDataExamineTab() {
             ,cols: [[
                 {title: '序号', sort: true,width:80,type:'numbers'}
                 ,{field:'code',title: '编号', sort: true}
-                ,{field:'conent_name',title: '内容名称'}
+                ,{field:'content_name',title: '内容名称'}
                 ,{field:'description',title: '描述'}
                 ,{field:'effect', title: '是否生效', sort: true} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
                 ,{field:'zsjname', title: '主数据'}

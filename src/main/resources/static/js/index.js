@@ -1,6 +1,8 @@
 $(function () {
+
     layui.use('layer', function() {
         var layer = layui.layer;
+
     });
     // $('#toxtzc').bind('click',toXtzc)
     // var data = {
