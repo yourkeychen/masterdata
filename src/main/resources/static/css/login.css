@@ -7,8 +7,16 @@ html, body {
     overflow: hidden;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+}
+
 .login-header{
-    flex:1;min-height: 109px;
+    flex:1;
+    height: 10%\9\0;
+    min-height: 109px;
 }
 
 .login-header>section{
@@ -22,6 +30,7 @@ html, body {
     display: flex;
     justify-content:left;
     align-items:center;
+
 }
 
 .login-header>section>div>span{
@@ -29,6 +38,7 @@ html, body {
     display: inline-block;
     font-size: 1.7em;
     margin-left: 20px;
+    margin-top: 45px\9\0;
 }
 
 .login-header>section>div>img{
@@ -40,14 +50,13 @@ html, body {
 
 .login-body{
     flex:7;
+    height: 80%\9\0;
 }
 
 .login-body>.login-form{
     position: relative;
     width:100%;
     height:100%;
-    background-position: center center;
-    background-image:url(/images/green_bg.png);
 }
 
 .login-body>.login-form>.form{
@@ -94,6 +103,7 @@ html, body {
 }
 
 .login-button{
+    width:100%;
     height: 40px;
     background-color: #339E96;
     border-style: none;
@@ -102,7 +112,9 @@ html, body {
 }
 
 .login-footer{
-    flex:1;min-height: 109px;
+    flex:1;
+    min-height: 109px;
+    height: 10%\9\0;
 }
 
 .login-footer>section{
