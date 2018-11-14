@@ -109,8 +109,10 @@ function beforeSend(){
         dataType: 'json',
         success: function (data) {
             if(data.result != true){
-                window.location.href = "/goLogin";
-                return false;
+                layer.confirm("会话已过期，请重新登陆",function () {
+                    window.location.href = "/goLogin";
+                    return false;
+                })
             }
         }
     });
