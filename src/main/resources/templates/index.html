@@ -58,8 +58,9 @@
                         <span th:text="${menu.name}"></span>
                     </a>
                     <dl class="layui-nav-child" th:each="child:${menu.childMenus}">
-                        <dd><a style="padding-left: 40px;" href="javascript:void(0)"  onclick="loadXMLDoc(this)" th:text="${child.name}" th:menu-id="${child.id}" th:value="${child.url}"></a></dd>
+                        <dd class=""><a style="padding-left: 40px;" href="javascript:void(0)"  onclick="loadXMLDoc(this)" th:text="${child.name}" th:menu-id="${child.id}" th:value="${child.url}"></a></dd>
                     </dl>
+
                 </li>
             </ul>
 

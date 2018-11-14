@@ -5,7 +5,6 @@ $(function () {
 function submitLoginData() {
     var userName=$("#fd-user-name").val();
     var pwd=$("#fd-pwd").val();
-
     $.ajax({
         url : "/ilogin",
         type: "POST",
@@ -18,8 +17,7 @@ function submitLoginData() {
         success: function (data) {
             if (data.result===true){
                 $('#login-error').hide();
-                window.location.href="/homePage";
-                //window.location.href="/partMasterData?";
+                window.location.href="homePage";
             }else{
                 $('#login-error').show();
             }
