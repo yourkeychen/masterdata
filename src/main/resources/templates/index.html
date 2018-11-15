@@ -15,30 +15,30 @@
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul id="tab">
             <li data-pid="0" class="tab-item">
-                <img src="/images/master_data.png">
-                <a href="/menu/data?pId=0">主数据</a>
+                <img class="ie9-img" src="/images/master_data.png">
+                <a class="ie9-a" href="/menu/data?pId=0">主数据</a>
             </li>
             <li data-pid="-3" class="tab-item" th:style="${session.user.type eq 0}? '':'display:none'">
-                <img src="/images/resolve.png">
-                <a href="/menu/data?pId=-3">审核</a>
+                <img class="ie9-img" src="/images/resolve.png">
+                <a class="ie9-a" href="/menu/data?pId=-3">审核</a>
             </li>
             <li data-pid="-2" class="tab-item">
-                <img src="/images/log.png">
-                <a href="/menu/data?pId=-2">日志</a>
+                <img class="ie9-img" src="/images/log.png">
+                <a class="ie9-a" href="/menu/data?pId=-2">日志</a>
             </li>
             <li data-pid="-1" class="tab-item" th:style="${session.user.type eq 0}? '':'display:none'">
-                <img src="/images/setting.png">
-                <a href="/menu/data?pId=-1">设置</a>
+                <img class="ie9-img" src="/images/setting.png">
+                <a class="ie9-a" href="/menu/data?pId=-1">设置</a>
             </li>
         </ul>
         <ul class="layui-nav layui-layout-right"  style="padding:0;display: flex">
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="/images/userImg.jpg" class="layui-nav-img">
-                    <p th:text="${session.user.userName}" style="float: right;">[...]</p>
+                    <p th:text="${session.user.userName}" style="display: inline;">[...]</p>
                 </a>
             </li>
-            <li class="layui-nav-item">
+            <li class="layui-nav-item" style="float: right\9;">
                 <a id="exit" href="/loginOut">
                     <img src="/images/exit.png">
                     <span>退出</span>
@@ -81,7 +81,15 @@
 <script src="/layui/layui.js"></script>
 <script src="/js/index.js"></script>
 <script src="/js/table.js"></script>
+<!--[if It ie 9]><!-->
 <script>
+    if (/*@cc_on!@*/false) {
+        $(".ie9-img,.ie9-a").addClass("transform");
+    }
+</script>
+<!--<![endif]-->
+<script>
+
     //JavaScript代码区域
     layui.use('element', function(){
         var element = layui.element;

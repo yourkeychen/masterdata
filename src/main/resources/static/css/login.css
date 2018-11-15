@@ -10,7 +10,8 @@ html, body {
 body{
     display: flex;
     flex-direction: column;
-    min-width: 600px;
+    min-width: 800px;
+    min-height: 600px;
 }
 
 .login-header{
@@ -35,11 +36,14 @@ body{
     color: #ffffff;
     font-size: 1.7em;
     margin-left: 20px;
+    float: left;
+    margin-top: 1.5%\9\0;
 }
 
 .login-header>section>div>img{
     max-width: 470px;
     max-height: 109px;
+    float: right;
 }
 
 .login-body{
@@ -88,6 +92,7 @@ body{
     width: 80%;
     margin-left: 50px;
     margin-bottom: 22px;
+    margin-bottom: 21px\9;
     border-style: none;
     font-size: 18px;
 }

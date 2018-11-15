@@ -54,11 +54,14 @@
     background-color: #3e6bb8;
     margin-left: 20px;
     background: url(/images/logo.png) no-repeat;
+    float: left\9;
 }
 #tab{
     margin-left: 100px;
     display: flex;
     align-items: center;
+    float: left\9;
+    height: 100%;
 }
 #tab>.tab-item{
     display: flex;
@@ -68,17 +71,31 @@
     height: 100%;
     padding-top: 20px;
     cursor: pointer;
+    float: left\9;
+    position: relative;
 }
 #tab>.tab-item:hover{
     background-color: #76A2E6;
 }
+.transform{
+    transform: translate(-50%,-50%);
+}
 #tab>.tab-item>img{
     width: 24px;
     height: 24px;
+    position: absolute\9;
+    top: 50%\9;
+    left: 50%\9;
+    margin-top: -8px\9;
 }
 #tab>.tab-item>a{
     text-decoration:none;
     color:white;
+    position: absolute\9;
+    top: 50%\9;
+    left: 50%\9;
+    white-space: nowrap;
+    margin-top: 12px\9;
 }
 .tab-focus{
     background-color: #76A2E6;
