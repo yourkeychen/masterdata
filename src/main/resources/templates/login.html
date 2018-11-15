@@ -44,5 +44,11 @@
     </footer>
     <script src="/jquery-1.8.3.js" type="text/javascript"></script>
     <script src="/js/login.js" type="text/javascript"></script>
+    <script type="text/javascript">
+     //防止登录页嵌入iframe
+        if(window!=top){
+        top.location.href=location.href;
+     }
+    </script>
 </body>
 </html>
