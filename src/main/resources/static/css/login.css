@@ -34,19 +34,16 @@ body{
     align-items:center;
 }
 
-.login-header>section>div>span{
-    color: #ffffff;
-    font-size: 1.7em;
-    margin-left: 20px;
-    float: left;
-    margin-top: 1.5%\9;
-}
 
 .login-header>section>div>img{
     max-width: 470px;
     max-height: 109px;
     float: right;
     height: 100px;
+}
+
+img.left{
+    float: left!important;
 }
 
 .login-body{
