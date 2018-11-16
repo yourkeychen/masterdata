@@ -32,19 +32,19 @@ function showMasterDataTab(){
             }
             ,cols: [[
                  {title: '序号', sort: true,width:80,type:'numbers'}
-                ,{field:'code', title: '编码',sort: true}
-                ,{field:'contentName', title: '内容名称'}
-                ,{field:'desc',  title: '描述',minWidth: 150}
-                ,{field:'status', title: '审核状态',sort: true,
+                ,{field:'code', title: '编码',sort: true,align:'center'}
+                ,{field:'contentName', title: '内容名称',align:'center'}
+                ,{field:'desc',  title: '描述',minWidth: 150,align:'center'}
+                ,{field:'status', title: '审核状态',sort: true,align:'center',
                     templet:function(row){
                     return forStatus(row.status);
                     }}
-                ,{field:'effect', title: '是否生效', sort: true,
+                ,{field:'effect', title: '是否生效', sort: true,align:'center',
                     templet:function (row) {
                         return forEffect(row.effect);
                 }}
-                ,{field:'creator', title: '创建人', sort: true}
-                ,{field:'createTime', title: '创建时间',sort: true}
+                ,{field:'creator', title: '创建人', sort: true,align:'center'}
+                ,{field:'createTime', title: '创建时间',sort: true,align:'center'}
             ]]
         });
     });
@@ -94,19 +94,19 @@ function showMasterDataExamineTab() {
             }
             ,cols: [[
                 {title: '序号', sort: true,width:80,type:'numbers'}
-                ,{field:'code',title: '编号', sort: true}
-                ,{field:'content_name',title: '内容名称'}
-                ,{field:'description',title: '描述'}
-                ,{field:'effect', title: '是否生效', sort: true} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-                ,{field:'zsjname', title: '主数据'}
-                ,{field:'zsjkname', title: '主数据库'}
-                ,{field:'create_time', title: '申请时间', sort: true}
-                ,{field:'applicant', title: '申请人', sort: true}
-                ,{field:'reason', title: '申请理由'}
+                ,{field:'code',title: '编号', sort: true,align:'center'}
+                ,{field:'content_name',title: '内容名称',align:'center'}
+                ,{field:'description',title: '描述',align:'center'}
+                ,{field:'effect', title: '是否生效', sort: true,align:'center'} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                ,{field:'zsjname', title: '主数据',align:'center'}
+                ,{field:'zsjkname', title: '主数据库',align:'center'}
+                ,{field:'create_time', title: '申请时间', sort: true,align:'center'}
+                ,{field:'applicant', title: '申请人', sort: true,align:'center'}
+                ,{field:'reason', title: '申请理由',align:'center'}
             ]]
         };
         if($(".userType").val()==0){
-            tab.cols[0].push({field:"caozuo",title:"审核",toolbar:'#pg-examine', width:160});
+            tab.cols[0].push({field:"caozuo",title:"审核",toolbar:'#pg-examine', width:160,align:'center'});
         }
         table.render(tab);
 

@@ -24,9 +24,9 @@ function layuiSetTable() {
                 },
                 cols: [[
                     {field:"id",width:80,type:'numbers',title:"序号"},
-                    {field:"userName",title:"用户名",sort:true},
-                    {field:"password",title:"密码",sort:true},
-                    {field:"type",title:"角色",sort:true,templet: function(res){
+                    {field:"userName",title:"用户名",sort:true,align:'center'},
+                    {field:"password",title:"密码",sort:true,align:'center'},
+                    {field:"type",title:"角色",sort:true,align:'center',templet: function(res){
                             if(res.type == 0){
                                 return "数据审核";
                             }
@@ -38,11 +38,11 @@ function layuiSetTable() {
                             }
 
                         }},
-                    {field:"createTime",title:"创建时间",sort:true},
-                    {field:"updateTime",title:"修改时间",sort:true}
+                    {field:"createTime",title:"创建时间",sort:true,align:'center'},
+                    {field:"updateTime",title:"修改时间",sort:true,align:'center'}
                 ]]
             };
-            var bbb = {field:"caozuo",title:"操作",toolbar:"#xiugai",width: 200};
+            var bbb = {field:"caozuo",title:"操作",toolbar:"#xiugai",width: 200,align:'center'};
             aaa.cols[0].push(bbb);
             table.render(aaa);
 
