@@ -47,9 +47,7 @@ function showPageAndTable(currentPage,pageSize){
                     ,skin:'line'
                     ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
                     ,page:{
-                        layout: ['count','prev','page','next','limit','skip'],
-                        prev: "上一页",
-                        next: "下一页"
+                        layout: ['count','prev','page','next','limit','skip']
                     },
                     done:parent.beforeSend()
                     ,cols: [[
