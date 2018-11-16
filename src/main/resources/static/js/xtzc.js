@@ -47,18 +47,16 @@ function showPageAndTable(currentPage,pageSize){
                     ,skin:'line'
                     ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
                     ,page:{
-                        layout: ['count','prev','page','next','limit','skip'],
-                        prev: "上一页",
-                        next: "下一页"
+                        layout: ['count','prev','page','next','limit','skip']
                     },
                     done:parent.beforeSend()
                     ,cols: [[
                         {width:80,type:'numbers', title: '序号'}
-                        ,{field:'sysCode', width:190, title: '系统标识',align:'center'}
-                        ,{field:'sysName', width:190, title: '系统名称',align:'center'}
+                        ,{field:'sysCode', width:190, title: '系统标识',align:'center', sort: true}
+                        ,{field:'sysName', width:190, title: '系统名称',align:'center', sort: true}
                         ,{field:'sysDesc', title: '系统描述', width: 190,align:'center'} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
                         ,{field:'sysIp', title: '系统IP',align:'center'}
-                        ,{field:'createTime', title: '注册时间',width:190,align:'center'}
+                        ,{field:'createTime', title: '注册时间',width:190,align:'center', sort: true}
                         ,{field:'create_time', title: '操作', toolbar: '#barDemo',width:200,align:'center'}
                     ]]
                 });

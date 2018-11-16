@@ -10,14 +10,13 @@ function layuiSetTable() {
             var table = layui.table;
             var aaa = {
                 elem: "#tab",
+                skin:'line',
                 id:'permissionTable',
                 url: "/permission/list",
                 cellMinWidth: 80,
                 width: 1500,
                 page:{
                     layout: ['count','prev','page','next','limit','skip'],
-                    prev: "上一页",
-                    next: "下一页",
                     jump: function (obj,first) {
                         parent.beforeSend();
                     }
