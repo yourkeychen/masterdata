@@ -30,7 +30,7 @@ function showMasterDataTab(){
                 layout: ['count','prev','page','next','limit','skip']
             }
             ,cols: [[
-                 {title: '序号', sort: true,width:80,type:'numbers'}
+                 {title: '序号',width:80,type:'numbers'}
                 ,{field:'code', title: '编码',sort: true,align:'center'}
                 ,{field:'contentName', title: '内容名称',align:'center'}
                 ,{field:'desc',  title: '描述',minWidth: 150,align:'center'}
@@ -91,7 +91,7 @@ function showMasterDataExamineTab() {
                 layout: ['count','prev','page','next','limit','skip']
             }
             ,cols: [[
-                {title: '序号', sort: true,width:80,type:'numbers'}
+                {title: '序号',width:80,type:'numbers'}
                 ,{field:'code',title: '编号', sort: true,align:'center'}
                 ,{field:'content_name',title: '内容名称',align:'center'}
                 ,{field:'description',title: '描述',align:'center'}
