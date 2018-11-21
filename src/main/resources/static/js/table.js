@@ -101,7 +101,7 @@ function layPage(){
         laypage.render({
             elem: tableData.pageId,
             count: tableData.pageCount,
-            layout: ['count','prev','page','next','limit','skip']
+            layout: ['count','prev','page','next','limit','skip'],
             limit: tableData.pageList[0],
             limits: tableData.pageList,
             jump: function (obj) {

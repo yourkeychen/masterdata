@@ -86,12 +86,12 @@ function showMasterDataExamineTab() {
             ,cellMinWidth: 80
             ,skin:'line'
             ,id:"examineMasterDataShow"
-            ,width: 1500,
+            ,width: 1400,
             page:{
                 layout: ['count','prev','page','next','limit','skip']
             }
             ,cols: [[
-                {title: '序号',width:80,type:'numbers'}
+                {title: '序号',width:60,type:'numbers'}
                 ,{field:'code',title: '编号', sort: true,align:'center'}
                 ,{field:'content_name',title: '内容名称',align:'center'}
                 ,{field:'description',title: '描述',align:'center'}
@@ -104,7 +104,7 @@ function showMasterDataExamineTab() {
             ]]
         };
         if($(".userType").val()==0){
-            tab.cols[0].push({field:"caozuo",title:"审核",toolbar:'#pg-examine', width:160,align:'center'});
+            tab.cols[0].push({field:"caozuo",title:"审核",toolbar:'#pg-examine',align:'center'});
         }
         table.render(tab);
 

@@ -1,4 +1,10 @@
 $(function () {
+    var bodyWidth = document.body.scrollWidth-200;
+    $("iframe").width(bodyWidth*0.95);
+    $(window).bind('resize',function(){
+        var bodyWidth = document.body.scrollWidth-200;
+        $("iframe").width(bodyWidth*0.95);
+    });
 
     layui.use('layer', function() {
         var layer = layui.layer;

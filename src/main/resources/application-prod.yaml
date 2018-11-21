@@ -1,3 +1,10 @@
 #prod 环境配置
 server:
-  port: 8083
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://11.7.22.223:5432/db_data_quality?&language=us_english&charset=utf8&ApplicationName=quality
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
