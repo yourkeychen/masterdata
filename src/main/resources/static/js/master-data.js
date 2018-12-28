@@ -247,6 +247,12 @@ layui.use('form',function () {
                 auditOptnion:auditOptnion
             },
             success: function (data) {
+                if(data.sucess=true){
+
+                }else{
+                    alert("error")
+                }
+
                 closeOpenShow(data,"examineMasterDataShow");
             }
         });
